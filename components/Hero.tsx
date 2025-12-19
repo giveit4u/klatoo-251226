@@ -426,14 +426,30 @@ function isPointInPolygon(lat: number, lon: number, polygon: { lat: number; lon:
 // 폴리곤 가장자리까지의 최소 거리 계산
 function distanceToPolygonEdge(lat: number, lon: number, polygon: { lat: number; lon: number }[]): number {
   let minDist = 999;
+
+  // 극지방 경도 왜곡 보정 (위도에 비례하여 경도 차이 축소)
+  const latRad = lat * Math.PI / 180;
+  const lonScale = Math.cos(latRad);
+
   for (let i = 0; i < polygon.length; i++) {
     const p1 = polygon[i];
     const p2 = polygon[(i + 1) % polygon.length];
 
-    // 각 엣지에 대한 거리 계산 (단순화)
-    const d1 = Math.sqrt(Math.pow(lat - p1.lat, 2) + Math.pow(lon - p1.lon, 2));
-    const d2 = Math.sqrt(Math.pow(lat - p2.lat, 2) + Math.pow(lon - p2.lon, 2));
-    minDist = Math.min(minDist, d1, d2);
+    // 경도 차이 계산 (180도 경계선 처리)
+    let dLon1 = Math.abs(lon - p1.lon);
+    if (dLon1 > 180) dLon1 = 360 - dLon1;
+
+    let dLon2 = Math.abs(lon - p2.lon);
+    if (dLon2 > 180) dLon2 = 360 - dLon2;
+
+    const dLat1 = lat - p1.lat;
+    const dLat2 = lat - p2.lat;
+
+    // 보정된 유클리드 거리 (근사치)
+    const dist1 = Math.sqrt(Math.pow(dLat1, 2) + Math.pow(dLon1 * lonScale, 2));
+    const dist2 = Math.sqrt(Math.pow(dLat2, 2) + Math.pow(dLon2 * lonScale, 2));
+
+    minDist = Math.min(minDist, dist1, dist2);
   }
   return minDist;
 }
@@ -483,10 +499,10 @@ const Hero: React.FC = () => {
       const theta = Math.PI * (1 + 5 ** 0.5) * (i + 0.5);
 
       const x = Math.sin(phi) * Math.cos(theta);
-      const y = Math.sin(phi) * Math.sin(theta);
-      const z = Math.cos(phi);
+      const y = Math.cos(phi); // Y축을 수직축으로 설정 (UP)
+      const z = Math.sin(phi) * Math.sin(theta);
 
-      // Convert to lat/lon
+      // Convert to lat/lon (Y-up 기준)
       const lat = Math.asin(y) * 180 / Math.PI;
       const lon = Math.atan2(x, z) * 180 / Math.PI;
 
