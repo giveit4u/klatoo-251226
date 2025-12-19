@@ -746,12 +746,12 @@ const Hero: React.FC = () => {
           className="absolute bottom-[20px] left-1/2 -translate-x-1/2 z-20 pointer-events-none text-center mix-blend-screen w-full"
         >
           <h1
-            className="font-black uppercase tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-blue-400 whitespace-nowrap"
+            className="font-black tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-blue-400 whitespace-nowrap"
             style={{
-              fontSize: 'clamp(2rem, 5vw, 4rem)',
+              fontSize: 'clamp(1.5rem, 5vw, 3.5rem)',
             }}
           >
-            Hyper Local SNS
+            The Digital Earth, Connected to Reality
           </h1>
         </div>
       </div>
