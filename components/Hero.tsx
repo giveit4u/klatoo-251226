@@ -375,6 +375,35 @@ const CONTINENTS: ContinentPolygon[] = [
     ]
   },
 
+  // ========== HAWAII (하와이 열도) ==========
+  {
+    name: 'Hawaii',
+    density: 2.5, // 작은 섬이므로 밀도를 높임
+    points: [
+      { lat: 22.5, lon: -160 }, { lat: 21.5, lon: -158 }, { lat: 21, lon: -154.5 },
+      { lat: 18.9, lon: -154.5 }, { lat: 19.5, lon: -156 }, { lat: 21.5, lon: -160.5 }
+    ]
+  },
+
+  // ========== PACIFIC ISLANDS (피지, 바누아투 등) ==========
+  {
+    name: 'Pacific Islands - Fiji/Vanuatu',
+    density: 2.0,
+    points: [
+      { lat: -15, lon: 167 }, { lat: -18, lon: 168 }, { lat: -21, lon: 169 },
+      { lat: -20, lon: 178 }, { lat: -16, lon: 180 }, { lat: -15, lon: 178 }
+    ]
+  },
+
+  {
+    name: 'Pacific Islands - French Polynesia',
+    density: 2.0,
+    points: [
+      { lat: -14, lon: -150 }, { lat: -17.5, lon: -149 }, { lat: -19, lon: -151 },
+      { lat: -18, lon: -153 }, { lat: -15, lon: -153 }
+    ]
+  },
+
   // ========== ANTARCTICA (남극 대륙) ==========
   {
     name: 'Antarctica',
