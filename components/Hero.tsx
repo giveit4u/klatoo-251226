@@ -51,33 +51,31 @@ const CONTINENTS: ContinentPolygon[] = [
     name: 'North America',
     density: 1.2,
     points: [
-      // Alaska
+      // Alaska & NW Canada
       { lat: 71, lon: -156 }, { lat: 70, lon: -168 }, { lat: 65, lon: -168 },
       { lat: 60, lon: -164 }, { lat: 56, lon: -158 }, { lat: 58, lon: -137 },
-      { lat: 60, lon: -135 }, { lat: 69, lon: -140 },
-      // Canada West
-      { lat: 70, lon: -130 }, { lat: 72, lon: -120 }, { lat: 74, lon: -110 },
-      { lat: 78, lon: -95 }, { lat: 80, lon: -80 }, { lat: 78, lon: -70 },
-      // Canada East  
-      { lat: 75, lon: -60 }, { lat: 70, lon: -65 }, { lat: 65, lon: -65 },
-      { lat: 60, lon: -64 }, { lat: 55, lon: -60 }, { lat: 52, lon: -56 },
-      { lat: 48, lon: -52 }, { lat: 45, lon: -60 }, { lat: 42, lon: -70 },
-      // US East Coast
-      { lat: 40, lon: -74 }, { lat: 35, lon: -76 }, { lat: 32, lon: -80 },
-      { lat: 30, lon: -82 }, { lat: 26, lon: -80 }, { lat: 25, lon: -82 },
-      // Gulf Coast
-      { lat: 29, lon: -95 }, { lat: 28, lon: -97 }, { lat: 26, lon: -97 },
-      // Mexico
-      { lat: 23, lon: -106 }, { lat: 20, lon: -105 }, { lat: 17, lon: -101 },
-      { lat: 15, lon: -92 }, { lat: 14, lon: -90 },
+      { lat: 60, lon: -135 }, { lat: 69, lon: -140 }, { lat: 70, lon: -130 },
+      { lat: 72, lon: -120 }, { lat: 78, lon: -95 }, { lat: 82, lon: -70 },
+      // NE Canada & Greenland gap
+      { lat: 75, lon: -60 }, { lat: 65, lon: -60 }, { lat: 55, lon: -56 },
+      // US East Coast & Florida
+      { lat: 48, lon: -52 }, { lat: 44, lon: -68 }, { lat: 40, lon: -74 },
+      { lat: 35, lon: -76 }, { lat: 30, lon: -81 }, { lat: 26, lon: -80 },
+      { lat: 25, lon: -81 }, { lat: 25, lon: -82.5 },
+      // Gulf of Mexico
+      { lat: 29, lon: -83 }, { lat: 30, lon: -88 }, { lat: 29, lon: -95 },
+      { lat: 26, lon: -97 }, { lat: 22, lon: -97 }, { lat: 20, lon: -90 },
+      { lat: 21, lon: -87 }, { lat: 18, lon: -88 },
       // Central America
-      { lat: 10, lon: -85 }, { lat: 8, lon: -80 },
-      // Back up West Coast
-      { lat: 9, lon: -79 }, { lat: 12, lon: -87 }, { lat: 16, lon: -95 },
-      { lat: 20, lon: -106 }, { lat: 24, lon: -112 }, { lat: 28, lon: -115 },
-      { lat: 32, lon: -117 }, { lat: 37, lon: -122 }, { lat: 42, lon: -124 },
-      { lat: 48, lon: -125 }, { lat: 52, lon: -128 }, { lat: 58, lon: -136 },
-      { lat: 60, lon: -141 }, { lat: 65, lon: -148 }, { lat: 68, lon: -156 }
+      { lat: 15, lon: -89 }, { lat: 10, lon: -83 }, { lat: 8, lon: -78 },
+      { lat: 7, lon: -80 }, { lat: 9, lon: -85 },
+      // Mexico & Baja California
+      { lat: 16, lon: -95 }, { lat: 20, lon: -105 }, { lat: 23, lon: -110 },
+      { lat: 28, lon: -115 }, { lat: 32, lon: -117 }, { lat: 30, lon: -113 },
+      { lat: 24, lon: -109 }, { lat: 25, lon: -107 },
+      // US West Coast
+      { lat: 34, lon: -120 }, { lat: 38, lon: -123 }, { lat: 45, lon: -124 },
+      { lat: 49, lon: -125 }, { lat: 55, lon: -133 }, { lat: 60, lon: -145 }
     ]
   },
 
@@ -86,24 +84,15 @@ const CONTINENTS: ContinentPolygon[] = [
     name: 'South America',
     density: 1.1,
     points: [
-      // North Coast
-      { lat: 12, lon: -71 }, { lat: 11, lon: -72 }, { lat: 10, lon: -75 },
-      { lat: 8, lon: -77 }, { lat: 5, lon: -77 }, { lat: 2, lon: -79 },
-      { lat: 0, lon: -78 }, { lat: -2, lon: -80 }, { lat: -5, lon: -81 },
-      // West Coast (Andes)
-      { lat: -10, lon: -78 }, { lat: -15, lon: -75 }, { lat: -20, lon: -70 },
-      { lat: -25, lon: -70 }, { lat: -30, lon: -71 }, { lat: -35, lon: -71 },
-      { lat: -40, lon: -73 }, { lat: -45, lon: -73 }, { lat: -50, lon: -74 },
-      { lat: -54, lon: -70 },
-      // Tierra del Fuego
-      { lat: -55, lon: -68 }, { lat: -54, lon: -65 },
-      // East Coast (Atlantic)
-      { lat: -52, lon: -68 }, { lat: -45, lon: -65 }, { lat: -40, lon: -62 },
-      { lat: -35, lon: -57 }, { lat: -30, lon: -51 }, { lat: -25, lon: -48 },
-      { lat: -20, lon: -40 }, { lat: -15, lon: -39 }, { lat: -10, lon: -36 },
-      // Brazil Northeast Bulge
-      { lat: -5, lon: -35 }, { lat: 0, lon: -48 }, { lat: 3, lon: -52 },
-      { lat: 5, lon: -58 }, { lat: 8, lon: -62 }, { lat: 10, lon: -67 }
+      { lat: 12, lon: -72 }, { lat: 11, lon: -74 }, { lat: 8, lon: -77 },
+      { lat: 5, lon: -77 }, { lat: 2.5, lon: -80 }, { lat: -2, lon: -81 },
+      { lat: -10, lon: -79 }, { lat: -15, lon: -75 }, { lat: -25, lon: -71 },
+      { lat: -35, lon: -73 }, { lat: -45, lon: -75 }, { lat: -53, lon: -75 },
+      { lat: -55, lon: -70 }, { lat: -55, lon: -67 }, { lat: -50, lon: -66 },
+      { lat: -40, lon: -60 }, { lat: -30, lon: -50 }, { lat: -20, lon: -40 },
+      { lat: -10, lon: -35 }, { lat: -5, lon: -35 }, { lat: -2, lon: -40 },
+      { lat: 0, lon: -50 }, { lat: 5, lon: -55 }, { lat: 8, lon: -60 },
+      { lat: 10, lon: -68 }
     ]
   },
 
@@ -171,42 +160,35 @@ const CONTINENTS: ContinentPolygon[] = [
     name: 'Asia',
     density: 1.5,
     points: [
-      // Russia connection from Europe
-      { lat: 68, lon: 52 }, { lat: 70, lon: 70 }, { lat: 73, lon: 90 },
-      { lat: 75, lon: 110 }, { lat: 72, lon: 130 }, { lat: 70, lon: 150 },
-      { lat: 67, lon: 169 }, { lat: 64, lon: 178 }, { lat: 61, lon: 175 },
-      // Kamchatka
-      { lat: 56, lon: 160 }, { lat: 50, lon: 156 }, { lat: 45, lon: 142 },
-      // Japan area
-      { lat: 42, lon: 144 }, { lat: 38, lon: 141 }, { lat: 33, lon: 130 },
-      // Korea
-      { lat: 38, lon: 128 }, { lat: 42, lon: 130 },
-      // China East
-      { lat: 40, lon: 124 }, { lat: 35, lon: 120 }, { lat: 30, lon: 122 },
-      { lat: 25, lon: 118 }, { lat: 22, lon: 114 },
-      // Southeast Asia
-      { lat: 18, lon: 109 }, { lat: 10, lon: 104 }, { lat: 6, lon: 101 },
-      { lat: 1, lon: 104 },
-      // Malaysia / Indonesia
-      { lat: -1, lon: 109 }, { lat: -6, lon: 107 }, { lat: -8, lon: 115 },
-      { lat: -8, lon: 124 }, { lat: -3, lon: 135 }, { lat: -1, lon: 141 },
-      { lat: -3, lon: 145 }, { lat: -8, lon: 147 },
-      // Back up
-      { lat: -6, lon: 144 }, { lat: -2, lon: 138 }, { lat: 2, lon: 128 },
-      { lat: 5, lon: 118 }, { lat: 8, lon: 110 }, { lat: 13, lon: 100 },
-      { lat: 18, lon: 94 }, { lat: 22, lon: 88 },
+      { lat: 68, lon: 52 }, { lat: 73, lon: 75 }, { lat: 78, lon: 100 },
+      { lat: 75, lon: 130 }, { lat: 70, lon: 160 }, { lat: 65, lon: 175 },
+      { lat: 60, lon: 165 }, { lat: 55, lon: 155 }, { lat: 50, lon: 145 },
+      // China & East Asia
+      { lat: 40, lon: 125 }, { lat: 38, lon: 122 }, { lat: 32, lon: 121 },
+      { lat: 25, lon: 120 }, { lat: 22, lon: 115 }, { lat: 20, lon: 110 },
+      // SE Asia / Indochina
+      { lat: 15, lon: 108 }, { lat: 10, lon: 105 }, { lat: 5, lon: 102 },
+      // Malay Peninsula
+      { lat: 2, lon: 102 }, { lat: 5, lon: 100 }, { lat: 10, lon: 98 },
+      { lat: 15, lon: 96 }, { lat: 20, lon: 94 }, { lat: 22, lon: 90 },
       // India
-      { lat: 23, lon: 70 }, { lat: 20, lon: 72 }, { lat: 15, lon: 74 },
-      { lat: 10, lon: 77 }, { lat: 8, lon: 78 },
-      // Sri Lanka connection
-      { lat: 10, lon: 80 }, { lat: 15, lon: 81 }, { lat: 19, lon: 83 },
-      { lat: 22, lon: 89 }, { lat: 24, lon: 88 }, { lat: 28, lon: 77 },
-      // Pakistan / Afghanistan
-      { lat: 30, lon: 67 }, { lat: 34, lon: 62 }, { lat: 37, lon: 58 },
-      { lat: 40, lon: 52 }, { lat: 42, lon: 48 },
-      // Back to Russia
-      { lat: 45, lon: 48 }, { lat: 50, lon: 58 }, { lat: 55, lon: 73 },
-      { lat: 60, lon: 85 }, { lat: 65, lon: 100 }
+      { lat: 25, lon: 88 }, { lat: 20, lon: 85 }, { lat: 14, lon: 80 },
+      { lat: 8, lon: 77 }, { lat: 15, lon: 72 }, { lat: 22, lon: 68 },
+      // Middle East / Caspian
+      { lat: 25, lon: 60 }, { lat: 35, lon: 55 }, { lat: 45, lon: 50 },
+      { lat: 55, lon: 50 }, { lat: 60, lon: 53 }
+    ]
+  },
+
+  // ========== KOREA (한국) ==========
+  {
+    name: 'Korea',
+    density: 1.5,
+    points: [
+      { lat: 38.5, lon: 128.5 }, { lat: 38, lon: 129.5 }, { lat: 36, lon: 130 },
+      { lat: 35, lon: 129.5 }, { lat: 34, lon: 128 }, { lat: 34.5, lon: 126 },
+      { lat: 36, lon: 126 }, { lat: 37, lon: 126.5 }, { lat: 38, lon: 124.5 },
+      { lat: 40, lon: 124 }, { lat: 42, lon: 124 }, { lat: 43, lon: 130 }
     ]
   },
 
