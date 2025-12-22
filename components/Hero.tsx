@@ -38,7 +38,6 @@ function noise(x: number, y: number, z: number) {
 }
 
 // --- DETAILED CONTINENT POLYGONS ---
-// 각 대륙을 폴리곤으로 정의하여 실제 지형 형태 표현
 interface ContinentPolygon {
   name: string;
   points: { lat: number; lon: number }[];
@@ -51,35 +50,26 @@ const CONTINENTS: ContinentPolygon[] = [
     name: 'North America',
     density: 1.2,
     points: [
-      // Alaska & NW Canada
       { lat: 71, lon: -156 }, { lat: 70, lon: -168 }, { lat: 65, lon: -168 },
       { lat: 60, lon: -164 }, { lat: 56, lon: -158 }, { lat: 58, lon: -137 },
       { lat: 60, lon: -135 }, { lat: 69, lon: -140 }, { lat: 70, lon: -130 },
       { lat: 72, lon: -120 }, { lat: 78, lon: -95 }, { lat: 82, lon: -70 },
-      // NE Canada & Greenland gap
       { lat: 75, lon: -60 }, { lat: 65, lon: -60 }, { lat: 55, lon: -56 },
-      // US East Coast & Florida
       { lat: 48, lon: -52 }, { lat: 44, lon: -68 }, { lat: 40, lon: -74 },
       { lat: 35, lon: -76 }, { lat: 30, lon: -81 }, { lat: 26, lon: -80 },
       { lat: 25, lon: -81 }, { lat: 25, lon: -82.5 },
-      // Gulf of Mexico
       { lat: 29, lon: -83 }, { lat: 30, lon: -88 }, { lat: 29, lon: -95 },
       { lat: 26, lon: -97 }, { lat: 22, lon: -97 }, { lat: 20, lon: -90 },
       { lat: 21, lon: -87 }, { lat: 18, lon: -88 },
-      // Central America
       { lat: 15, lon: -89 }, { lat: 10, lon: -83 }, { lat: 8, lon: -78 },
       { lat: 7, lon: -80 }, { lat: 9, lon: -85 },
-      // Mexico & Baja California
       { lat: 16, lon: -95 }, { lat: 20, lon: -105 }, { lat: 23, lon: -110 },
       { lat: 28, lon: -115 }, { lat: 32, lon: -117 }, { lat: 30, lon: -113 },
       { lat: 24, lon: -109 }, { lat: 25, lon: -107 },
-      // US West Coast
       { lat: 34, lon: -120 }, { lat: 38, lon: -123 }, { lat: 45, lon: -124 },
       { lat: 49, lon: -125 }, { lat: 55, lon: -133 }, { lat: 60, lon: -145 }
     ]
   },
-
-  // ========== SOUTH AMERICA ==========
   {
     name: 'South America',
     density: 1.1,
@@ -95,26 +85,17 @@ const CONTINENTS: ContinentPolygon[] = [
       { lat: 10, lon: -68 }
     ]
   },
-
-  // ========== AFRICA ==========
   {
     name: 'Africa',
     density: 1.15,
     points: [
-      // North Coast (Mediterranean)
       { lat: 37, lon: -6 }, { lat: 37, lon: 3 }, { lat: 36, lon: 10 },
       { lat: 34, lon: 18 }, { lat: 32, lon: 25 }, { lat: 31, lon: 32 },
-      // Red Sea
       { lat: 28, lon: 34 }, { lat: 22, lon: 36 }, { lat: 15, lon: 42 },
-      { lat: 12, lon: 43 },
-      // Horn of Africa
-      { lat: 11, lon: 51 }, { lat: 4, lon: 42 },
-      // East Coast
+      { lat: 12, lon: 43 }, { lat: 11, lon: 51 }, { lat: 4, lon: 42 },
       { lat: 0, lon: 40 }, { lat: -5, lon: 39 }, { lat: -10, lon: 40 },
       { lat: -15, lon: 40 }, { lat: -20, lon: 35 }, { lat: -26, lon: 33 },
-      // South Coast
       { lat: -34, lon: 26 }, { lat: -34, lon: 18 },
-      // West Coast
       { lat: -30, lon: 17 }, { lat: -25, lon: 15 }, { lat: -20, lon: 13 },
       { lat: -15, lon: 12 }, { lat: -10, lon: 13 }, { lat: -5, lon: 12 },
       { lat: 0, lon: 9 }, { lat: 4, lon: 9 }, { lat: 6, lon: 3 },
@@ -123,39 +104,26 @@ const CONTINENTS: ContinentPolygon[] = [
       { lat: 34, lon: -7 }
     ]
   },
-
-  // ========== EUROPE ==========
   {
     name: 'Europe',
     density: 0.9,
     points: [
-      // Scandinavia
       { lat: 71, lon: 26 }, { lat: 70, lon: 30 }, { lat: 66, lon: 29 },
       { lat: 60, lon: 28 }, { lat: 56, lon: 21 }, { lat: 55, lon: 13 },
       { lat: 58, lon: 11 }, { lat: 62, lon: 6 }, { lat: 69, lon: 18 },
-      // Russia North
       { lat: 70, lon: 33 }, { lat: 68, lon: 52 },
-      // Russia / Kazakhstan connection
       { lat: 55, lon: 48 }, { lat: 50, lon: 48 }, { lat: 45, lon: 42 },
-      // Black Sea
       { lat: 44, lon: 38 }, { lat: 42, lon: 28 },
-      // Mediterranean
       { lat: 40, lon: 26 }, { lat: 38, lon: 23 }, { lat: 36, lon: 15 },
       { lat: 38, lon: 9 }, { lat: 40, lon: 3 }, { lat: 43, lon: -1 },
-      // Iberia
       { lat: 44, lon: -9 }, { lat: 42, lon: -9 }, { lat: 37, lon: -8 },
       { lat: 36, lon: -6 },
-      // Atlantic Coast
       { lat: 38, lon: -9 }, { lat: 44, lon: -1 }, { lat: 48, lon: -5 },
-      // British Isles
       { lat: 50, lon: -5 }, { lat: 54, lon: -3 }, { lat: 58, lon: -3 },
       { lat: 59, lon: -1 }, { lat: 56, lon: 2 }, { lat: 52, lon: 2 },
-      // North Coast
       { lat: 51, lon: 4 }, { lat: 53, lon: 7 }, { lat: 54, lon: 9 }
     ]
   },
-
-  // ========== ASIA ==========
   {
     name: 'Asia',
     density: 1.5,
@@ -163,24 +131,17 @@ const CONTINENTS: ContinentPolygon[] = [
       { lat: 68, lon: 52 }, { lat: 73, lon: 75 }, { lat: 78, lon: 100 },
       { lat: 75, lon: 130 }, { lat: 70, lon: 160 }, { lat: 65, lon: 175 },
       { lat: 60, lon: 165 }, { lat: 55, lon: 155 }, { lat: 50, lon: 145 },
-      // China & East Asia
       { lat: 40, lon: 125 }, { lat: 38, lon: 122 }, { lat: 32, lon: 121 },
       { lat: 25, lon: 120 }, { lat: 22, lon: 115 }, { lat: 20, lon: 110 },
-      // SE Asia / Indochina
       { lat: 15, lon: 108 }, { lat: 10, lon: 105 }, { lat: 5, lon: 102 },
-      // Malay Peninsula
       { lat: 2, lon: 102 }, { lat: 5, lon: 100 }, { lat: 10, lon: 98 },
       { lat: 15, lon: 96 }, { lat: 20, lon: 94 }, { lat: 22, lon: 90 },
-      // India
       { lat: 25, lon: 88 }, { lat: 20, lon: 85 }, { lat: 14, lon: 80 },
       { lat: 8, lon: 77 }, { lat: 15, lon: 72 }, { lat: 22, lon: 68 },
-      // Middle East / Caspian
       { lat: 25, lon: 60 }, { lat: 35, lon: 55 }, { lat: 45, lon: 50 },
       { lat: 55, lon: 50 }, { lat: 60, lon: 53 }
     ]
   },
-
-  // ========== KOREA (한국) ==========
   {
     name: 'Korea',
     density: 1.5,
@@ -191,92 +152,128 @@ const CONTINENTS: ContinentPolygon[] = [
       { lat: 40, lon: 124 }, { lat: 42, lon: 124 }, { lat: 43, lon: 130 }
     ]
   },
-
-  // ========== OCEANIA (Australia) ==========
+  {
+    name: 'Arctic - Central Cap', density: 3.5,
+    points: [
+      { lat: 88, lon: 0 }, { lat: 88, lon: 90 }, { lat: 88, lon: 180 },
+      { lat: 88, lon: -90 }, { lat: 90, lon: 0 }
+    ]
+  },
+  {
+    name: 'Arctic - Euro Sector', density: 2.2,
+    points: [
+      { lat: 75, lon: 10 }, { lat: 82, lon: 50 }, { lat: 85, lon: 90 },
+      { lat: 78, lon: 110 }, { lat: 72, lon: 60 }
+    ]
+  },
+  {
+    name: 'Arctic - American Sector', density: 2.2,
+    points: [
+      { lat: 75, lon: -60 }, { lat: 82, lon: -100 }, { lat: 85, lon: -140 },
+      { lat: 78, lon: -160 }, { lat: 72, lon: -90 }
+    ]
+  },
+  {
+    name: 'Arctic - Siberian Edge', density: 2.0,
+    points: [
+      { lat: 74, lon: 120 }, { lat: 80, lon: 140 }, { lat: 82, lon: 170 },
+      { lat: 76, lon: 180 }, { lat: 73, lon: 150 }
+    ]
+  },
+  {
+    name: 'Arctic - Atlantic Edge', density: 2.0,
+    points: [
+      { lat: 74, lon: -10 }, { lat: 80, lon: -30 }, { lat: 82, lon: -50 },
+      { lat: 76, lon: -60 }, { lat: 73, lon: -30 }
+    ]
+  },
+  {
+    name: 'Pacific - Hawaii Cluster', density: 2.5,
+    points: [
+      { lat: 18, lon: -154 }, { lat: 24, lon: -158 }, { lat: 22, lon: -162 },
+      { lat: 19, lon: -160 }, { lat: 18, lon: -156 }
+    ]
+  },
+  {
+    name: 'Pacific - Polynesian Triangle', density: 2.0,
+    points: [
+      { lat: -10, lon: -140 }, { lat: -25, lon: -130 }, { lat: -22, lon: -155 },
+      { lat: -15, lon: -150 }
+    ]
+  },
+  {
+    name: 'Pacific - Micronesia Belt', density: 1.8,
+    points: [
+      { lat: 0, lon: 135 }, { lat: 12, lon: 150 }, { lat: 8, lon: 165 },
+      { lat: 2, lon: 160 }
+    ]
+  },
+  {
+    name: 'Pacific - Galapagos Zone', density: 2.2,
+    points: [
+      { lat: 3, lon: -90 }, { lat: 0, lon: -88 }, { lat: -3, lon: -92 },
+      { lat: 1, lon: -94 }
+    ]
+  },
   {
     name: 'Australia',
     density: 1.0,
     points: [
-      // North Coast
       { lat: -10, lon: 142 }, { lat: -12, lon: 136 }, { lat: -13, lon: 130 },
       { lat: -12, lon: 127 }, { lat: -16, lon: 124 }, { lat: -20, lon: 119 },
-      // West Coast
       { lat: -26, lon: 113 }, { lat: -32, lon: 115 }, { lat: -35, lon: 118 },
-      // South Coast
       { lat: -35, lon: 135 }, { lat: -38, lon: 141 }, { lat: -39, lon: 146 },
-      // East Coast
       { lat: -37, lon: 150 }, { lat: -33, lon: 151 }, { lat: -28, lon: 153 },
       { lat: -23, lon: 151 }, { lat: -17, lon: 146 }, { lat: -11, lon: 143 }
     ]
   },
-
-  // ========== JAPAN (일본) ==========
   {
     name: 'Japan',
     density: 1.1,
     points: [
-      // Hokkaido (홋카이도)
       { lat: 45.5, lon: 141.5 }, { lat: 45, lon: 143 }, { lat: 43, lon: 145 },
       { lat: 42, lon: 145 }, { lat: 41.5, lon: 141 }, { lat: 42.5, lon: 140 },
-      { lat: 43.5, lon: 141 },
-      // Honshu (혼슈) - North
-      { lat: 41, lon: 140.5 }, { lat: 40, lon: 140 }, { lat: 39, lon: 141.5 },
-      { lat: 38.5, lon: 141 }, { lat: 37, lon: 141 }, { lat: 36, lon: 140.5 },
-      // Honshu - Kanto
-      { lat: 35.5, lon: 140 }, { lat: 35, lon: 139.5 }, { lat: 34.5, lon: 137 },
-      // Honshu - West
-      { lat: 35, lon: 135.5 }, { lat: 35.5, lon: 134 }, { lat: 36, lon: 133 },
-      { lat: 36.5, lon: 137 }, { lat: 37.5, lon: 138 }, { lat: 38, lon: 139.5 },
-      // Kyushu (규슈)
-      { lat: 34, lon: 131 }, { lat: 33, lon: 130 }, { lat: 32, lon: 130.5 },
-      { lat: 31, lon: 131 }, { lat: 32, lon: 132 }, { lat: 33.5, lon: 132 },
-      // Shikoku (시코쿠)
-      { lat: 34, lon: 133.5 }, { lat: 33.5, lon: 134 }, { lat: 34, lon: 134.5 }
+      { lat: 43.5, lon: 141 }, { lat: 41, lon: 140.5 }, { lat: 40, lon: 140 },
+      { lat: 39, lon: 141.5 }, { lat: 38.5, lon: 141 }, { lat: 37, lon: 141 },
+      { lat: 36, lon: 140.5 }, { lat: 35.5, lon: 140 }, { lat: 35, lon: 139.5 },
+      { lat: 34.5, lon: 137 }, { lat: 35, lon: 135.5 }, { lat: 35.5, lon: 134 },
+      { lat: 36, lon: 133 }, { lat: 36.5, lon: 137 }, { lat: 37.5, lon: 138 },
+      { lat: 38, lon: 139.5 }, { lat: 34, lon: 131 }, { lat: 33, lon: 130 },
+      { lat: 32, lon: 130.5 }, { lat: 31, lon: 131 }, { lat: 32, lon: 132 },
+      { lat: 33.5, lon: 132 }, { lat: 34, lon: 133.5 }, { lat: 33.5, lon: 134 },
+      { lat: 34, lon: 134.5 }
     ]
   },
-
-  // ========== UNITED KINGDOM (영국) ==========
   {
     name: 'UK',
     density: 0.95,
     points: [
-      // Scotland (스코틀랜드)
       { lat: 58.5, lon: -3 }, { lat: 57.5, lon: -2 }, { lat: 57, lon: -2 },
       { lat: 56, lon: -3 }, { lat: 55.5, lon: -4.5 }, { lat: 55, lon: -6 },
       { lat: 56, lon: -5.5 }, { lat: 57, lon: -6 }, { lat: 58, lon: -5 },
-      { lat: 58.5, lon: -4 },
-      // England (잉글랜드)
-      { lat: 55, lon: -2 }, { lat: 54, lon: -0.5 }, { lat: 53, lon: 0 },
-      { lat: 52, lon: 1.5 }, { lat: 51.5, lon: 1 }, { lat: 50.5, lon: -1 },
-      { lat: 50, lon: -5 }, { lat: 51, lon: -5 }, { lat: 52, lon: -4.5 },
-      { lat: 53, lon: -3 }, { lat: 54, lon: -3 }
+      { lat: 58.5, lon: -4 }, { lat: 55, lon: -2 }, { lat: 54, lon: -0.5 },
+      { lat: 53, lon: 0 }, { lat: 52, lon: 1.5 }, { lat: 51.5, lon: 1 },
+      { lat: 50.5, lon: -1 }, { lat: 50, lon: -5 }, { lat: 51, lon: -5 },
+      { lat: 52, lon: -4.5 }, { lat: 53, lon: -3 }, { lat: 54, lon: -3 }
     ]
   },
-
-  // ========== NEW ZEALAND (뉴질랜드) ==========
   {
     name: 'New Zealand',
     density: 1.0,
     points: [
-      // North Island (북섬)
       { lat: -34.5, lon: 173 }, { lat: -35, lon: 174 }, { lat: -36.5, lon: 175 },
       { lat: -38, lon: 178 }, { lat: -39, lon: 178 }, { lat: -40, lon: 176 },
       { lat: -41, lon: 175 }, { lat: -40.5, lon: 173 }, { lat: -39, lon: 174 },
-      { lat: -37, lon: 174.5 }, { lat: -35.5, lon: 173.5 },
-      // South Island (남섬)
-      { lat: -40.5, lon: 173 }, { lat: -42, lon: 174 }, { lat: -43.5, lon: 172.5 },
-      { lat: -45, lon: 170 }, { lat: -46, lon: 168 }, { lat: -46.5, lon: 168 },
-      { lat: -45.5, lon: 170.5 }, { lat: -44, lon: 171 }, { lat: -42.5, lon: 171.5 },
-      { lat: -41, lon: 172 }
+      { lat: -37, lon: 174.5 }, { lat: -35.5, lon: 173.5 }, { lat: -40.5, lon: 173 },
+      { lat: -42, lon: 174 }, { lat: -43.5, lon: 172.5 }, { lat: -45, lon: 170 },
+      { lat: -46, lon: 168 }, { lat: -46.5, lon: 168 }, { lat: -45.5, lon: 170.5 },
+      { lat: -44, lon: 171 }, { lat: -42.5, lon: 171.5 }, { lat: -41, lon: 172 }
     ]
   },
-
-  // ========== INDONESIA ISLANDS (인도네시아 주요 섬) ==========
   {
     name: 'Indonesia - Java',
     density: 1.15,
     points: [
-      // Java (자바)
       { lat: -6, lon: 105.5 }, { lat: -6.5, lon: 106 }, { lat: -7, lon: 108 },
       { lat: -8, lon: 111 }, { lat: -8.5, lon: 114 }, { lat: -8.5, lon: 115 },
       { lat: -8, lon: 114 }, { lat: -7.5, lon: 112 }, { lat: -6.5, lon: 110 },
@@ -287,7 +284,6 @@ const CONTINENTS: ContinentPolygon[] = [
     name: 'Indonesia - Sumatra',
     density: 1.1,
     points: [
-      // Sumatra (수마트라)
       { lat: 6, lon: 95 }, { lat: 4, lon: 97 }, { lat: 2, lon: 99 },
       { lat: 0, lon: 101 }, { lat: -1, lon: 103 }, { lat: -3, lon: 104 },
       { lat: -5, lon: 105 }, { lat: -6, lon: 104 }, { lat: -4, lon: 102 },
@@ -299,7 +295,6 @@ const CONTINENTS: ContinentPolygon[] = [
     name: 'Indonesia - Borneo',
     density: 1.1,
     points: [
-      // Borneo (보르네오/칼리만탄)
       { lat: 7, lon: 117 }, { lat: 6, lon: 116 }, { lat: 4, lon: 115 },
       { lat: 2, lon: 109 }, { lat: 0, lon: 109 }, { lat: -1, lon: 110 },
       { lat: -3, lon: 111 }, { lat: -4, lon: 115 }, { lat: -4, lon: 117 },
@@ -311,114 +306,48 @@ const CONTINENTS: ContinentPolygon[] = [
     name: 'Indonesia - Sulawesi',
     density: 1.0,
     points: [
-      // Sulawesi (술라웨시)
       { lat: 2, lon: 120 }, { lat: 1, lon: 122 }, { lat: -1, lon: 121 },
       { lat: -3, lon: 120 }, { lat: -5, lon: 119.5 }, { lat: -5.5, lon: 120 },
       { lat: -4, lon: 121 }, { lat: -2, lon: 122 }, { lat: 0, lon: 123 },
       { lat: 1, lon: 124 }, { lat: 1.5, lon: 125 }, { lat: 1, lon: 124 }
     ]
   },
-
-  // ========== PHILIPPINES (필리핀) ==========
   {
     name: 'Philippines',
     density: 1.05,
     points: [
-      // Luzon (루손)
       { lat: 19, lon: 121 }, { lat: 18.5, lon: 122 }, { lat: 17, lon: 122 },
       { lat: 15, lon: 121 }, { lat: 14, lon: 120.5 }, { lat: 14.5, lon: 120 },
       { lat: 16, lon: 120 }, { lat: 17.5, lon: 120.5 }, { lat: 18.5, lon: 120.5 },
-      // Mindanao (민다나오)
       { lat: 9, lon: 125 }, { lat: 7, lon: 126 }, { lat: 6, lon: 125.5 },
       { lat: 6, lon: 124 }, { lat: 7, lon: 123.5 }, { lat: 8, lon: 124 },
-      { lat: 9, lon: 124.5 },
-      // Visayas
-      { lat: 12, lon: 123 }, { lat: 11, lon: 124 }, { lat: 10.5, lon: 122.5 },
-      { lat: 11, lon: 122 }, { lat: 12, lon: 122.5 }
+      { lat: 9, lon: 124.5 }, { lat: 12, lon: 123 }, { lat: 11, lon: 124 },
+      { lat: 10.5, lon: 122.5 }, { lat: 11, lon: 122 }, { lat: 12, lon: 122.5 }
     ]
   },
-
-  // ========== SRI LANKA (스리랑카) ==========
   {
-    name: 'Sri Lanka',
-    density: 1.0,
+    name: 'Antarctica - Palmer',
+    density: 1.5,
     points: [
-      { lat: 9.5, lon: 80 }, { lat: 9, lon: 80 }, { lat: 7.5, lon: 79.7 },
-      { lat: 6, lon: 80 }, { lat: 6, lon: 81.5 }, { lat: 7, lon: 81.8 },
-      { lat: 8, lon: 81.2 }, { lat: 9, lon: 81 }, { lat: 9.5, lon: 80.5 }
+      { lat: -63, lon: -58 }, { lat: -64, lon: -62 }, { lat: -66, lon: -60 }
     ]
   },
-
-  // ========== MADAGASCAR (마다가스카르) ==========
   {
-    name: 'Madagascar',
-    density: 1.05,
+    name: 'Antarctica - Maven',
+    density: 1.5,
     points: [
-      { lat: -12, lon: 49.5 }, { lat: -14, lon: 50 }, { lat: -16, lon: 50 },
-      { lat: -20, lon: 48 }, { lat: -23, lon: 47 }, { lat: -25, lon: 45 },
-      { lat: -25.5, lon: 44 }, { lat: -24, lon: 43.5 }, { lat: -22, lon: 43.5 },
-      { lat: -18, lon: 44 }, { lat: -15, lon: 46 }, { lat: -13, lon: 48 },
-      { lat: -12.5, lon: 49 }
+      { lat: -70, lon: 78 }, { lat: -71, lon: 82 }, { lat: -73, lon: 80 }
     ]
   },
-
-  // ========== GREENLAND (그린란드 / 북극권 지형) ==========
   {
-    name: 'Greenland',
-    density: 1.0,
+    name: 'Antarctica - Scott',
+    density: 1.5,
     points: [
-      { lat: 83, lon: -30 }, { lat: 82, lon: -15 }, { lat: 80, lon: -12 },
-      { lat: 75, lon: -18 }, { lat: 70, lon: -22 }, { lat: 65, lon: -35 },
-      { lat: 60, lon: -45 }, { lat: 60, lon: -50 }, { lat: 65, lon: -55 },
-      { lat: 70, lon: -55 }, { lat: 75, lon: -70 }, { lat: 80, lon: -70 },
-      { lat: 83, lon: -60 }, { lat: 83.5, lon: -40 }
-    ]
-  },
-
-  // ========== HAWAII (하와이 열도) ==========
-  {
-    name: 'Hawaii',
-    density: 2.5, // 작은 섬이므로 밀도를 높임
-    points: [
-      { lat: 22.5, lon: -160 }, { lat: 21.5, lon: -158 }, { lat: 21, lon: -154.5 },
-      { lat: 18.9, lon: -154.5 }, { lat: 19.5, lon: -156 }, { lat: 21.5, lon: -160.5 }
-    ]
-  },
-
-  // ========== PACIFIC ISLANDS (피지, 바누아투 등) ==========
-  {
-    name: 'Pacific Islands - Fiji/Vanuatu',
-    density: 2.0,
-    points: [
-      { lat: -15, lon: 167 }, { lat: -18, lon: 168 }, { lat: -21, lon: 169 },
-      { lat: -20, lon: 178 }, { lat: -16, lon: 180 }, { lat: -15, lon: 178 }
-    ]
-  },
-
-  {
-    name: 'Pacific Islands - French Polynesia',
-    density: 2.0,
-    points: [
-      { lat: -14, lon: -150 }, { lat: -17.5, lon: -149 }, { lat: -19, lon: -151 },
-      { lat: -18, lon: -153 }, { lat: -15, lon: -153 }
-    ]
-  },
-
-  // ========== ANTARCTICA (남극 대륙) ==========
-  {
-    name: 'Antarctica',
-    density: 1.2,
-    points: [
-      { lat: -60, lon: 0 }, { lat: -62, lon: 30 }, { lat: -65, lon: 60 },
-      { lat: -68, lon: 90 }, { lat: -70, lon: 120 }, { lat: -71, lon: 150 },
-      { lat: -72, lon: 180 }, { lat: -71, lon: -150 }, { lat: -70, lon: -120 },
-      { lat: -68, lon: -90 }, { lat: -65, lon: -60 }, { lat: -62, lon: -30 },
-      // Antarctic Peninsula (남극 반도)
-      { lat: -63, lon: -55 }, { lat: -60, lon: -60 }, { lat: -62, lon: -65 },
-      { lat: -65, lon: -65 }
+      { lat: -75, lon: 168 }, { lat: -76, lon: 172 }, { lat: -78, lon: 170 }
     ]
   }
 ];
+
 
 // 점이 폴리곤 내부에 있는지 확인 (Ray Casting Algorithm)
 function isPointInPolygon(lat: number, lon: number, polygon: { lat: number; lon: number }[]): boolean {
@@ -432,37 +361,6 @@ function isPointInPolygon(lat: number, lon: number, polygon: { lat: number; lon:
     if (intersect) inside = !inside;
   }
   return inside;
-}
-
-// 폴리곤 가장자리까지의 최소 거리 계산
-function distanceToPolygonEdge(lat: number, lon: number, polygon: { lat: number; lon: number }[]): number {
-  let minDist = 999;
-
-  // 극지방 경도 왜곡 보정 (위도에 비례하여 경도 차이 축소)
-  const latRad = lat * Math.PI / 180;
-  const lonScale = Math.cos(latRad);
-
-  for (let i = 0; i < polygon.length; i++) {
-    const p1 = polygon[i];
-    const p2 = polygon[(i + 1) % polygon.length];
-
-    // 경도 차이 계산 (180도 경계선 처리)
-    let dLon1 = Math.abs(lon - p1.lon);
-    if (dLon1 > 180) dLon1 = 360 - dLon1;
-
-    let dLon2 = Math.abs(lon - p2.lon);
-    if (dLon2 > 180) dLon2 = 360 - dLon2;
-
-    const dLat1 = lat - p1.lat;
-    const dLat2 = lat - p2.lat;
-
-    // 보정된 유클리드 거리 (근사치)
-    const dist1 = Math.sqrt(Math.pow(dLat1, 2) + Math.pow(dLon1 * lonScale, 2));
-    const dist2 = Math.sqrt(Math.pow(dLat2, 2) + Math.pow(dLon2 * lonScale, 2));
-
-    minDist = Math.min(minDist, dist1, dist2);
-  }
-  return minDist;
 }
 
 
@@ -481,8 +379,8 @@ const Hero: React.FC = () => {
     const context = canvas.getContext('2d');
     if (!context) return;
 
-    // Configuration - 파티클 수 증가로 대륙 디테일 향상
-    const baseParticleCount = 32400; // 17280 → 32400 (약 2배 증가)
+    // Configuration - 밀도 극대화 (20,000개)
+    const baseParticleCount = 20000;
 
     const colors = ['#00F0FF', '#00D1FF', '#00A8FF', '#0077FF', '#0044AA'];
     const opacities = [0.9, 0.7, 0.5];
@@ -491,7 +389,8 @@ const Hero: React.FC = () => {
     let canvasHeight = 0;
 
     const updateCanvasSize = () => {
-      const rect = containerRef.current!.getBoundingClientRect();
+      const rect = containerRef.current?.getBoundingClientRect();
+      if (!rect || !rect.width || !rect.height) return;
       canvas.width = rect.width;
       canvas.height = rect.height;
       canvasWidth = rect.width;
@@ -503,24 +402,16 @@ const Hero: React.FC = () => {
 
     // --- 1. GENERATE CONTINENT PARTICLES (POLYGON-BASED) ---
     const particles: any[] = [];
-
     for (let i = 0; i < baseParticleCount; i++) {
-      // Fibonacci sphere for even distribution
       const phi = Math.acos(1 - 2 * (i + 0.5) / baseParticleCount);
       const theta = Math.PI * (1 + 5 ** 0.5) * (i + 0.5);
-
       const x = Math.sin(phi) * Math.cos(theta);
-      const y = Math.cos(phi); // Y축을 수직축으로 설정 (UP)
+      const y = Math.cos(phi);
       const z = Math.sin(phi) * Math.sin(theta);
-
-      // Convert to lat/lon (Y-up 기준)
       const lat = Math.asin(y) * 180 / Math.PI;
       const lon = Math.atan2(x, z) * 180 / Math.PI;
-
-      // Check if point is inside any continent polygon
       let isLand = false;
       let continentDensity = 1.0;
-
       for (const continent of CONTINENTS) {
         if (isPointInPolygon(lat, lon, continent.points)) {
           isLand = true;
@@ -528,38 +419,16 @@ const Hero: React.FC = () => {
           break;
         }
       }
-
-      if (!isLand) {
-        // Also check distance to polygon edges for particles near coastlines
-        for (const continent of CONTINENTS) {
-          const edgeDist = distanceToPolygonEdge(lat, lon, continent.points);
-
-          // Add particles near coastlines with noise
-          const noiseVal = noise(x * 6.0 + 50, y * 6.0 + 50, z * 6.0 + 50);
-          const threshold = 2.0 + noiseVal * 1.5; // Variable coastline
-
-          if (edgeDist < threshold) {
-            isLand = true;
-            continentDensity = continent.density * 0.8; // Slightly lower density at edges
-            break;
-          }
-        }
-      }
-
-      // Create particle if it's land
-      if (isLand) {
-        // Apply density multiplier
-        if (Math.random() < continentDensity) {
-          particles.push({
-            x, y, z,
-            color: colors[Math.floor(Math.random() * colors.length)],
-            baseAlpha: opacities[Math.floor(Math.random() * opacities.length)],
-            size: (Math.random() * 0.5 + 0.6) * 2.8, // Smaller particles for more detail
-            driftDir: { x, y, z },
-            driftSpeed: Math.random() * 0.4 + 0.1,
-            phase: Math.random() * Math.PI * 2
-          });
-        }
+      if (isLand && Math.random() < continentDensity) {
+        particles.push({
+          x, y, z,
+          colorCode: Math.floor(Math.random() * colors.length),
+          baseAlpha: opacities[Math.floor(Math.random() * opacities.length)],
+          size: (Math.random() * 0.5 + 0.6) * 3.0,
+          driftSpeed: Math.random() * 0.4 + 0.1,
+          phase: Math.random() * Math.PI * 2,
+          isTwinkle: Math.random() < 0.16
+        });
       }
     }
 
@@ -593,11 +462,12 @@ const Hero: React.FC = () => {
     }
 
 
-    let currentRotY = 4.2; // Start at Atlantic
+    let currentRotY = 4.2;
     let targetRotX = 0;
     let currentRotX = 0;
 
     const handleMouseMove = (e: MouseEvent) => {
+      if (!canvasWidth) return;
       const rect = canvas.getBoundingClientRect();
       const cy = rect.height / 2;
       const mouseY = (e.clientY - rect.top - cy) * 0.0001;
@@ -627,8 +497,13 @@ const Hero: React.FC = () => {
       context.clearRect(0, 0, canvasWidth, canvasHeight);
 
       const minDim = Math.min(canvasWidth, canvasHeight);
-      const baseRadius = minDim * 0.29;
-      const fov = 600;
+      if (minDim === 0) {
+        requestRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
+      const baseRadius = Math.min(minDim * 0.35, 500);
+      const fov = 1600;
 
       const cosY = Math.cos(currentRotY);
       const sinY = Math.sin(currentRotY);
@@ -636,36 +511,50 @@ const Hero: React.FC = () => {
       const sinX = Math.sin(currentRotX);
 
       // --- DRAW GRID ---
-      context.lineWidth = 0.8;
-      context.strokeStyle = 'rgba(0, 240, 255, 0.35)';
+      context.lineWidth = 1.0;
 
       gridLines.forEach(line => {
-        context.beginPath();
-        let first = true;
+        let prevX = 0, prevY = 0, prevDepth = 0;
+        let isFirst = true;
+
         for (const pt of line.path) {
           let rx = pt.x * cosY - pt.z * sinY;
           let rz = pt.z * cosY + pt.x * sinY;
           let ry = pt.y * cosX - rz * sinX;
-          let rz_final = rz * cosX + pt.y * sinX;
+          let rz_f = rz * cosX + pt.y * sinX;
 
-          rx *= baseRadius;
-          ry *= baseRadius;
-          rz_final *= baseRadius;
+          const zDepth = fov + rz_f * baseRadius;
+          if (zDepth < 10) { isFirst = true; continue; }
 
-          const zDepth = fov + rz_final;
-          if (zDepth < 10) { first = true; continue; }
-          const scale = fov / zDepth;
-          const screenX = rx * scale + canvasWidth / 2;
-          const screenY = ry * scale + canvasHeight / 2;
+          const s = fov / zDepth;
+          const sx = rx * baseRadius * s + canvasWidth / 2;
+          const sy = ry * baseRadius * s + canvasHeight / 2;
 
-          if (first) { context.moveTo(screenX, screenY); first = false; }
-          else { context.lineTo(screenX, screenY); }
+          const safeBs = baseRadius || 1;
+          let normD = (rz_f * baseRadius + safeBs) / (2 * safeBs);
+          normD = Math.max(0, Math.min(1, normD));
+
+          if (!isFirst) {
+            const avgDepth = (prevDepth + normD) / 2;
+            const alpha = 0.35 * (1 - avgDepth * 0.9);
+            const clampedAlpha = Math.max(0.03, alpha);
+
+            context.beginPath();
+            context.strokeStyle = `rgba(0, 240, 255, ${clampedAlpha})`;
+            context.moveTo(prevX, prevY);
+            context.lineTo(sx, sy);
+            context.stroke();
+          }
+
+          prevX = sx;
+          prevY = sy;
+          prevDepth = normD;
+          isFirst = false;
         }
-        context.stroke();
       });
 
       // --- DRAW PARTICLES ---
-      const renderbuf = [];
+      const renderbuf: any[] = [];
       for (let i = 0; i < particles.length; i++) {
         const pt = particles[i];
         const expansion = p * pt.driftSpeed * 900;
@@ -674,44 +563,98 @@ const Hero: React.FC = () => {
         const floatZ = Math.sin(time * 1.8 + pt.phase) * p * 15;
 
         const currentRadius = baseRadius + expansion;
-        const x = pt.x * currentRadius + floatX;
-        const y = pt.y * currentRadius + floatY;
-        const z = pt.z * currentRadius + floatZ;
+        const x_e = pt.x * currentRadius + floatX;
+        const y_e = pt.y * currentRadius + floatY;
+        const z_e = pt.z * currentRadius + floatZ;
 
-        let rx = x * cosY - z * sinY;
-        let rz = z * cosY + x * sinY;
-        let ry = y * cosX - rz * sinX;
-        let rz_final = rz * cosX + y * sinX;
+        let rx = x_e * cosY - z_e * sinY;
+        let rz = z_e * cosY + x_e * sinY;
+        let ry = y_e * cosX - rz * sinX;
+        let rz_f = rz * cosX + y_e * sinX;
 
-        const zDepth = fov + rz_final;
+        const zDepth = fov + rz_f;
         if (zDepth < 10) continue;
 
         const scale = fov / zDepth;
         const screenX = rx * scale + canvasWidth / 2;
         const screenY = ry * scale + canvasHeight / 2;
-        const size = pt.size * scale;
+
+        const safeBaseRadius = baseRadius || 1;
+        const normDepth = (rz_f + safeBaseRadius) / (2 * safeBaseRadius);
+
+        // Responsive size multiplier to maintain visual density
+        const responsiveSizeScale = baseRadius / 280;
 
         let alpha = pt.baseAlpha;
+        let size = pt.size * scale * responsiveSizeScale;
+        let drawColor = colors[pt.colorCode];
 
-        const depthRatio = rz_final / baseRadius;
-        if (depthRatio > 0) {
-          let depthFade = 1 - (depthRatio * 0.7);
-          if (depthFade < 0.1) depthFade = 0.1;
-          alpha *= depthFade;
+        // Depth Fading
+        if (normDepth > 0.5) {
+          alpha *= (1 - (normDepth - 0.5) * 1.8);
+        }
+
+        // RIM DARKENING
+        const distFromCenter = Math.sqrt(rx * rx + ry * ry);
+        const maxDist = baseRadius || 1;
+        const rimRatio = distFromCenter / maxDist;
+
+        if (rimRatio > 0.6 && rz_f < 0) {
+          const fadeStrength = (rimRatio - 0.6) * 2.5;
+          alpha *= Math.max(0, 1 - fadeStrength);
+          size *= (1 - (rimRatio - 0.6) * 0.8);
+        }
+
+        // --- CENTER-FOCUSED WHITE TWINKLE LOGIC ---
+        let finalColor = drawColor;
+        if (pt.isTwinkle) {
+          // Sharp, intense twinkle pulse
+          const twinklePulse = Math.pow(Math.sin(time * 7.8 + pt.phase * 12) * 0.5 + 0.5, 4);
+
+          const dist = Math.sqrt(rx * rx + ry * ry);
+          const centerFactor = Math.max(0, 1 - dist / (baseRadius * 0.8));
+
+          // White flash at peak
+          if (twinklePulse > 0.8) {
+            finalColor = '#FFFFFF';
+          }
+
+          const intensity = 0.5 + (twinklePulse * (1.2 + centerFactor * 1.5));
+          alpha *= intensity;
+          // Apply horizontal scaling factor here too if needed, but it's already in base 'size'
+          size *= (1.0 + twinklePulse * 0.2);
+        }
+
+        const mode = rz_f > 0 ? 'D' : 'L';
+
+        // --- FRONT/BACK DIFFERENTIATED TRANSPARENCY ---
+        if (mode === 'L') {
+          // Front: Maximum visibility (increase alpha and cap at 1.0)
+          alpha = Math.min(1.0, alpha * 1.8);
+        } else {
+          // Back: Keep current subtle transparency
+          alpha *= 0.6;
         }
 
         if (p > 0.85) alpha *= (1 - (p - 0.85) * 6.6);
 
         renderbuf.push({
-          x: screenX, y: screenY, z: zDepth, size, color: pt.color, alpha
+          x: screenX, y: screenY, z: zDepth, size, color: finalColor, alpha, mode
         });
       }
 
       renderbuf.sort((a, b) => b.z - a.z);
 
       renderbuf.forEach(b => {
-        context.globalAlpha = Math.min(1, Math.max(0, b.alpha));
+        if (b.alpha <= 0.02) return;
+
+        // Dark mode (backside) handling
+        let drawAlpha = b.alpha;
+        if (b.mode === 'D') drawAlpha *= 0.7;
+
+        context.globalAlpha = Math.min(1, Math.max(0.01, drawAlpha));
         context.fillStyle = b.color;
+
         context.beginPath();
         for (let j = 0; j < 6; j++) {
           const angle = Math.PI / 3 * j - Math.PI / 6;
@@ -723,8 +666,8 @@ const Hero: React.FC = () => {
         context.closePath();
         context.fill();
       });
-      context.globalAlpha = 1;
 
+      context.globalAlpha = 1;
       requestRef.current = requestAnimationFrame(animate);
     };
     requestRef.current = requestAnimationFrame(animate);
@@ -735,7 +678,7 @@ const Hero: React.FC = () => {
       resizeObserver.disconnect();
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
-  }, []);
+  }, []); // Dimensions are handled internally by ResizeObserver
 
   return (
     <section ref={sectionRef} className="relative w-full z-10 bg-[#050510]">
@@ -743,10 +686,10 @@ const Hero: React.FC = () => {
         <canvas ref={canvasRef} className="block w-full h-full" />
 
         <div
-          className="absolute bottom-[20px] left-1/2 -translate-x-1/2 z-20 pointer-events-none text-center mix-blend-screen w-full"
+          className="absolute bottom-[40px] left-1/2 -translate-x-1/2 z-20 pointer-events-none text-center mix-blend-screen w-full"
         >
           <h1
-            className="font-black tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-blue-400 whitespace-nowrap"
+            className="font-black tracking-tighter leading-[1.2] py-1.5 text-transparent bg-clip-text bg-gradient-to-b from-white to-blue-400 whitespace-nowrap"
             style={{
               fontSize: 'clamp(1.5rem, 5vw, 3.5rem)',
             }}
