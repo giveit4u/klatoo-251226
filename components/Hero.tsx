@@ -420,19 +420,21 @@ const Hero: React.FC = () => {
           break;
         }
       }
-      if (isLand && Math.random() < continentDensity) {
+      const isFill = !isLand && Math.random() < 0.25; // Create background particles for screen-filling transition
+
+      if (isLand || isFill) {
         // Create random "Outer Space" starting positions for the intro
         const randPhi = Math.random() * Math.PI * 2;
         const randTheta = Math.random() * Math.PI;
-        // Significantly increased distance to fill the entire screen area
         const dist = 2.0 + Math.random() * 10.0;
         const startX = Math.sin(randTheta) * Math.cos(randPhi) * dist;
         const startY = Math.cos(randTheta) * dist;
         const startZ = Math.sin(randTheta) * Math.sin(randPhi) * dist;
 
         particles.push({
-          x, y, z, // Target coordinates
-          startX, startY, startZ, // Starting coordinates for intro
+          x, y, z,
+          startX, startY, startZ,
+          isFill, // Flag for transition-only particles
           colorCode: Math.floor(Math.random() * colors.length),
           baseAlpha: opacities[Math.floor(Math.random() * opacities.length)],
           size: (Math.random() * 0.5 + 0.6) * 3.0,
@@ -489,7 +491,7 @@ const Hero: React.FC = () => {
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: 'top top',
-      end: '+=4000',
+      end: '+=2000', // Reduced from 4000 for faster section transition
       pin: true,
       scrub: 1,
       onUpdate: (self) => {
@@ -514,13 +516,19 @@ const Hero: React.FC = () => {
 
     let time = 0;
     const animStartTime = Date.now();
-    const introDuration = 3000; // 3 seconds as requested
+    const introDuration = 2200; // Shortened from 3s to 2.2s for snappier feel
     const animate = () => {
       time += 0.002;
       const p = scrollState.current.progress;
+      // Define cinematic transition progress (faster response)
+      const transitionStart = 0.1; // Starts earlier (at 10% scroll)
+      const transP = Math.max(0, (p - transitionStart) / (1 - transitionStart));
+      const easeTrans = transP * transP;
 
-      currentRotY += 0.0008;
-      currentRotX += (targetRotX - currentRotX) * 0.05;
+      // Stop auto-rotation quickly as we transition to "Space Dust"
+      const rotSpeedScale = Math.max(0, 1 - transP * 4.0);
+      currentRotY += 0.0008 * rotSpeedScale;
+      currentRotX += (targetRotX - currentRotX) * 0.05 * rotSpeedScale;
 
       context.clearRect(0, 0, canvasWidth, canvasHeight);
 
@@ -551,15 +559,20 @@ const Hero: React.FC = () => {
           let ry = pt.y * cosX - rz * sinX;
           let rz_f = rz * cosX + pt.y * sinX;
 
-          const zDepth = fov + rz_f * baseRadius;
+          // TRANSITION: Grid fades out and grows as we zoom in
+          const gridOutFade = Math.max(0, 1 - transP * 3.0);
+          const gridZoom = 1 + easeTrans * 4.0;
+
+          const rz_scaled = rz_f * gridZoom;
+          const zDepth = fov + rz_scaled * baseRadius;
           if (zDepth < 10) { isFirst = true; continue; }
 
           const s = fov / zDepth;
-          const sx = rx * baseRadius * s + canvasWidth / 2;
-          const sy = ry * baseRadius * s + canvasHeight / 2;
+          const sx = rx * baseRadius * gridZoom * s + canvasWidth / 2;
+          const sy = ry * baseRadius * gridZoom * s + canvasHeight / 2;
 
           const safeBs = baseRadius || 1;
-          let normD = (rz_f * baseRadius + safeBs) / (2 * safeBs);
+          let normD = (rz_scaled * baseRadius + safeBs) / (2 * safeBs);
           normD = Math.max(0, Math.min(1, normD));
 
           if (!isFirst) {
@@ -569,9 +582,9 @@ const Hero: React.FC = () => {
             // INTRO: Grid fades in naturally toward the end of the 3s intro
             const currentTime = Date.now() - animStartTime;
             const introProgress = Math.min(1, currentTime / introDuration);
-            const gridIntroFade = Math.max(0, (introProgress - 0.7) * 3.33); // Starts after 70% of 3s
+            const gridIntroFade = Math.max(0, (introProgress - 0.7) * 3.33);
 
-            const clampedAlpha = Math.max(0, alpha * gridIntroFade);
+            const clampedAlpha = Math.max(0, alpha * gridIntroFade * gridOutFade);
 
             if (clampedAlpha > 0.01) {
               context.beginPath();
@@ -597,8 +610,8 @@ const Hero: React.FC = () => {
         // --- CINEMATIC INTRO PROGRESSION (0 to 1 over 3s) ---
         const currentTime = Date.now() - animStartTime;
         const introProgress = Math.min(1, currentTime / introDuration);
-        // Easing for smoother "snapping"
-        const easeIntro = introProgress < 1 ? 1 - Math.pow(1 - introProgress, 3) : 1;
+        // Sharpened easing (Quintic Out) for maximum initial speed and a snappy "snap"
+        const easeIntro = introProgress < 1 ? 1 - Math.pow(1 - introProgress, 5) : 1;
 
         // 1. Position Interpolation (Random Space -> Globe Continent)
         const curX = pt.startX + (pt.x - pt.startX) * easeIntro;
@@ -612,20 +625,32 @@ const Hero: React.FC = () => {
         // 3. Alpha Fade In
         const introAlpha = Math.min(1, introProgress * 1.5);
 
-        const expansion = p * pt.driftSpeed * 900;
-        const floatX = Math.sin(time * 1.5 + pt.phase) * p * 15;
-        const floatY = Math.cos(time * 1.2 + pt.phase) * p * 15;
-        const floatZ = Math.sin(time * 1.8 + pt.phase) * p * 15;
+        // --- TRANSITION: EXPLOSION & ZOOM ---
+        // Balanced expansion to keep particles within screen bounds longer
+        const explosionExpansion = easeTrans * 14000 * pt.driftSpeed;
 
-        const currentRadius = baseRadius + expansion;
+        // Use standard rotation, which now freezes because rotSpeedScale -> 0
+        const pCosY = cosY;
+        const pSinY = sinY;
+        const pCosX = cosX;
+        const pSinX = sinX;
+
+        // Floating Space Dust: Subtle random drift to keep density high
+        const floatScale = (transP * 18.0);
+        const floatX = Math.sin(time * 1.5 + pt.phase) * 80 * floatScale;
+        const floatY = Math.cos(time * 1.2 + pt.phase) * 80 * floatScale;
+        const floatZ = Math.sin(time * 1.8 + pt.phase) * 80 * floatScale;
+
+        // Radius grows moderately to maintain screen-filling density
+        const currentRadius = baseRadius + explosionExpansion + (easeTrans * 3500);
         const x_e = curX * currentRadius + floatX;
         const y_e = curY * currentRadius + floatY;
         const z_e = curZ * currentRadius + floatZ;
 
-        let rx = x_e * cosY - z_e * sinY;
-        let rz = z_e * cosY + x_e * sinY;
-        let ry = y_e * cosX - rz * sinX;
-        let rz_f = rz * cosX + y_e * sinX;
+        let rx = x_e * pCosY - z_e * pSinY;
+        let rz = z_e * pCosY + x_e * pSinY;
+        let ry = y_e * pCosX - rz * pSinX;
+        let rz_f = rz * pCosX + y_e * pSinX;
 
         const zDepth = fov + rz_f;
         if (zDepth < 10) continue;
@@ -640,8 +665,21 @@ const Hero: React.FC = () => {
         // Responsive size multiplier to maintain visual density
         const responsiveSizeScale = baseRadius / 280;
 
+        // Capped Size Growth: 1.0 -> 3.0x as requested
+        const transSizeScale = 1.0 + easeTrans * 2.0;
+
         let alpha = pt.baseAlpha * introAlpha;
-        let size = pt.size * scale * responsiveSizeScale * introSizeScale;
+
+        // FILL PARTICLES logic: fade in during transition, invisible during globe state
+        if (pt.isFill) {
+          alpha *= Math.min(1.0, transP * 3.0);
+        }
+
+        // Aggressive Exponential Fade-out for clear section transition
+        const transAlphaScale = Math.max(0, 1 - Math.pow(transP, 1.8));
+        alpha *= transAlphaScale;
+
+        let size = pt.size * scale * responsiveSizeScale * introSizeScale * transSizeScale;
         let drawColor = colors[pt.colorCode];
 
         // Depth Fading
@@ -691,8 +729,6 @@ const Hero: React.FC = () => {
           alpha *= 0.6;
         }
 
-        if (p > 0.85) alpha *= (1 - (p - 0.85) * 6.6);
-
         renderbuf.push({
           x: screenX, y: screenY, z: zDepth, size, color: finalColor, alpha, mode
         });
@@ -723,6 +759,14 @@ const Hero: React.FC = () => {
       });
 
       context.globalAlpha = 1;
+
+      // --- TITLE FADE OUT ---
+      if (titleRef.current) {
+        const titleFade = Math.max(0, 1 - p * 6.0); // Faster fade-out
+        titleRef.current.style.opacity = titleFade.toString();
+        titleRef.current.style.transform = `translateY(${-p * 300}px)`;
+      }
+
       requestRef.current = requestAnimationFrame(animate);
     };
     requestRef.current = requestAnimationFrame(animate);
