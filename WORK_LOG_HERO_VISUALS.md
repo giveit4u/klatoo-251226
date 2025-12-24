@@ -115,5 +115,14 @@ The goal was to transform the Hero section into a premium, cinematic experience.
 - **Backside Culling**: 지구 뒷면(rz_final_base > 0)에 위치한 파티클들이 스크롤 진입 시(p > 0.2) 전방 입자들보다 먼저 소멸되도록 처리하여, 중심부 통과 시 배경의 시각적 노이즈를 완벽히 제거했습니다.
 - **Irreversible Element Hide**: 그리드와 하단 텍스트가 일정 스크롤(p > 0.35) 이후 재출현하는 현상을 방지하기 위해 `display: 'none'` 및 렌더링 루프 물리적 차단을 적용했습니다.
 
-### 5.6. Complete Rotation Decoupling
-- **Identity Matrix Blending**: 스크롤이 깊어짐에 따라 전역 회전 행렬의 영향력을 0으로 수렴(p=0.5에서 완전 정지)시켜, 파티클들이 기존의 궤도에 구속되지 않고 순수하게 개별 벡터로 자유 유영하도록 개선했습니다.
+### 5.7. Interaction Feel & Branding Finalization (2025-12-24 Evening)
+- **Interaction Feel Restoration**: `Hero_backup.tsx`의 "Outer Space" 파티클 생성 로직을 재이식하여, 먼 곳에서 대륙으로 입자들이 빠르게 응집되는 'Snapping Intro' 효과를 완벽히 복원했습니다.
+- **Branding Update**: 메인 상징 문구를 **"THE DIGITAL EARTH, CONNECTED TO REALITY"**로 업데이트하고, 모바일 환경에서 텍스트가 겹치지 않도록 SVG 레이아웃(폰트 크기 및 간격)을 최적화했습니다.
+- **Late-Stage Damping for Lingering Look**:
+    - **Expansion Damping**: 스크롤 후반부(p > 0.5)에서 파티클 확산 가속도를 점진적으로 줄여, 입자들이 화면 밖으로 바로 사라지지 않고 우주 공간에 오래 머무는 '시각적 여운'을 구현했습니다.
+    - **Drift Attenuation**: 고정된 확산 대신, 후반부 유영 속도를 감쇄시켜 다음 섹션으로 넘어가기 전 자연스러운 배경 역할을 하도록 조정했습니다.
+- **Section Transition Smoothing**:
+    - **Fade Timing**: 파티클 최종 소멸 시점(`particleFadeStart`)을 **0.88**로 늦추고 감쇄 곡선을 완화하여, `Information` 섹션의 텍스트가 나타날 때까지 배경 입자들이 은은하게 남도록 처리했습니다.
+    - **Speed & Perspective**: 회전 속도를 **2배(0.0032)**로 높여 역동성을 더하고, 카메라 베이스 틸트를 **0.20**으로 조정하여 더 안정적인 시점을 확보했습니다.
+- **Visual De-noising**: 반짝임(`twinkle`) 효과와 바다 지역의 `Fill Particles`를 제거하여 지형의 실루엣이 더 명확하고 깔끔하게 보이도록 정제했습니다.
+- **Stability**: `ScrollTrigger`의 end 값을 **500px**로 최종 고정하여, 섹션 간의 전환 속도와 인터랙션 반응성의 최적 균형을 맞췄습니다.

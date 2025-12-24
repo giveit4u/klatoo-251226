@@ -626,9 +626,23 @@ const Hero: React.FC = () => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!canvasWidth) return;
       const rect = canvas.getBoundingClientRect();
+      const cx = rect.width / 2;
       const cy = rect.height / 2;
-      const mouseY = (e.clientY - rect.top - cy) * 0.0001;
-      targetRotX = 0.20 + mouseY; // 베이스 틸트 유지
+
+      const dx = e.clientX - rect.left - cx;
+      const dy = e.clientY - rect.top - cy;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      const safeZoneHeight = rect.height - (isMobile ? 220 : 350);
+      const baseRadius = (safeZoneHeight / 2) * 1.02;
+
+      // Only react when hovering over the globe area
+      if (dist < baseRadius) {
+        // Increased sensitivity to reach ~30 degrees (0.52 rad) at max vertical distance
+        const mouseY = dy * 0.001;
+        targetRotX = 0.20 + mouseY;
+      }
+      // If outside, targetRotX is maintained at its last state
     };
     window.addEventListener('mousemove', handleMouseMove);
 
@@ -685,7 +699,7 @@ const Hero: React.FC = () => {
       // 전역 회전 감쇄 (회전 속도 0.0032 복구)
       const rotSpeedScale = Math.max(0, 1 - transP * 4.0);
       currentRotY += 0.0032 * rotSpeedScale;
-      currentRotX += (targetRotX - currentRotX) * 0.05 * rotSpeedScale;
+      currentRotX += (targetRotX - currentRotX) * 0.12 * rotSpeedScale; // Snappier response (increased from 0.05)
 
       // "한쪽 방향 회전" 느낌을 완벽히 지우기 위해 영향력 상쇄
       const rotationInfluence = Math.min(1, Math.max(0, 1 - (p - 0.2) * 4));
@@ -934,31 +948,31 @@ const Hero: React.FC = () => {
                   <g filter="url(#glow)">
                     <text
                       x="50%"
-                      y="30%"
+                      y="35%"
                       textAnchor="middle"
                       dominantBaseline="middle"
                       className="font-black"
-                      style={{ fontSize: '150px', fontFamily: '"Inter", sans-serif', fontWeight: 900, letterSpacing: '0.02em', paintOrder: 'stroke fill' }}
+                      style={{ fontSize: '135px', fontFamily: '"Inter", sans-serif', fontWeight: 900, letterSpacing: '0.02em', paintOrder: 'stroke fill' }}
                       fill="#050510"
                       stroke="url(#textGradient)"
                       strokeWidth="4.5"
                       strokeLinejoin="round"
                     >
-                      THE DECLARATION OF
+                      THE DIGITAL EARTH
                     </text>
                     <text
                       x="50%"
-                      y="71.25%"
+                      y="70%"
                       textAnchor="middle"
                       dominantBaseline="middle"
                       className="font-black"
-                      style={{ fontSize: '150px', fontFamily: '"Inter", sans-serif', fontWeight: 900, letterSpacing: '0.02em', paintOrder: 'stroke fill' }}
+                      style={{ fontSize: '120px', fontFamily: '"Inter", sans-serif', fontWeight: 900, letterSpacing: '0.01em', paintOrder: 'stroke fill' }}
                       fill="#050510"
                       stroke="url(#textGradient)"
                       strokeWidth="4.5"
                       strokeLinejoin="round"
                     >
-                      A DIGITAL EARTH
+                      CONNECTED TO REALITY
                     </text>
                   </g>
                 </>
@@ -976,7 +990,7 @@ const Hero: React.FC = () => {
                     strokeWidth="4.5"
                     strokeLinejoin="round"
                   >
-                    THE DECLARATION OF A DIGITAL EARTH
+                    THE DIGITAL EARTH, CONNECTED TO REALITY
                   </text>
                 </g>
               )}
