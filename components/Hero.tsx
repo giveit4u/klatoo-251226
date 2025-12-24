@@ -584,32 +584,7 @@ const Hero: React.FC = () => {
           },
           driftSpeed: Math.random() * 0.5 + 0.2,
           phase: Math.random() * Math.PI * 2,
-          isTwinkle: false // 반짝임 제거
-        });
-      } else if (Math.random() < 0.24) {
-        // Create Fill Particles (우주 공간 채우기용)
-        const randPhi = Math.random() * Math.PI * 2;
-        const randTheta = Math.random() * Math.PI;
-        const dist = 3.0 + Math.random() * 20.0;
-        const startX = Math.sin(randTheta) * Math.cos(randPhi) * dist;
-        const startY = Math.cos(randTheta) * dist;
-        const startZ = Math.sin(randTheta) * Math.sin(randPhi) * dist;
-
-        particles.push({
-          x, y, z,
-          startX, startY, startZ,
-          isFill: true,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          baseAlpha: opacities[Math.floor(Math.random() * opacities.length)],
-          size: (Math.random() * 0.5 + 0.6) * baseSizeFactor,
-          driftDir: {
-            x: (Math.random() - 0.5) * 4,
-            y: (Math.random() - 0.5) * 4,
-            z: (Math.random() - 0.5) * 4
-          },
-          driftSpeed: Math.random() * 0.8 + 0.4,
-          phase: Math.random() * Math.PI * 2,
-          isTwinkle: false // 반짝임 제거
+          isTwinkle: false
         });
       }
     }
@@ -645,22 +620,22 @@ const Hero: React.FC = () => {
 
 
     let currentRotY = 4.2; // Atlantic start
-    let targetRotX = 0;
-    let currentRotX = 0;
+    let targetRotX = 0.20; // 카메라 높이 하향 조정된 상태
+    let currentRotX = 0.20;
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!canvasWidth) return;
       const rect = canvas.getBoundingClientRect();
       const cy = rect.height / 2;
-      const mouseY = (e.clientY - rect.top - cy) * 0.0001; // 백업 파일의 정교한 반응성 복구
-      targetRotX = mouseY;
+      const mouseY = (e.clientY - rect.top - cy) * 0.0001;
+      targetRotX = 0.20 + mouseY; // 베이스 틸트 유지
     };
     window.addEventListener('mousemove', handleMouseMove);
 
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: 'top top',
-      end: '+=1000', // 섹션 간 이동 거리를 60% 단축
+      end: '+=500', // 이전의 안정적인 인터벌로 복구 (500px)
       pin: true,
       scrub: 1,
       onUpdate: (self) => {
@@ -678,20 +653,24 @@ const Hero: React.FC = () => {
       time += 0.002;
       const p = scrollState.current.progress;
 
-      // --- TRANSITION PARAMETERS (Compacted Timing) ---
+      // --- TRANSITION PARAMETERS (Damped Expansion for Lingering Look) ---
       const transitionStart = 0.05;
       const transP = Math.max(0, (p - transitionStart) / (1 - transitionStart));
-      const easeTrans = transP * transP;
 
-      const pExplosion = easeTrans * 1.5;
+      // 초반엔 확산되다가 중간부터 반경 증가폭을 좁혀 화면 안에 오래 머물게 함
+      const expansionFactor = transP < 0.5
+        ? transP * transP * 1.5
+        : (0.25 * 1.5) + (transP - 0.5) * 0.4;
+
+      const pExplosion = expansionFactor;
       const particleExpansion = pExplosion * 35000;
 
       const pGridZoom = Math.pow(p, 1.4);
       const gridExpansion = pGridZoom * 42000;
 
-      // 그리드와 텍스트 소멸 타이밍을 더 타이트하게 조정
-      const gridFadeStart = 0.1;
-      const gridFadeEnd = 0.25;
+      // 그리드와 텍스트 소멸 타이밍 복구
+      const gridFadeStart = 0.08;
+      const gridFadeEnd = 0.2;
       const fadeProgress = p > gridFadeStart ? Math.min((p - gridFadeStart) / (gridFadeEnd - gridFadeStart), 1.0) : 0;
 
       if (textRef.current) {
@@ -703,9 +682,9 @@ const Hero: React.FC = () => {
         textRef.current.style.display = (p > 0.35 || textOpacity <= 0) ? 'none' : 'block';
       }
 
-      // 전역 회전 감쇄 (회전 속도 2배 상향: 0.0016)
+      // 전역 회전 감쇄 (회전 속도 0.0032 복구)
       const rotSpeedScale = Math.max(0, 1 - transP * 4.0);
-      currentRotY += 0.0016 * rotSpeedScale;
+      currentRotY += 0.0032 * rotSpeedScale;
       currentRotX += (targetRotX - currentRotX) * 0.05 * rotSpeedScale;
 
       // "한쪽 방향 회전" 느낌을 완벽히 지우기 위해 영향력 상쇄
@@ -740,7 +719,8 @@ const Hero: React.FC = () => {
             let ry2 = pt2.y * cosX - rz2 * sinX;
             let rz2_final = rz2 * cosX + pt2.y * sinX;
 
-            const gridRadius = (baseRadius + gridExpansion) * 0.985;
+            // 그리드와 파티클 밀착 상태 복구
+            const gridRadius = (baseRadius + gridExpansion);
             const zDepth1 = fov + rz1_final * gridRadius;
             const zDepth2 = fov + rz2_final * gridRadius;
 
@@ -800,8 +780,10 @@ const Hero: React.FC = () => {
         const scatter = pExplosion * 45000 * pt.phase;
         const currentRadius = baseRadius + particleExpansion + scatter;
 
-        // "사방팔방 자유 유영" 효과 (백업 파일의 floatX/Y/Z 느낌 차용)
-        const driftIntensity = p * 3800;
+        // "사방팔방 자유 유영" 효과 (후반부엔 유영 속도를 늦춰 화면 내 체류시간 증대)
+        const driftIntensity = p < 0.6
+          ? p * 3800
+          : (0.6 * 3800) + (p - 0.6) * 1200;
         const driftX = pt.driftDir.x * driftIntensity;
         const driftY = pt.driftDir.y * driftIntensity;
         const driftZ = pt.driftDir.z * driftIntensity;
@@ -830,18 +812,15 @@ const Hero: React.FC = () => {
         const globeScale = Math.sqrt(baseRadius / 260);
         const perspectiveFactor = 1.0 - (rz_f / baseRadius) * 0.2;
 
-        // 트랜지션 시 크기 팽창 로직 (백업의 transSizeScale 조절)
-        const transSizeScale = 1.0 + easeTrans * 2.2;
+        // 트랜지션 시 크기 팽창 로직 (확산 Factor 기반으로 동기화)
+        const transSizeScale = 1.0 + expansionFactor * 1.0;
         let size = pt.size * scale * perspectiveFactor * globeScale * introSizeScale * transSizeScale;
 
         let alpha = pt.baseAlpha * introAlpha;
-        if (pt.isFill) {
-          // Fill 입자는 트랜지션 시 나타남 (백업 기준)
-          alpha *= (0.1 + transP * 2.5);
-        }
+        // isFill 파티클 로직 제거됨
 
         let finalColor = pt.color;
-        // 반짝임 로직 제거 (twinklePulse 제거)
+        // 반짝임 로직 제거
 
         // --- BACKSIDE PARTICLE CULLING ---
         // rz_f > 0 이면 뒷면. p > 0.2 이후부터 뒷면 소멸 시작
@@ -862,11 +841,11 @@ const Hero: React.FC = () => {
           }
         }
 
-        // 최종 페이드아웃 (정보 섹션 도달 직전)
-        const particleFadeStart = 0.9;
+        // 최종 페이드아웃 (다음 섹션과 자연스럽게 겹치도록 타이밍 88% 지점으로 늦추고 곡선 완화)
+        const particleFadeStart = 0.88;
         if (p > particleFadeStart) {
           const pfProgress = (p - particleFadeStart) / (1 - particleFadeStart);
-          alpha *= (1 - Math.pow(pfProgress, 1.5));
+          alpha *= (1 - Math.pow(pfProgress, 2.5)); // 더 긴 꼬리를 갖는 부드러운 소멸
         }
 
         renderbuf.push({
