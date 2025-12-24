@@ -126,3 +126,9 @@ The goal was to transform the Hero section into a premium, cinematic experience.
     - **Speed & Perspective**: 회전 속도를 **2배(0.0032)**로 높여 역동성을 더하고, 카메라 베이스 틸트를 **0.20**으로 조정하여 더 안정적인 시점을 확보했습니다.
 - **Visual De-noising**: 반짝임(`twinkle`) 효과와 바다 지역의 `Fill Particles`를 제거하여 지형의 실루엣이 더 명확하고 깔끔하게 보이도록 정제했습니다.
 - **Stability**: `ScrollTrigger`의 end 값을 **500px**로 최종 고정하여, 섹션 간의 전환 속도와 인터랙션 반응성의 최적 균형을 맞췄습니다.
+
+### 5.8. Globe Interaction Precision & Range (2025-12-24 Night)
+- **Globe-Specific Hover Area**: 마우스 인터랙션 범위를 지구본의 실제 반지름 내로 제한했습니다. 이제 지구본 외부의 빈 공간에서는 틸트가 반응하지 않아 사용자 의도가 더 명확하게 반영됩니다.
+- **Persistent Tilt Angle**: 마우스 커서가 지구본 영역을 벗어나더라도 마지막으로 기울어졌던 각도를 그대로 유지하도록 로직을 변경했습니다. (기존: 기본 각도로 복귀)
+- **Expanded Tilt Range**: 상하 기울기 감도를 상향하여, 최대 가동 범위를 약 **30도** 수준까지 확장했습니다. 이를 통해 더 역동적인 시점 변화가 가능해졌습니다.
+- **Snappier Responsiveness**: 틸트 보간(Interpolation) 계수를 **0.12**로 높여, 마우스 움직임에 따른 즉각적이고 딜레이 없는 반응성을 확보했습니다.

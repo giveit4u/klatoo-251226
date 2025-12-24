@@ -20,14 +20,15 @@ const VisionParticles = () => {
         let h = canvas.height = window.innerHeight;
         const particles: { x: number; y: number; s: number; vx: number; vy: number; a: number; curA: number }[] = [];
 
-        for (let i = 0; i < 80; i++) {
+        const particleCount = window.innerWidth < 768 ? 120 : 220;
+        for (let i = 0; i < particleCount; i++) {
             particles.push({
                 x: Math.random() * w,
                 y: Math.random() * h,
-                s: Math.random() * 2 + 1,
-                vx: (Math.random() - 0.5) * 0.3,
-                vy: (Math.random() - 0.5) * 0.3,
-                a: Math.random() * 0.5 + 0.2,
+                s: Math.random() * 2 + 0.5,
+                vx: (Math.random() - 0.5) * 0.25,
+                vy: (Math.random() - 0.5) * 0.25,
+                a: Math.random() * 0.4 + 0.1,
                 curA: 0
             });
         }
@@ -50,16 +51,12 @@ const VisionParticles = () => {
                 if (p.y > h) p.y = 0;
 
                 // Subtle breathing alpha
-                p.curA = p.a * (0.6 + Math.sin(Date.now() * 0.001 + p.x) * 0.4);
+                p.curA = p.a * (0.5 + Math.sin(Date.now() * 0.001 + p.x * 0.01) * 0.5);
 
                 ctx.fillStyle = `rgba(70, 64, 250, ${p.curA})`;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
                 ctx.fill();
-
-                // Add tiny glow
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = '#4640fa';
             });
             animationFrameId = requestAnimationFrame(render);
         };
@@ -85,67 +82,76 @@ export default function Information() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // 1. Vision Parallax & Fade
+            // 1. Vision Parallax & Fade - Mobile optimized
             gsap.from('.vision-text', {
                 scrollTrigger: {
                     trigger: '.vision-section',
-                    start: 'top 60%',
+                    start: 'top 80%', // More forgiving for mobile
                     end: 'bottom 20%',
                     scrub: 1,
+                    toggleActions: 'play none none reverse',
                 },
-                y: 100,
+                y: 60, // Reduced movement for mobile
                 opacity: 0,
-                stagger: 0.2,
+                stagger: 0.15,
+                immediateRender: false, // Prevent initial hide
             });
 
-            // 2. Bento Grid Stagger
+            // 2. Bento Grid Stagger - Mobile optimized
             gsap.from('.bento-item', {
                 scrollTrigger: {
                     trigger: '.features-section',
-                    start: 'top 70%',
+                    start: 'top 85%', // Earlier trigger for mobile
+                    toggleActions: 'play none none reverse',
                 },
-                y: 50,
+                y: 40,
                 opacity: 0,
-                duration: 0.8,
-                stagger: 0.1,
+                duration: 0.7,
+                stagger: 0.08,
                 ease: 'power2.out',
+                immediateRender: false,
             });
 
-            // 3. Kubic Cycle
+            // 3. Kubic Cycle - Mobile optimized
             const mechanismTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.kubic-section',
-                    start: 'top 60%',
+                    start: 'top 75%',
                     end: 'bottom 80%',
                     toggleActions: 'play reverse play reverse'
                 }
             });
             mechanismTl.from('.mechanism-step', {
-                x: -30,
+                x: -20,
                 opacity: 0,
-                stagger: 0.3,
-                duration: 0.6
+                stagger: 0.2,
+                duration: 0.5,
+                immediateRender: false,
             });
 
-            // 4. Economy Split
+            // 4. Economy Split - Mobile optimized
             gsap.from('.economy-left', {
                 scrollTrigger: {
                     trigger: '.economy-section',
-                    start: 'top 70%',
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse',
                 },
-                x: -50,
+                x: -30,
                 opacity: 0,
-                duration: 1,
+                duration: 0.8,
+                immediateRender: false,
             });
             gsap.from('.economy-right', {
                 scrollTrigger: {
                     trigger: '.economy-section',
-                    start: 'top 70%',
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse',
                 },
-                x: 50,
+                x: 30,
                 opacity: 0,
-                duration: 1,
-                delay: 0.2
+                duration: 0.8,
+                delay: 0.15,
+                immediateRender: false,
             });
 
             // 5. Kubic Section Scanline Animation
@@ -169,7 +175,7 @@ export default function Information() {
     }, []);
 
     return (
-        <div ref={containerRef} className="w-full bg-black text-white overflow-hidden relative font-sans">
+        <div ref={containerRef} className="w-full bg-[#030308] text-white overflow-hidden relative font-sans">
 
             {/* --- SECTION 1: VISION --- */}
             <section className="vision-section relative w-full min-h-screen flex flex-col justify-center items-center px-6 py-24 overflow-hidden">
@@ -187,7 +193,7 @@ export default function Information() {
                         <h2 className="text-[#4640fa] tracking-[0.2em] text-sm md:text-base font-bold uppercase">The Declaration of a Digital Earth</h2>
                         <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight leading-[1.1]">
                             We Are Building<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#4640fa]">A Digital Earth.</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#4640fa]">THE DIGITAL EARTH.</span>
                         </h1>
                         <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto pt-4">
                             Rooted in reality. Designed for real value.
@@ -202,8 +208,8 @@ export default function Information() {
                                 We are not escaping reality. We are layering a digital world directly on top of it.
                             </p>
                         </div>
-                        <div className="space-y-6 flex flex-col justify-center border-l-2 border-[#4640fa]/30 pl-8">
-                            <p className="text-2xl md:text-3xl font-light text-white leading-snug">
+                        <div className="space-y-6 flex flex-col justify-center md:border-l-2 border-[#4640fa]/30 md:pl-8">
+                            <p className="text-xl md:text-3xl font-light text-white leading-snug">
                                 "On the digital layer,<br />
                                 <span className="font-bold text-[#4640fa]">reality overlaps</span>,<br />
                                 and value accumulates."

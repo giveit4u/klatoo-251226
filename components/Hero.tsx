@@ -688,7 +688,7 @@ const Hero: React.FC = () => {
       const fadeProgress = p > gridFadeStart ? Math.min((p - gridFadeStart) / (gridFadeEnd - gridFadeStart), 1.0) : 0;
 
       if (textRef.current) {
-        const textOpacity = Math.max(0, 1 - fadeProgress * 4.5);
+        const textOpacity = Math.max(0, 1 - fadeProgress * 2.8); // 4.5에서 2.8로 완화하여 더 오래 머무름
         textRef.current.style.opacity = textOpacity.toString();
         // 백업 느낌을 위해 위로 슬라이딩 효과 추가
         const translateY = p * -300;
@@ -919,13 +919,13 @@ const Hero: React.FC = () => {
   }, [isMobile]);
 
   return (
-    <section ref={sectionRef} className="relative w-full z-10 bg-[#050510]">
+    <section ref={sectionRef} className="relative w-full z-10 bg-[#030308]">
       <div className="h-screen w-full sticky top-0 overflow-hidden" ref={containerRef}>
         <canvas ref={canvasRef} className="block w-full h-full" />
 
         <div
           ref={textRef}
-          className="absolute bottom-[20px] left-1/2 -translate-x-1/2 z-20 pointer-events-none text-center mix-blend-screen w-full transition-opacity duration-100 ease-linear"
+          className="absolute bottom-[50px] left-1/2 -translate-x-1/2 z-20 pointer-events-none text-center mix-blend-screen w-full transition-opacity duration-100 ease-linear"
         >
           <div className={`w-full ${isMobile ? 'px-[20px]' : 'px-[60px]'}`}>
             <svg viewBox={isMobile ? "0 0 1800 400" : "0 0 4500 300"} className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
