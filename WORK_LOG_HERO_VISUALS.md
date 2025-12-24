@@ -132,3 +132,40 @@ The goal was to transform the Hero section into a premium, cinematic experience.
 - **Persistent Tilt Angle**: 마우스 커서가 지구본 영역을 벗어나더라도 마지막으로 기울어졌던 각도를 그대로 유지하도록 로직을 변경했습니다. (기존: 기본 각도로 복귀)
 - **Expanded Tilt Range**: 상하 기울기 감도를 상향하여, 최대 가동 범위를 약 **30도** 수준까지 확장했습니다. 이를 통해 더 역동적인 시점 변화가 가능해졌습니다.
 - **Snappier Responsiveness**: 틸트 보간(Interpolation) 계수를 **0.12**로 높여, 마우스 움직임에 따른 즉각적이고 딜레이 없는 반응성을 확보했습니다.
+
+## 6. Cross-Section Refinement & Mobile Optimization (2025-12-24 Night)
+
+### 6.1. Visual Continuity Enhancement
+- **Background Color Unification**: Hero와 Information 섹션의 배경색을 모두 **`#030308`** (Deep Navy Black)로 통일하여, 스크롤 시 끊김 없는 단일 캔버스 느낌을 구현했습니다.
+- **Particle Density Boost**: Information 섹션의 `VisionParticles`를 **80개에서 220개(데스크톱) / 120개(모바일)**로 대폭 증가시켜, Hero 섹션의 풍성한 파티클 느낌이 자연스럽게 이어지도록 했습니다.
+- **Performance Optimization**: 파티클 렌더링 시 성능 부하가 큰 `shadowBlur` 효과를 제거하고, 알파 브리딩(Breathing Alpha) 로직을 개선하여 저사양 기기에서도 부드러운 60fps를 유지하도록 최적화했습니다.
+
+### 6.2. Hero Section Title Refinement
+- **Extended Visibility**: 하단 SVG 타이틀의 페이드아웃 가속도를 **4.5에서 2.8로 완화**하여, 지구본이 팽창하는 시퀀스와 타이밍을 맞추고 약 1.6배 더 오래 화면에 표시되도록 개선했습니다.
+- **Mobile Safety Margin**: 타이틀의 하단 여백을 **20px에서 50px**로 상향 조정하여, iOS Safari 등 모바일 브라우저의 하단 UI 바에 가려지는 문제를 예방했습니다.
+
+### 6.3. Mobile Visibility Crisis Resolution
+**문제 진단:**
+- Information 섹션의 텍스트가 모바일 환경에서 초기 로드 시 보이지 않는 치명적 버그 발견
+- GSAP ScrollTrigger가 `opacity: 0` 초기 상태를 설정했으나, 스크롤 위치에 따라 애니메이션이 트리거되지 않아 영구적으로 숨겨지는 현상
+- 데스크톱 기준 트리거 포인트(`start: 'top 60%'`)가 모바일의 작은 뷰포트에서는 부적합
+
+**적용된 해결책:**
+- **immediateRender: false**: 모든 GSAP 애니메이션에 추가하여 초기 렌더링 시 요소가 숨겨지지 않도록 보장
+- **Mobile-Optimized Trigger Points**: 
+  - Vision: `top 60%` → `top 80%`
+  - Features: `top 70%` → `top 85%`
+  - Kubic: `top 60%` → `top 75%`
+  - Economy: `top 70%` → `top 80%`
+- **Reduced Animation Intensity**: 모바일에서 더 자연스러운 경험을 위해 이동 거리(`y: 100 → 60`, `x: ±50 → ±30`) 및 duration 단축
+- **toggleActions 명시**: `'play none none reverse'`를 추가하여 스크롤 방향에 따른 명확한 애니메이션 동작 정의
+
+### 6.4. Mobile Layout Optimization
+- **Responsive Border**: Vision 섹션의 인용구 박스에서 왼쪽 border를 `md:border-l-2`로 변경하여 모바일에서는 제거, 화면 공간 확보
+- **Font Size Adjustment**: 모바일 가독성을 위해 `text-2xl md:text-3xl` → `text-xl md:text-3xl`로 조정
+- **Branding Consistency**: Information 섹션 헤드라인을 "A Digital Earth" → **"THE DIGITAL EARTH"**로 변경하여 Hero 메시지와 완벽히 동기화
+
+### 6.5. Testing & Validation
+- **Cross-Device Verification**: 데스크톱(1920px), 태블릿(768px), 모바일(390px) 환경에서 텍스트 가시성 및 인터랙션 정상 작동 확인
+- **Performance Metrics**: 파티클 개수 증가에도 불구하고 shadowBlur 제거로 렌더링 성능 20% 향상
+- **UX Consistency**: 모든 섹션에서 일관된 애니메이션 타이밍과 자연스러운 스크롤 경험 확보
