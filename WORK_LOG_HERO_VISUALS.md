@@ -278,3 +278,8 @@ The goal was to transform the Hero section into a premium, cinematic experience.
 - **Issue**: `npm error code ERESOLVE` during Vercel build. Conflict between `react@^19.0.0` (Next.js 15 default) and outdated `lucide-react@0.344.0` (requires react < 19).
 - **Resolution**: Updated `lucide-react` to latest version (^`0.562.0`).
 - **Action**: Ran `npm install lucide-react@latest` to resolve peer dependency conflicts.
+
+### 9.2. Next.js Security Update
+- **Issue**: Vercel deployment failed due to `Vulnerable version of Next.js detected` (Next.js 15.1.0).
+- **Resolution**: Updated `next`, `react`, and `react-dom` to the latest stable versions to resolve the security vulnerability.
+- **Action**: Ran `npm install next@latest react@latest react-dom@latest`.
