@@ -2,8 +2,11 @@
 
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   const scrollToTop = (e: React.MouseEvent) => {
     e.preventDefault();
     // Standard window scroll
@@ -79,12 +82,12 @@ export default function Footer() {
         {/* Bottom Section: Links and Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center text-xs tracking-tight">
           <div className="flex flex-wrap justify-center md:justify-start gap-6 mb-4 md:mb-0">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Terms for location based services</a>
+            <a href="#" className="hover:text-white transition-colors">{t('footer.privacy')}</a>
+            <a href="#" className="hover:text-white transition-colors">{t('footer.terms')}</a>
+            <a href="#" className="hover:text-white transition-colors">{t('footer.location')}</a>
           </div>
           <div className="opacity-60 text-center md:text-right">
-            All rights reserved &copy; {new Date().getFullYear()} UNDERPIN.
+            {t('footer.copyright')} &copy; {new Date().getFullYear()} UNDERPIN.
           </div>
         </div>
       </div>

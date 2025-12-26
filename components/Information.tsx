@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,6 +74,7 @@ const VisionParticles = () => {
 
 export default function Information() {
     const containerRef = useRef<HTMLDivElement>(null);
+    const { t } = useLanguage();
 
     // Asset Paths (assuming images are placed in public/assets or similar - utilizing generated ones)
     // For this environment, we'll assume they need to be moved to the public folder by the user or are served correctly.
@@ -190,29 +192,28 @@ export default function Information() {
 
                 <div className="relative z-10 max-w-5xl w-full text-center space-y-12">
                     <div className="vision-text space-y-4">
-                        <h2 className="text-[#4640fa] tracking-[0.2em] text-sm md:text-base font-bold uppercase">The Declaration of a Digital Earth</h2>
+                        <h2 className="text-[#4640fa] tracking-[0.2em] text-sm md:text-base font-bold uppercase">{t('info.vision.subtitle')}</h2>
                         <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight leading-[1.1]">
-                            We Are Building<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#4640fa]">THE DIGITAL EARTH.</span>
+                            {t('info.vision.title1')}<br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#4640fa]">{t('info.vision.title2')}</span>
                         </h1>
                         <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto pt-4">
-                            Rooted in reality. Designed for real value.
+                            {t('info.vision.description')}
                         </p>
                     </div>
 
                     <div className="vision-text grid grid-cols-1 md:grid-cols-2 gap-12 text-left bg-white/5 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/10">
                         <div className="space-y-6">
-                            <h3 className="text-2xl font-bold text-white">Not a Virtual Fantasy</h3>
+                            <h3 className="text-2xl font-bold text-white">{t('info.vision.card1.title')}</h3>
                             <p className="text-gray-300 leading-relaxed">
-                                KLATOO is built on real locations, real people, and real-world activity — faithfully mirrored onto a digital earth.
-                                We are not escaping reality. We are layering a digital world directly on top of it.
+                                {t('info.vision.card1.desc')}
                             </p>
                         </div>
                         <div className="space-y-6 flex flex-col justify-center md:border-l-2 border-[#4640fa]/30 md:pl-8">
                             <p className="text-xl md:text-3xl font-light text-white leading-snug">
-                                "On the digital layer,<br />
-                                <span className="font-bold text-[#4640fa]">reality overlaps</span>,<br />
-                                and value accumulates."
+                                {t('info.vision.card2.quote1')}<br />
+                                <span className="font-bold text-[#4640fa]">{t('info.vision.card2.quote2')}</span>
+                                {t('info.vision.card2.quote3')}
                             </p>
                         </div>
                     </div>
@@ -224,8 +225,8 @@ export default function Information() {
             <section id="features" className="features-section w-full px-6 py-32 bg-[#050505]">
                 <div className="max-w-7xl mx-auto space-y-16">
                     <div className="text-center space-y-4 mb-20">
-                        <h2 className="bento-item text-[#4640fa] font-bold tracking-widest uppercase">Key Features</h2>
-                        <h3 className="bento-item text-4xl md:text-5xl font-bold">From Local to Global,<br />With Assetization Built In.</h3>
+                        <h2 className="bento-item text-[#4640fa] font-bold tracking-widest uppercase">{t('info.features.subtitle')}</h2>
+                        <h3 className="bento-item text-4xl md:text-5xl font-bold" dangerouslySetInnerHTML={{ __html: t('info.features.title').replace('\n', '<br />') }}></h3>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
@@ -237,8 +238,8 @@ export default function Information() {
                                     <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                                 </div>
                                 <div>
-                                    <h4 className="text-2xl font-bold mb-4">Location-Based Posting</h4>
-                                    <p className="text-gray-400">Every piece of content begins with where it happens. Anchor your moments to real coordinates.</p>
+                                    <h4 className="text-2xl font-bold mb-4">{t('info.features.card1.title')}</h4>
+                                    <p className="text-gray-400">{t('info.features.card1.desc')}</p>
                                 </div>
                             </div>
                         </div>
@@ -248,13 +249,13 @@ export default function Information() {
                             {/* Abstract visual for flow */}
                             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent" />
                             <div className="relative z-10">
-                                <h4 className="text-2xl font-bold mb-2">Local-to-Global Flow</h4>
-                                <p className="text-gray-400 max-w-md">A single local post can scale into global visibility. Traffic turns into revenue share.</p>
+                                <h4 className="text-2xl font-bold mb-2">{t('info.features.card2.title')}</h4>
+                                <p className="text-gray-400 max-w-md">{t('info.features.card2.desc')}</p>
                             </div>
                             <div className="mt-8 flex items-center space-x-4">
-                                <span className="px-4 py-2 bg-white/5 rounded-full text-xs uppercase tracking-wider text-[#4640fa]">Local</span>
+                                <span className="px-4 py-2 bg-white/5 rounded-full text-xs uppercase tracking-wider text-[#4640fa]">{t('info.features.card2.local')}</span>
                                 <div className="h-[1px] w-12 bg-gradient-to-r from-[#4640fa] to-transparent"></div>
-                                <span className="px-4 py-2 bg-white/10 rounded-full text-xs uppercase tracking-wider text-white">Global</span>
+                                <span className="px-4 py-2 bg-white/10 rounded-full text-xs uppercase tracking-wider text-white">{t('info.features.card2.global')}</span>
                             </div>
                         </div>
 
@@ -266,8 +267,8 @@ export default function Information() {
                             </div>
 
                             <div className="relative z-10 w-full">
-                                <h4 className="text-3xl font-bold mb-3"><span className="text-[#4640fa]">Kubic.</span> The Ownable Surface.</h4>
-                                <p className="text-gray-300">All activity accumulates on the digital surface of the earth. <br /> Digital land, valued by real economics.</p>
+                                <h4 className="text-3xl font-bold mb-3"><span className="text-[#4640fa]">Kubic.</span> {t('info.features.card3.title')}</h4>
+                                <p className="text-gray-300">{t('info.features.card3.desc')}</p>
                             </div>
                             <div className="relative z-10 mt-6 md:mt-0 md:ml-auto">
                                 <span className="inline-flex items-center justify-center w-16 h-16 rounded-full border border-white/20 group-hover:border-[#4640fa] group-hover:text-[#4640fa] transition-all">
@@ -294,17 +295,15 @@ export default function Information() {
                 <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
                     {/* Left Copy */}
                     <div className="col-span-1 md:col-span-4 space-y-8">
-                        <h2 className="text-[#4640fa] font-bold tracking-widest uppercase">KUBIC x LBS Posting</h2>
-                        <h3 className="text-4xl md:text-5xl font-bold leading-tight">Content Shapes<br />The Land.</h3>
+                        <h2 className="text-[#4640fa] font-bold tracking-widest uppercase">{t('info.kubic.subtitle')}</h2>
+                        <h3 className="text-4xl md:text-5xl font-bold leading-tight" dangerouslySetInnerHTML={{ __html: t('info.kubic.title').replace('\n', '<br />') }}></h3>
                         <p className="text-gray-400 text-lg">
-                            On KLATOO, content does not end as content.
-                            As meaningful posts accumulate, the Kubic tied to that location becomes active —
-                            and its value grows.
+                            {t('info.kubic.description1')}
                         </p>
                         <div className="pl-6 border-l-4 border-[#4640fa]">
                             <p className="text-white italic text-xl">
-                                "You don’t buy land and wait.<br />
-                                You activate land and grow it."
+                                {t('info.kubic.quote1')}<br />
+                                {t('info.kubic.quote2')}
                             </p>
                         </div>
                     </div>
@@ -312,9 +311,9 @@ export default function Information() {
                     {/* Right Mechanism */}
                     <div className="col-span-1 md:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-6">
                         {[
-                            { step: "01", title: "Creators Post", desc: "Short-form content created at real-world places." },
-                            { step: "02", title: "Engagement Stacks", desc: "Views, interactions, and sharing stack onto the Kubic." },
-                            { step: "03", title: "Kubic Gains Value", desc: "Land with real activity naturally becomes more valuable." }
+                            { step: "01", title: t('info.kubic.step1.title'), desc: t('info.kubic.step1.desc') },
+                            { step: "02", title: t('info.kubic.step2.title'), desc: t('info.kubic.step2.desc') },
+                            { step: "03", title: t('info.kubic.step3.title'), desc: t('info.kubic.step3.desc') }
                         ].map((item, i) => (
                             <div key={i} className="mechanism-step bg-[#111] p-8 rounded-2xl border border-white/5 hover:border-white/20 transition-colors relative overflow-hidden group">
                                 <span className="text-6xl font-bold text-[#222] absolute top-4 right-4 group-hover:text-[#4640fa]/50 transition-colors">{item.step}</span>
@@ -339,8 +338,8 @@ export default function Information() {
 
                 <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
                     <div className="text-center mb-20">
-                        <h2 className="text-[#4640fa] font-bold tracking-widest uppercase mb-4">Why Kubic Has Real Value</h2>
-                        <h3 className="text-4xl md:text-6xl font-bold">A New Economic Dimension</h3>
+                        <h2 className="text-[#4640fa] font-bold tracking-widest uppercase mb-4">{t('info.economy.subtitle')}</h2>
+                        <h3 className="text-4xl md:text-6xl font-bold">{t('info.economy.title')}</h3>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
@@ -350,13 +349,13 @@ export default function Information() {
                             <div>
                                 <h4 className="text-2xl font-bold mb-4 flex items-center">
                                     <span className="w-2 h-8 bg-[#4640fa] mr-4 rounded-sm" />
-                                    Revenue Is Shared, Not Extracted
+                                    {t('info.economy.left.title')}
                                 </h4>
                                 <p className="text-gray-300 leading-relaxed text-lg">
-                                    Value is shared — not captured. Kubic is designed so that value flows to:
+                                    {t('info.economy.left.desc')}
                                 </p>
                                 <ul className="mt-6 space-y-4">
-                                    {['Kubic Owners', 'Content Creators', 'The Platform Ecosystem'].map((item) => (
+                                    {[t('info.economy.list1'), t('info.economy.list2'), t('info.economy.list3')].map((item) => (
                                         <li key={item} className="flex items-center text-white font-medium">
                                             <div className="w-2 h-2 rounded-full bg-[#4640fa] mr-3" />
                                             {item}
@@ -366,8 +365,8 @@ export default function Information() {
                             </div>
                             <div className="pt-8 border-t border-white/10">
                                 <p className="text-xl text-center text-gray-200">
-                                    Ownership meets Creation.<br />
-                                    Creation meets Distribution.
+                                    {t('info.economy.left.quote1')}<br />
+                                    {t('info.economy.left.quote2')}
                                 </p>
                             </div>
                         </div>
@@ -375,15 +374,15 @@ export default function Information() {
                         {/* Right: Real Estate + Trading */}
                         <div className="economy-right space-y-8">
                             <div className="bg-[#111] p-8 rounded-2xl border border-white/5">
-                                <h5 className="text-gray-400 uppercase text-sm tracking-wider mb-2">Comparison</h5>
+                                <h5 className="text-gray-400 uppercase text-sm tracking-wider mb-2">{t('info.economy.right.box.title')}</h5>
                                 <div className="grid grid-cols-2 gap-8">
                                     <div>
-                                        <p className="text-xl font-bold text-white mb-2">Traditional Land</p>
-                                        <p className="text-sm text-gray-500">Value rises with foot traffic, activity, and visibility.</p>
+                                        <p className="text-xl font-bold text-white mb-2">{t('info.economy.right.box.row1.title')}</p>
+                                        <p className="text-sm text-gray-500">{t('info.economy.right.box.row1.desc')}</p>
                                     </div>
                                     <div>
-                                        <p className="text-xl font-bold text-[#4640fa] mb-2">Kubic</p>
-                                        <p className="text-sm text-gray-400">Value rises with posts, engagement, and global exposure.</p>
+                                        <p className="text-xl font-bold text-[#4640fa] mb-2">{t('info.economy.right.box.row2.title')}</p>
+                                        <p className="text-sm text-gray-400">{t('info.economy.right.box.row2.desc')}</p>
                                     </div>
                                 </div>
                             </div>
@@ -392,13 +391,13 @@ export default function Information() {
                                 <div className="absolute top-0 right-0 p-3 opacity-20">
                                     <svg className="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
                                 </div>
-                                <h4 className="text-3xl font-bold text-white mb-4 relative z-10">Trade the Surface of the World</h4>
+                                <h4 className="text-3xl font-bold text-white mb-4 relative z-10">{t('info.economy.right.card.title')}</h4>
                                 <p className="text-blue-200 mb-8 relative z-10">
-                                    Bid. Trade. Own.<br />
-                                    Track value growth in real time.
+                                    {t('info.economy.right.card.desc1')}<br />
+                                    {t('info.economy.right.card.desc2')}
                                 </p>
                                 <button className="px-8 py-3 bg-[#4640fa] text-white font-bold rounded-full hover:bg-white hover:text-[#4640fa] transition-colors relative z-10">
-                                    Explore Marketplace
+                                    {t('info.economy.button')}
                                 </button>
                                 <div className="absolute inset-0 bg-[#4640fa]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                             </div>
@@ -420,33 +419,33 @@ export default function Information() {
                     {/* Main Headline */}
                     <div className="space-y-6">
                         <h2 className="text-4xl md:text-6xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-[#8B7FFF] to-[#4640fa]">
-                            Global Trends and Stories
+                            {t('info.cta.title')}
                         </h2>
                         <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            From local moments to global movements.<br />
-                            Discover what's happening in the world.
+                            {t('info.cta.subtitle1')}<br />
+                            {t('info.cta.subtitle2')}
                         </p>
                     </div>
 
                     {/* CTA Button */}
                     <div className="pt-8">
                         <button className="px-10 py-4 bg-white/10 backdrop-blur-sm text-white text-base font-semibold rounded-full border border-white/20 hover:bg-white hover:text-black transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-                            Sign up now
+                            {t('info.cta.button')}
                         </button>
                     </div>
 
                     {/* Subtext */}
                     <div className="pt-4">
                         <p className="text-lg md:text-2xl text-gray-300">
-                            Join the movement that connects<br />
-                            <span className="font-bold text-white">Reality, Content, and Value.</span>
+                            {t('info.cta.description1')}<br />
+                            <span className="font-bold text-white">{t('info.cta.description2')}</span>
                         </p>
                     </div>
 
                     {/* Footer Tagline */}
                     <div className="pt-16 opacity-50">
                         <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-gray-500">
-                            KLATOO : THE OPERATING SYSTEM OF THE DIGITAL EARTH
+                            {t('info.cta.tagline')}
                         </p>
                     </div>
                 </div>

@@ -243,3 +243,25 @@ The goal was to transform the Hero section into a premium, cinematic experience.
 - **Intuitive Navigation**: 섹션 이동이 직관적이고 부드러움
 - **Visual Hierarchy**: 콘텐츠 우선순위가 명확하게 표현됨
 - **Accessibility**: 키보드 네비게이션 및 호버 피드백 개선
+
+## Phase 8: Internationalization (i18n) Implementation
+
+### 8.1. Language Context & Switcher
+- **Context Setup**: `contexts/LanguageContext.tsx` 생성, 전역 언어 상태 관리 (EN/KO).
+- **Language Switcher**: Navigation bar에 EN/KO 토글 버튼 추가 (Desktop & Mobile).
+- **State Persistence**: `useState`를 이용한 런타임 언어 변경 (새로고침 시 기본값 en).
+
+### 8.2. Component Translation Integration
+- **Navigation**: 메뉴 (About, Features, Kubic, Sign up) 및 Mobile Menu 다국어 적용.
+- **Hero Section**: 
+  - 메인 타이틀 ("THE DIGITAL EARTH...") 및 비전 서브타이틀 ("The Declaration...")은 **KO 모드에서도 영문 유지** (브랜드 아이덴티티 강화).
+  - 모바일 반응형 텍스트 분리 로직에 번역 상태 연결.
+- **Information Section**: 
+  - Vision, Key Features, Kubic x LBS, Economy, Global CTA 등 전 섹션 텍스트 `t()` 함수 치환.
+  - HTML 태그가 포함된 텍스트(줄바꿈 등) 처리를 위한 로직 구현.
+- **Footer**: 이용약관, 개인정보처리방침, 위치기반서비스 약관, 카피라이트 문구 한글화 적용.
+
+### 8.3. Design & Policy Decisions
+- **Selective Translation**: 핵심 슬로건 및 타이틀은 영문 원문을 유지하여 글로벌 감각 유지.
+- **Visual Feedback**: 현재 선택된 언어를 Navigation 바에서 하이라이트(Blue color) 처리.
+- **Mobile Experience**: 모바일 메뉴 하단에 언어 선택 옵션 배치하여 접근성 확보.

@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -469,6 +470,11 @@ function distanceToPolygonEdge(lat: number, lon: number, polygon: { lat: number;
 const Hero: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const { t } = useLanguage();
+  const heroTitle = t('hero.title');
+  const [mobileTitle1, mobileTitle2] = heroTitle.includes(',')
+    ? heroTitle.split(',').map(s => s.trim())
+    : [heroTitle, ''];
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -959,7 +965,7 @@ const Hero: React.FC = () => {
                       strokeWidth="4.5"
                       strokeLinejoin="round"
                     >
-                      THE DIGITAL EARTH
+                      {mobileTitle1}
                     </text>
                     <text
                       x="50%"
@@ -973,7 +979,7 @@ const Hero: React.FC = () => {
                       strokeWidth="4.5"
                       strokeLinejoin="round"
                     >
-                      CONNECTED TO REALITY
+                      {mobileTitle2}
                     </text>
                   </g>
                 </>
@@ -991,7 +997,7 @@ const Hero: React.FC = () => {
                     strokeWidth="4.5"
                     strokeLinejoin="round"
                   >
-                    THE DIGITAL EARTH, CONNECTED TO REALITY
+                    {heroTitle}
                   </text>
                 </g>
               )}

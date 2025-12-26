@@ -5,12 +5,14 @@ import { Menu, X } from 'lucide-react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -63,22 +65,42 @@ const Navigation: React.FC = () => {
             onClick={() => scrollToSection('about')}
             className="text-sm font-medium text-white hover:text-[#4640fa] transition-colors duration-300"
           >
-            About
+            {t('nav.about')}
           </button>
           <button
             onClick={() => scrollToSection('features')}
             className="text-sm font-medium text-white hover:text-[#4640fa] transition-colors duration-300"
           >
-            Features
+            {t('nav.features')}
           </button>
           <button
             onClick={() => scrollToSection('kubic')}
             className="text-sm font-medium text-white hover:text-[#4640fa] transition-colors duration-300"
           >
-            Kubic
+            {t('nav.kubic')}
           </button>
+
+          {/* Language Switcher */}
+          <div className="flex items-center gap-2 text-sm ml-2 mr-2">
+            <button
+              onClick={() => setLanguage('en')}
+              className={`font-medium transition-colors duration-300 ${language === 'en' ? 'text-[#4640fa]' : 'text-white/60 hover:text-white'
+                }`}
+            >
+              EN
+            </button>
+            <span className="text-white/40">/</span>
+            <button
+              onClick={() => setLanguage('ko')}
+              className={`font-medium transition-colors duration-300 ${language === 'ko' ? 'text-[#4640fa]' : 'text-white/60 hover:text-white'
+                }`}
+            >
+              KO
+            </button>
+          </div>
+
           <button className="px-6 py-2 bg-white text-black rounded-full text-sm font-medium hover:bg-[#4640fa] hover:text-white transition-all duration-300">
-            Sign up
+            {t('nav.signup')}
           </button>
         </div>
 
@@ -94,11 +116,27 @@ const Navigation: React.FC = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="absolute top-full left-0 w-full bg-[#030308] border-b border-white/10 p-6 md:hidden flex flex-col space-y-4">
-          <button onClick={() => scrollToSection('about')} className="text-lg font-medium text-white text-left">About</button>
-          <button onClick={() => scrollToSection('features')} className="text-lg font-medium text-white text-left">Features</button>
-          <button onClick={() => scrollToSection('kubic')} className="text-lg font-medium text-white text-left">Kubic</button>
+          <button onClick={() => scrollToSection('about')} className="text-lg font-medium text-white text-left">{t('nav.about')}</button>
+          <button onClick={() => scrollToSection('features')} className="text-lg font-medium text-white text-left">{t('nav.features')}</button>
+          <button onClick={() => scrollToSection('kubic')} className="text-lg font-medium text-white text-left">{t('nav.kubic')}</button>
+
+          <div className="flex gap-4 py-2">
+            <button
+              onClick={() => setLanguage('en')}
+              className={`text-lg font-medium ${language === 'en' ? 'text-[#4640fa]' : 'text-white/60'}`}
+            >
+              English
+            </button>
+            <button
+              onClick={() => setLanguage('ko')}
+              className={`text-lg font-medium ${language === 'ko' ? 'text-[#4640fa]' : 'text-white/60'}`}
+            >
+              한국어
+            </button>
+          </div>
+
           <button className="bg-white text-black px-6 py-3 rounded-full text-lg font-medium w-full hover:bg-[#4640fa] hover:text-white transition-all">
-            Sign up
+            {t('nav.signup')}
           </button>
         </div>
       )}

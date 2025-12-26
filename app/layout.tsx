@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import SmoothScroll from '../components/SmoothScroll';
-import { useEffect } from 'react';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' });
@@ -20,8 +20,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
-                <SmoothScroll />
-                {children}
+                <LanguageProvider>
+                    <SmoothScroll />
+                    {children}
+                </LanguageProvider>
                 <script dangerouslySetInnerHTML={{
                     __html: `
                         if ('scrollRestoration' in history) {
