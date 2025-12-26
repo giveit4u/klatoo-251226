@@ -11,6 +11,7 @@ export default {
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],
                 display: ['Space Grotesk', 'sans-serif'],
+                logo: ['var(--font-montserrat)', 'sans-serif'],
             },
             colors: {
                 kees: {

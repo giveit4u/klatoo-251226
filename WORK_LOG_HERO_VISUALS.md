@@ -265,3 +265,9 @@ The goal was to transform the Hero section into a premium, cinematic experience.
 - **Selective Translation**: 핵심 슬로건 및 타이틀은 영문 원문을 유지하여 글로벌 감각 유지.
 - **Visual Feedback**: 현재 선택된 언어를 Navigation 바에서 하이라이트(Blue color) 처리.
 - **Mobile Experience**: 모바일 메뉴 하단에 언어 선택 옵션 배치하여 접근성 확보.
+
+### 8.4. Visual & Content Polish
+- **Typography Update**: KLATOO 로고 폰트를 `Space Grotesk`(Bold)에서 `Montserrat`(SemiBold)로 변경하여 브랜드 아이덴티티 강화.
+- **Translation Refinements**: 
+  - 한글 모드에서도 "The Declaration of a Digital Earth" 문구는 영문 원본을 유지 (사용자 요청).
+  - 나머지 Hero/Vision 메인 타이틀은 한국어 모드 시 한글로 정상 번역되도록 수정.

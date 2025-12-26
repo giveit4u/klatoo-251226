@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter, Space_Grotesk, Montserrat } from 'next/font/google';
 import './globals.css';
 import SmoothScroll from '../components/SmoothScroll';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' });
+const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' });
 
 export const metadata: Metadata = {
     title: 'KLATOO | Hyper Local SNS',
@@ -19,7 +20,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
+            <body className={`${inter.variable} ${spaceGrotesk.variable} ${montserrat.variable} font-sans`}>
                 <LanguageProvider>
                     <SmoothScroll />
                     {children}
