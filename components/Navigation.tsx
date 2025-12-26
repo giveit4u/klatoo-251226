@@ -47,7 +47,7 @@ const Navigation: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 py-6 transition-all duration-500 backdrop-blur ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+      className={`fixed top-0 left-0 w-full z-50 py-6 transition-all duration-500 backdrop-blur ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100 md:-translate-y-full md:opacity-0'
         }`}
       style={{ backgroundColor: isVisible ? 'rgba(3, 3, 8, 0.5)' : 'transparent' }}
     >

@@ -291,3 +291,8 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - `react`: v19.0.0 -> v19.x (latest)
   - `react-dom`: v19.0.0 -> v19.x (latest)
 - **Result**: Validated local build and pushed changes to trigger successful Vercel redeployment.
+
+### 9.3. Mobile Navigation Visibility Fix
+- **Issue**: Navigation bar was hidden on mobile devices in the Hero section because the visibility logic was applied globally (desktop behavior).
+- **Resolution**: Updated `components/Navigation.tsx` to apply the hide-on-hero logic only to desktop screens (`md:` prefix).
+- **Effect**: Navigation bar is now always visible on mobile, ensuring access to the menu regardless of scroll position.
