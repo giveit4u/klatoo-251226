@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -470,11 +469,6 @@ function distanceToPolygonEdge(lat: number, lon: number, polygon: { lat: number;
 const Hero: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const { t } = useLanguage();
-  const heroTitle = t('hero.title');
-  const [mobileTitle1, mobileTitle2] = heroTitle.includes(',')
-    ? heroTitle.split(',').map(s => s.trim())
-    : [heroTitle, ''];
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -640,7 +634,7 @@ const Hero: React.FC = () => {
       const dist = Math.sqrt(dx * dx + dy * dy);
 
       const safeZoneHeight = rect.height - (isMobile ? 220 : 350);
-      const baseRadius = (safeZoneHeight / 2) * 1.02;
+      const baseRadius = (safeZoneHeight / 2) * (isMobile ? 0.95 : 1.12);
 
       // Only react when hovering over the globe area
       if (dist < baseRadius) {
@@ -655,7 +649,7 @@ const Hero: React.FC = () => {
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: 'top top',
-      end: '+=500', // 이전의 안정적인 인터벌로 복구 (500px)
+      end: '+=1000', // 스크롤 길이를 늘려 전체적인 전환 속도를 2배 천천히 조절 (500 -> 1000)
       pin: true,
       scrub: 1,
       onUpdate: (self) => {
@@ -685,7 +679,7 @@ const Hero: React.FC = () => {
       const pExplosion = expansionFactor;
       const particleExpansion = pExplosion * 35000;
 
-      const pGridZoom = Math.pow(p, 1.4);
+      const pGridZoom = Math.pow(p, 2.0); // 1.4에서 2.0으로 상향하여 초반 그리드 팽창을 더 부드럽게 시작
       const gridExpansion = pGridZoom * 42000;
 
       // 그리드와 텍스트 소멸 타이밍 복구
@@ -718,7 +712,7 @@ const Hero: React.FC = () => {
 
       const fov = 2000;
       const safeZoneHeight = canvasHeight - (isMobile ? 220 : 350);
-      const baseRadius = (safeZoneHeight / 2) * 1.02;
+      const baseRadius = (safeZoneHeight / 2) * (isMobile ? 0.95 : 1.12);
 
       // --- DRAW GRID (Heavy Duty Removal) ---
       // 스크롤 35% 지점(p=0.35) 이후에는 그리드 렌더링 루프를 물리적으로 제거
@@ -935,73 +929,19 @@ const Hero: React.FC = () => {
             }`}
         >
           <div className={`w-full ${isMobile ? 'px-[20px]' : 'px-[60px]'}`}>
-            <svg viewBox={isMobile ? "0 0 1800 400" : "0 0 4500 300"} className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
-              <defs>
-                <linearGradient id="textGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#FFF" stopOpacity="0.9" />
-                  <stop offset="100%" stopColor="#0066FF" stopOpacity="0.7" />
-                </linearGradient>
-                <filter id="glow">
-                  <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                  <feMerge>
-                    <feMergeNode in="coloredBlur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
-
-              {isMobile ? (
-                <>
-                  <g filter="url(#glow)">
-                    <text
-                      x="50%"
-                      y="35%"
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      className="font-black"
-                      style={{ fontSize: '135px', fontFamily: '"Inter", sans-serif', fontWeight: 900, letterSpacing: '0.02em', paintOrder: 'stroke fill' }}
-                      fill="#050510"
-                      stroke="url(#textGradient)"
-                      strokeWidth="4.5"
-                      strokeLinejoin="round"
-                    >
-                      {mobileTitle1}
-                    </text>
-                    <text
-                      x="50%"
-                      y="70%"
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      className="font-black"
-                      style={{ fontSize: '120px', fontFamily: '"Inter", sans-serif', fontWeight: 900, letterSpacing: '0.01em', paintOrder: 'stroke fill' }}
-                      fill="#050510"
-                      stroke="url(#textGradient)"
-                      strokeWidth="4.5"
-                      strokeLinejoin="round"
-                    >
-                      {mobileTitle2}
-                    </text>
-                  </g>
-                </>
-              ) : (
-                <g filter="url(#glow)">
-                  <text
-                    x="50%"
-                    y="50%"
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    className="font-black"
-                    style={{ fontSize: '160px', fontFamily: '"Inter", sans-serif', fontWeight: 900, letterSpacing: '0.05em', paintOrder: 'stroke fill' }}
-                    fill="#050510"
-                    stroke="url(#textGradient)"
-                    strokeWidth="4.5"
-                    strokeLinejoin="round"
-                  >
-                    {heroTitle}
-                  </text>
-                </g>
-              )}
-            </svg>
+            {isMobile ? (
+              <img
+                src="/assets/hero_title_mobile.svg"
+                alt="THE DIGITAL EARTH, CONNECTED TO REALITY"
+                className="w-full h-auto"
+              />
+            ) : (
+              <img
+                src="/assets/hero_title_desktop.svg"
+                alt="THE DIGITAL EARTH, CONNECTED TO REALITY"
+                className="w-full h-auto"
+              />
+            )}
           </div>
         </div>
       </div>

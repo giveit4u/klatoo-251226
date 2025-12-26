@@ -295,4 +295,35 @@ The goal was to transform the Hero section into a premium, cinematic experience.
 ### 9.3. Mobile Navigation Visibility Fix
 - **Issue**: Navigation bar was hidden on mobile devices in the Hero section because the visibility logic was applied globally (desktop behavior).
 - **Resolution**: Updated `components/Navigation.tsx` to apply the hide-on-hero logic only to desktop screens (`md:` prefix).
-- **Effect**: Navigation bar is now always visible on mobile, ensuring access to the menu regardless of scroll position.
+
+### 10. Hero Title SVG Migration
+- **Issue**: Replacing SVG text with PNG images caused 텍스트 깨짐(blurring/pixelation) on large/high-resolution screens.
+- **Resolution**: Implemented vector-based SVG assets to ensure high fidelity across all resolutions.
+- **Actions**:
+  - Placed `hero_title_desktop.svg` and `hero_title_mobile.svg` into `/public/assets/`.
+  - Modified `components/Hero.tsx` to use these SVG files via `<img>` tags for both mobile and desktop views.
+- **Effect**: Title text remains perfectly sharp on large monitors and mobile devices alike.
+
+### 11. Hero Globe Size Adjustment
+- **Request**: Increase globe size by 10%.
+- **Action**: Updated `baseRadius` calculation factor from `1.02` to `1.12` in `components/Hero.tsx`.
+- **Effect**: The particle globe now appears 10% larger in the Hero section, providing a more impactful visual presence.
+
+### 12. Hero Title Color Update
+- **Request**: Change hero title color to #A4D5FF.
+- **Action**: Modified `fill="white"` to `fill="#A4D5FF"` in `public/assets/hero_title_desktop.svg` and `public/assets/hero_title_mobile.svg`.
+- **Effect**: The hero section title now features the requested light blue color, enhancing branding consistency.
+
+### 13. Mobile Globe Size Optimization
+- **Request**: Reduce globe size on mobile by 15%.
+- **Action**: Updated `baseRadius` calculation in `components/Hero.tsx` to use conditional scaling:
+  - Desktop: `1.12` (maintained 10% increase)
+  - Mobile: `0.95` (15% reduction from the previous 1.12 factor)
+- **Effect**: The globe now has a better fit on mobile screens while maintaining its impactful size on desktop.
+
+### 14. Hero Transition Timing Refinement
+- **Request**: Slow down the particle explosion and grid zoom transition.
+- **Action**: 
+  - Increased ScrollTrigger `end` value from `+=500` to `+=1000` to provide more scroll distance.
+  - Adjusted `pGridZoom` exponent from `1.4` to `2.0` for a more gradual start to the zoom-in effect.
+- **Effect**: The transition from Hero to Information section feels more cinematic and controlled, allowing the user to appreciate the explosion and grid expansion detail.

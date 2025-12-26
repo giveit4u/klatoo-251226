@@ -54,9 +54,13 @@ const Navigation: React.FC = () => {
       <div className="container mx-auto px-6 flex justify-between items-center">
         <button
           onClick={() => gsap.to(window, { duration: 1.2, scrollTo: 0, ease: 'power2.inOut' })}
-          className="text-2xl font-logo font-semibold tracking-tighter text-white hover:opacity-80 transition-opacity cursor-pointer"
+          className="hover:opacity-80 transition-opacity cursor-pointer"
         >
-          KLATOO
+          <img
+            src="/assets/klatoo_logo_main.png"
+            alt="KLATOO"
+            className="w-[100px] md:w-[112px] h-auto"
+          />
         </button>
 
         {/* Desktop Menu */}
