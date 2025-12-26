@@ -283,3 +283,11 @@ The goal was to transform the Hero section into a premium, cinematic experience.
 - **Issue**: Vercel deployment failed due to `Vulnerable version of Next.js detected` (Next.js 15.1.0).
 - **Resolution**: Updated `next`, `react`, and `react-dom` to the latest stable versions to resolve the security vulnerability.
 - **Action**: Ran `npm install next@latest react@latest react-dom@latest`.
+
+### 9.2. Security Vulnerability Fix (Vercel Deployment)
+- **Issue**: Vercel deployment blocked due to strict security check finding vulnerabilities in `next@15.1.0`.
+- **Resolution**: Upgraded core framework dependencies to latest stable versions:
+  - `next`: v15.1.0 -> v16.x (latest)
+  - `react`: v19.0.0 -> v19.x (latest)
+  - `react-dom`: v19.0.0 -> v19.x (latest)
+- **Result**: Validated local build and pushed changes to trigger successful Vercel redeployment.
