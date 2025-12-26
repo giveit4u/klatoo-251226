@@ -271,3 +271,10 @@ The goal was to transform the Hero section into a premium, cinematic experience.
 - **Translation Refinements**: 
   - 한글 모드에서도 "The Declaration of a Digital Earth" 문구는 영문 원본을 유지 (사용자 요청).
   - 나머지 Hero/Vision 메인 타이틀은 한국어 모드 시 한글로 정상 번역되도록 수정.
+
+## Phase 9: Deployment Troubleshooting
+
+### 9.1. Vercel Deployment Error Fix
+- **Issue**: `npm error code ERESOLVE` during Vercel build. Conflict between `react@^19.0.0` (Next.js 15 default) and outdated `lucide-react@0.344.0` (requires react < 19).
+- **Resolution**: Updated `lucide-react` to latest version (^`0.562.0`).
+- **Action**: Ran `npm install lucide-react@latest` to resolve peer dependency conflicts.
