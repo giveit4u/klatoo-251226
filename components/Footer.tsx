@@ -13,7 +13,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#171717] text-[#888] py-16 font-sans">
+    <footer className="w-full bg-[#171717] text-[#888] pt-16 pb-8 font-sans">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Top Section: Logo and Info + SNS */}
@@ -74,7 +74,7 @@ export default function Footer() {
         </div>
 
         {/* Separator */}
-        <div className="w-full h-[1px] bg-white/10 mb-8" />
+        <div className="w-full h-[1px] bg-white/10 my-8" />
 
         {/* Bottom Section: Links and Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center text-xs tracking-tight">

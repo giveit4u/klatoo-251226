@@ -2,33 +2,40 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import Link from 'next/link';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [textColor, setTextColor] = useState('black');
+  const [isVisible, setIsVisible] = useState(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      // Use GSAP for smoother scroll animation
+      gsap.to(window, {
+        duration: 1.2,
+        scrollTo: {
+          y: element,
+          offsetY: 0,
+          autoKill: true
+        },
+        ease: 'power2.inOut'
+      });
+    }
+    setIsMenuOpen(false);
+  };
 
   useEffect(() => {
-    // ScrollTrigger to change nav color based on scroll progress
+    // Show navigation when Information section (about) starts
     ScrollTrigger.create({
-      trigger: 'body',
+      trigger: '#about',
       start: 'top top',
-      end: '+=3000',
-      onUpdate: (self) => {
-        const progress = self.progress;
-
-        // Change to white when background starts turning gray (progress > 0.6)
-        // Change back to black when scrolling back up
-        if (progress > 0.6) {
-          setTextColor('white');
-        } else {
-          setTextColor('black');
-        }
-      }
+      onEnter: () => setIsVisible(true),
+      onLeaveBack: () => setIsVisible(false),
     });
 
     return () => {
@@ -37,53 +44,47 @@ const Navigation: React.FC = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 py-6">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 py-6 transition-all duration-500 backdrop-blur ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+        }`}
+      style={{ backgroundColor: isVisible ? 'rgba(3, 3, 8, 0.5)' : 'transparent' }}
+    >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <div
-          className="text-2xl font-display font-bold tracking-tighter transition-colors duration-500"
-          style={{ color: textColor }}
+        <button
+          onClick={() => gsap.to(window, { duration: 1.2, scrollTo: 0, ease: 'power2.inOut' })}
+          className="text-2xl font-display font-bold tracking-tighter text-white hover:opacity-80 transition-opacity cursor-pointer"
         >
           KLATOO
-        </div>
+        </button>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link
-            href="#about"
-            className="text-sm font-medium hover:text-kees-gold transition-colors duration-500"
-            style={{ color: textColor }}
+          <button
+            onClick={() => scrollToSection('about')}
+            className="text-sm font-medium text-white hover:text-[#4640fa] transition-colors duration-300"
           >
             About
-          </Link>
-          <Link
-            href="#features"
-            className="text-sm font-medium hover:text-kees-gold transition-colors duration-500"
-            style={{ color: textColor }}
+          </button>
+          <button
+            onClick={() => scrollToSection('features')}
+            className="text-sm font-medium text-white hover:text-[#4640fa] transition-colors duration-300"
           >
             Features
-          </Link>
-          <Link
-            href="#tokenomics"
-            className="text-sm font-medium hover:text-kees-gold transition-colors duration-500"
-            style={{ color: textColor }}
+          </button>
+          <button
+            onClick={() => scrollToSection('kubic')}
+            className="text-sm font-medium text-white hover:text-[#4640fa] transition-colors duration-300"
           >
             Kubic
-          </Link>
-          <button
-            className="px-6 py-2 rounded-full text-sm font-medium hover:bg-kees-gold transition-all duration-500"
-            style={{
-              backgroundColor: textColor === 'white' ? 'white' : 'black',
-              color: textColor === 'white' ? 'black' : 'white'
-            }}
-          >
-            Join Beta
+          </button>
+          <button className="px-6 py-2 bg-white text-black rounded-full text-sm font-medium hover:bg-[#4640fa] hover:text-white transition-all duration-300">
+            Sign up
           </button>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden transition-colors duration-500"
-          style={{ color: textColor }}
+          className="md:hidden text-white transition-colors duration-500"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X /> : <Menu />}
@@ -92,12 +93,12 @@ const Navigation: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-kees-bg border-b border-gray-200 p-6 md:hidden flex flex-col space-y-4">
-          <Link href="#about" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>About</Link>
-          <Link href="#features" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Features</Link>
-          <Link href="#tokenomics" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Kubic</Link>
-          <button className="bg-kees-dark text-white px-6 py-3 rounded-full text-lg font-medium w-full">
-            Join Beta
+        <div className="absolute top-full left-0 w-full bg-[#030308] border-b border-white/10 p-6 md:hidden flex flex-col space-y-4">
+          <button onClick={() => scrollToSection('about')} className="text-lg font-medium text-white text-left">About</button>
+          <button onClick={() => scrollToSection('features')} className="text-lg font-medium text-white text-left">Features</button>
+          <button onClick={() => scrollToSection('kubic')} className="text-lg font-medium text-white text-left">Kubic</button>
+          <button className="bg-white text-black px-6 py-3 rounded-full text-lg font-medium w-full hover:bg-[#4640fa] hover:text-white transition-all">
+            Sign up
           </button>
         </div>
       )}

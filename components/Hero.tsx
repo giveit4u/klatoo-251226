@@ -925,7 +925,8 @@ const Hero: React.FC = () => {
 
         <div
           ref={textRef}
-          className="absolute bottom-[50px] left-1/2 -translate-x-1/2 z-20 pointer-events-none text-center mix-blend-screen w-full transition-opacity duration-100 ease-linear"
+          className={`absolute left-1/2 -translate-x-1/2 z-20 pointer-events-none text-center mix-blend-screen w-full transition-opacity duration-100 ease-linear ${isMobile ? 'bottom-[50px]' : 'bottom-[25px]'
+            }`}
         >
           <div className={`w-full ${isMobile ? 'px-[20px]' : 'px-[60px]'}`}>
             <svg viewBox={isMobile ? "0 0 1800 400" : "0 0 4500 300"} className="w-full h-auto" preserveAspectRatio="xMidYMid meet">

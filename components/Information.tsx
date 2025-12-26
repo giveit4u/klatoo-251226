@@ -178,7 +178,7 @@ export default function Information() {
         <div ref={containerRef} className="w-full bg-[#030308] text-white overflow-hidden relative font-sans">
 
             {/* --- SECTION 1: VISION --- */}
-            <section className="vision-section relative w-full min-h-screen flex flex-col justify-center items-center px-6 py-24 overflow-hidden">
+            <section id="about" className="vision-section relative w-full min-h-screen flex flex-col justify-center items-center px-6 py-24 overflow-hidden">
                 {/* Background Image Placeholder: Vision Digital Layer */}
                 <div className="absolute inset-0 z-0 opacity-40">
                     {/* In a real scenario, <img src="/path/to/vision_digital_layer.png" className="w-full h-full object-cover" /> */}
@@ -221,7 +221,7 @@ export default function Information() {
 
 
             {/* --- SECTION 2: KEY FEATURES (Bento Grid) --- */}
-            <section className="features-section w-full px-6 py-32 bg-[#050505]">
+            <section id="features" className="features-section w-full px-6 py-32 bg-[#050505]">
                 <div className="max-w-7xl mx-auto space-y-16">
                     <div className="text-center space-y-4 mb-20">
                         <h2 className="bento-item text-[#4640fa] font-bold tracking-widest uppercase">Key Features</h2>
@@ -317,7 +317,7 @@ export default function Information() {
                             { step: "03", title: "Kubic Gains Value", desc: "Land with real activity naturally becomes more valuable." }
                         ].map((item, i) => (
                             <div key={i} className="mechanism-step bg-[#111] p-8 rounded-2xl border border-white/5 hover:border-white/20 transition-colors relative overflow-hidden group">
-                                <span className="text-6xl font-bold text-[#222] absolute top-4 right-4 group-hover:text-[#4640fa]/20 transition-colors">{item.step}</span>
+                                <span className="text-6xl font-bold text-[#222] absolute top-4 right-4 group-hover:text-[#4640fa]/50 transition-colors">{item.step}</span>
                                 <div className="relative z-10 pt-12">
                                     <h4 className="text-xl font-bold mb-3">{item.title}</h4>
                                     <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
@@ -331,7 +331,7 @@ export default function Information() {
 
 
             {/* --- SECTION 4: WHY KUBIC & TRADING (Economy) --- */}
-            <section className="economy-section w-full min-h-screen py-24 bg-[#030303] relative flex flex-col justify-center">
+            <section id="kubic" className="economy-section w-full min-h-screen py-24 bg-[#030303] relative flex flex-col justify-center">
                 {/* Abstract Background - Economy Flow */}
                 <div className="absolute inset-0 opacity-20 pointer-events-none">
                     <div className="w-full h-full bg-[url('/assets/k-003.png')] bg-cover bg-center" />
@@ -409,32 +409,44 @@ export default function Information() {
             </section>
 
 
-            {/* --- SECTION 5: GLOBAL EXPLORATION & CTA --- */}
-            <section className="global-section w-full h-[80vh] relative flex items-center justify-center overflow-hidden bg-black">
-                {/* Parallax Background Effect via fixed bg or separate div */}
-                <div className="absolute inset-0 opacity-40">
-                    {/* Reusing Globe Particles Concept visually if possible, or just a static starfield/map bg */}
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/40 via-[#050505] to-black" />
+            {/* --- SECTION 5: GLOBAL TRENDS & CTA --- */}
+            <section className="global-section w-full min-h-screen relative flex items-center justify-center overflow-hidden bg-black">
+                {/* Subtle Background Gradient */}
+                <div className="absolute inset-0 opacity-30">
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-black to-black" />
                 </div>
 
-                <div className="relative z-10 text-center px-6 max-w-4xl mx-auto space-y-10">
-                    <h2 className="text-5xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-t from-[#4640fa] to-white leading-tight">
-                        Are You Ready?
-                    </h2>
-                    <p className="text-2xl md:text-3xl text-gray-300 font-light">
-                        Join the movement that connects<br />
-                        <span className="text-white font-bold">Reality, Content, and Value.</span>
-                    </p>
+                <div className="relative z-10 text-center px-6 max-w-4xl mx-auto space-y-16 py-24">
+                    {/* Main Headline */}
+                    <div className="space-y-6">
+                        <h2 className="text-4xl md:text-6xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-[#8B7FFF] to-[#4640fa]">
+                            Global Trends and Stories
+                        </h2>
+                        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            From local moments to global movements.<br />
+                            Discover what's happening in the world.
+                        </p>
+                    </div>
 
-                    <div className="pt-10">
-                        <button className="px-12 py-5 bg-white text-black text-lg font-bold rounded-full hover:bg-[#4640fa] hover:text-white hover:scale-105 transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(70,64,250,0.6)]">
-                            Join Beta Now
+                    {/* CTA Button */}
+                    <div className="pt-8">
+                        <button className="px-10 py-4 bg-white/10 backdrop-blur-sm text-white text-base font-semibold rounded-full border border-white/20 hover:bg-white hover:text-black transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+                            Sign up now
                         </button>
                     </div>
 
-                    <div className="pt-20 opacity-70">
-                        <p className="text-sm tracking-[0.3em] uppercase text-gray-500">
-                            KLATOO : The Operating System of the Digital Earth
+                    {/* Subtext */}
+                    <div className="pt-4">
+                        <p className="text-lg md:text-2xl text-gray-300">
+                            Join the movement that connects<br />
+                            <span className="font-bold text-white">Reality, Content, and Value.</span>
+                        </p>
+                    </div>
+
+                    {/* Footer Tagline */}
+                    <div className="pt-16 opacity-50">
+                        <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-gray-500">
+                            KLATOO : THE OPERATING SYSTEM OF THE DIGITAL EARTH
                         </p>
                     </div>
                 </div>
