@@ -10,7 +10,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['"Pretendard JP"', 'Inter', 'sans-serif'],
-                display: ['Space Grotesk', 'sans-serif'],
+                display: ['var(--font-goldman)', 'Space Grotesk', 'sans-serif'],
                 logo: ['var(--font-montserrat)', 'sans-serif'],
             },
             colors: {

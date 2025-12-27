@@ -74,7 +74,7 @@ const VisionParticles = () => {
 
 export default function Information() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const { t } = useLanguage();
+    const { language, t } = useLanguage();
 
     // Asset Paths (assuming images are placed in public/assets or similar - utilizing generated ones)
     // For this environment, we'll assume they need to be moved to the public folder by the user or are served correctly.
@@ -193,9 +193,9 @@ export default function Information() {
                 <div className="relative z-10 max-w-5xl w-full text-center space-y-12">
                     <div className="vision-text space-y-4">
                         <h2 className="text-[#4640fa] tracking-[0.2em] text-sm md:text-base font-bold uppercase">{t('info.vision.subtitle')}</h2>
-                        <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight leading-[1.1]">
+                        <h1 className={`text-4xl md:text-7xl tracking-tight leading-[1.3] md:leading-[87px] text-white ${language === 'ko' ? 'font-extrabold' : 'font-display font-normal'}`}>
                             {t('info.vision.title1')}<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#4640fa]">{t('info.vision.title2')}</span>
+                            <span>{t('info.vision.title2')}</span>
                         </h1>
                         <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto pt-4">
                             {t('info.vision.description')}
@@ -226,7 +226,7 @@ export default function Information() {
                 <div className="max-w-7xl mx-auto space-y-16">
                     <div className="text-center space-y-4 mb-20">
                         <h2 className="bento-item text-[#4640fa] font-bold tracking-widest uppercase">{t('info.features.subtitle')}</h2>
-                        <h3 className="bento-item text-4xl md:text-5xl font-bold" dangerouslySetInnerHTML={{ __html: t('info.features.title').replace('\n', '<br />') }}></h3>
+                        <h3 className={`bento-item text-4xl md:text-5xl leading-[1.3] md:leading-[63px] ${language === 'ko' ? 'font-bold' : 'font-display font-normal'}`} dangerouslySetInnerHTML={{ __html: t('info.features.title').replace('\n', '<br />') }}></h3>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
@@ -313,7 +313,7 @@ export default function Information() {
                     {/* Left Copy */}
                     <div className="col-span-1 md:col-span-4 space-y-8">
                         <h2 className="text-[#4640fa] font-bold tracking-widest uppercase">{t('info.kubic.subtitle')}</h2>
-                        <h3 className="text-4xl md:text-5xl font-bold leading-tight" dangerouslySetInnerHTML={{ __html: t('info.kubic.title').replace('\n', '<br />') }}></h3>
+                        <h3 className={`text-4xl md:text-5xl leading-[1.3] md:leading-[63px] ${language === 'ko' ? 'font-bold' : 'font-display font-normal'}`} dangerouslySetInnerHTML={{ __html: t('info.kubic.title').replace('\n', '<br />') }}></h3>
                         <p className="text-gray-400 text-lg">
                             {t('info.kubic.description1')}
                         </p>
@@ -356,7 +356,7 @@ export default function Information() {
                 <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
                     <div className="text-center mb-20">
                         <h2 className="text-[#4640fa] font-bold tracking-widest uppercase mb-4">{t('info.economy.subtitle')}</h2>
-                        <h3 className="text-4xl md:text-6xl font-bold">{t('info.economy.title')}</h3>
+                        <h3 className={`text-4xl md:text-6xl leading-[1.3] md:leading-[75px] ${language === 'ko' ? 'font-bold' : 'font-display font-normal'}`}>{t('info.economy.title')}</h3>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
@@ -432,10 +432,10 @@ export default function Information() {
                     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-black to-black" />
                 </div>
 
-                <div className="relative z-10 text-center px-6 max-w-4xl mx-auto space-y-16 py-24">
+                <div className="relative z-10 text-center px-6 max-w-6xl mx-auto space-y-16 py-24">
                     {/* Main Headline */}
                     <div className="space-y-6">
-                        <h2 className="text-4xl md:text-6xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-[#8B7FFF] to-[#4640fa]">
+                        <h2 className={`text-3xl md:text-5xl lg:text-[3.5rem] md:whitespace-nowrap break-keep text-transparent bg-clip-text bg-gradient-to-r from-white via-[#8B7FFF] to-[#4640fa] py-4 leading-[1.3] lg:leading-[71px] tracking-tight ${language === 'ko' ? 'font-bold' : 'font-display font-normal'}`}>
                             {t('info.cta.title')}
                         </h2>
                         <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">

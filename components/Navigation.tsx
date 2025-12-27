@@ -57,7 +57,7 @@ const Navigation: React.FC = () => {
           className="hover:opacity-80 transition-opacity cursor-pointer"
         >
           <img
-            src="/assets/klatoo_logo_main.png"
+            src="/assets/KLATOO-H-Logo.svg"
             alt="KLATOO"
             className="w-[100px] md:w-[112px] h-auto"
           />

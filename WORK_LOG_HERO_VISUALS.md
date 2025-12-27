@@ -408,3 +408,25 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - Optimized Feature card background visibility (Base Opacity 0.6).
   - Enhanced "Local-to-Global Flow" card with a gradient-driven SVG arrow (Right-weighted brightness/opacity).
   - Standardized chip button backgrounds (`#111111`) for better dark-mode integration.
+
+### 26. Navigation Logo SVG Migration
+- **Request**: Replace PNG logo with the provided KLATOO-H-Logo.svg.
+- **Action**: 
+  - Uploaded and moved `KLATOO-H-Logo.svg` to `public/assets/`.
+  - Updated `Navigation.tsx` to reference the SVG instead of the PNG.
+  - Optimized logo width for better visibility on both mobile and desktop.
+
+### 27. Typography & Identity Refinements
+- **CTA Title Layout**: Expanded container width to `6xl` and adjusted font size/tracking for better responsiveness.
+- **Brand Identity**: 
+  - Migrated Navigation logo to `KLATOO-H-Logo.svg`.
+  - Reverted logo dimensions to 100px (mobile) / 112px (desktop).
+- **Font System Overhaul**:
+  - Integrated Google **Goldman** font for English display text (Weight 400).
+  - Implemented conditional logic: Bold/Extrabold for Korean, Regular 400 for English titles.
+- **Precision Spacing**:
+  - Adjusted line-heights for a consistent 15px visual gap on desktop titles using pixel-based values.
+  - Tightened mobile line-height to 1.3 for better readability.
+- **Visual Styles**:
+  - Removed gradients from Vision titles for a cleaner solid white/blue look.
+  - Retained/Re-applied signature gradient to the final CTA title.
