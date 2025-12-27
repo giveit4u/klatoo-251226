@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -13,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
   const { language, setLanguage, t } = useLanguage();
 
   const scrollToSection = (sectionId: string) => {
@@ -46,8 +47,25 @@ const Navigation: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isMenuOpen && navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
   return (
     <nav
+      ref={navRef}
       className={`fixed top-0 left-0 w-full z-50 py-6 transition-all duration-500 backdrop-blur ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100 md:-translate-y-full md:opacity-0'
         }`}
       style={{ backgroundColor: isVisible ? 'rgba(3, 3, 8, 0.5)' : 'transparent' }}

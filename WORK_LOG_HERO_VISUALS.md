@@ -452,5 +452,6 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - **Accessibility (A11y)**: Added descriptive `aria-label` to all icon-only buttons (Mobile Menu, Scroll-to-Top, SNS links) and improved `alt` text for images to support screen readers.
   - **Security Refinement**: Added `rel="noopener noreferrer"` to all external target links to prevent security vulnerabilities (tab-nabbing).
   - **Next.js Image Optimization**: Replaced standard `<img>` tags with `<Image />` component from `next/image` in Navigation, Information (Kubic mockup), and Footer to leverage automatic formatting, lazy loading, and priority fetching.
+  - **Mobile UX Improvement**: Added an "Outside Click" handler to the mobile navigation menu, allowing users to close the menu by clicking anywhere outside the navigation area for a more intuitive mobile experience.
 
 ---
