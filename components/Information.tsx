@@ -91,40 +91,42 @@ export default function Information() {
             gsap.from('.vision-text', {
                 scrollTrigger: {
                     trigger: '.vision-section',
-                    start: 'top 80%', // More forgiving for mobile
+                    start: 'top 95%', // Captured earlier
                     end: 'bottom 20%',
                     scrub: 1,
                     toggleActions: 'play none none reverse',
+                    fastScrollEnd: true,
                 },
-                y: 60, // Reduced movement for mobile
+                y: 60,
                 opacity: 0,
                 stagger: 0.15,
-                immediateRender: false, // Prevent initial hide
+                lazy: false,
             });
 
             // 2. Bento Grid Stagger - Mobile optimized
             gsap.from('.bento-item', {
                 scrollTrigger: {
                     trigger: '.features-section',
-                    start: 'top 85%', // Earlier trigger for mobile
+                    start: 'top bottom', // Trigger as soon as it enters
                     toggleActions: 'play none none reverse',
+                    fastScrollEnd: true,
                 },
                 y: 40,
                 opacity: 0,
-                duration: 0.7,
+                duration: 0.8,
                 stagger: 0.08,
                 ease: 'power2.out',
-                immediateRender: false,
+                lazy: false,
             });
 
-            // 3. Kubic Cycle - Mobile optimized
             // 3. Kubic Cycle - Mobile optimized with deterministic fromTo
             const mechanismTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.kubic-section',
-                    start: 'top 80%',
+                    start: 'top bottom', // Capturing instant entering on fast scroll
                     end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
+                    toggleActions: 'play none none reverse',
+                    fastScrollEnd: true,
                 }
             });
             mechanismTl.fromTo('.kubic-tab',
@@ -150,25 +152,27 @@ export default function Information() {
             gsap.from('.economy-left', {
                 scrollTrigger: {
                     trigger: '.economy-section',
-                    start: 'top 80%',
+                    start: 'top bottom',
                     toggleActions: 'play none none reverse',
+                    fastScrollEnd: true,
                 },
                 x: -30,
                 opacity: 0,
                 duration: 0.8,
-                immediateRender: false,
+                lazy: false,
             });
             gsap.from('.economy-right', {
                 scrollTrigger: {
                     trigger: '.economy-section',
-                    start: 'top 80%',
+                    start: 'top bottom',
                     toggleActions: 'play none none reverse',
+                    fastScrollEnd: true,
                 },
                 x: 30,
                 opacity: 0,
                 duration: 0.8,
                 delay: 0.15,
-                immediateRender: false,
+                lazy: false,
             });
 
             // 5. Kubic Section Scanline Animation
@@ -185,6 +189,11 @@ export default function Information() {
                     }
                 }
             );
+
+            // Ensure layout positions are calibrated after initial paint/load
+            setTimeout(() => {
+                ScrollTrigger.refresh();
+            }, 500);
 
         }, containerRef);
 
