@@ -219,7 +219,7 @@ export default function Information() {
                                 {t('info.vision.card1.desc')}
                             </p>
                         </div>
-                        <div className="space-y-6 flex flex-col justify-center md:border-l-[5px] border-[#4640fa] md:pl-8">
+                        <div className="space-y-6 flex flex-col justify-center md:border-l-[1px] border-[#4640fa]/50 md:pl-8">
                             <p className="text-xl md:text-3xl font-light text-white leading-snug">
                                 {t('info.vision.card2.quote1')}<br />
                                 <span className="font-bold text-[#4640fa]">{t('info.vision.card2.quote2')}</span>
