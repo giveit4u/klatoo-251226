@@ -87,28 +87,28 @@ export default function Information() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // 1. Vision Parallax & Fade - Mobile optimized
+            // 1. Vision Parallax & Fade - Mobile optimized (scrub removed for fast scroll stability)
             gsap.from('.vision-text', {
                 scrollTrigger: {
                     trigger: '.vision-section',
-                    start: 'top 95%', // Captured earlier
-                    end: 'bottom 20%',
-                    scrub: 1,
-                    toggleActions: 'play none none reverse',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none',
                     fastScrollEnd: true,
                 },
                 y: 60,
                 opacity: 0,
+                duration: 0.8,
                 stagger: 0.15,
-                lazy: false,
+                ease: 'power2.out',
+                immediateRender: false,
             });
 
             // 2. Bento Grid Stagger - Mobile optimized
             gsap.from('.bento-item', {
                 scrollTrigger: {
                     trigger: '.features-section',
-                    start: 'top bottom', // Trigger as soon as it enters
-                    toggleActions: 'play none none reverse',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none',
                     fastScrollEnd: true,
                 },
                 y: 40,
@@ -116,16 +116,15 @@ export default function Information() {
                 duration: 0.8,
                 stagger: 0.08,
                 ease: 'power2.out',
-                lazy: false,
+                immediateRender: false,
             });
 
             // 3. Kubic Cycle - Mobile optimized with deterministic fromTo
             const mechanismTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.kubic-section',
-                    start: 'top bottom', // Capturing instant entering on fast scroll
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none',
                     fastScrollEnd: true,
                 }
             });
@@ -137,7 +136,8 @@ export default function Information() {
                     stagger: 0.1,
                     duration: 0.8,
                     ease: 'power3.out',
-                    clearProps: "transform" // Ensure no lingering transforms interfere with layout
+                    clearProps: "transform", // Ensure no lingering transforms interfere with layout
+                    immediateRender: false,
                 }
             ).fromTo('.kubic-mobile',
                 { y: 50, opacity: 0 },
@@ -146,33 +146,36 @@ export default function Information() {
                     opacity: 1,
                     duration: 1,
                     ease: 'power3.out',
+                    immediateRender: false,
                 }, "-=0.4");
 
             // 4. Economy Split - Mobile optimized
             gsap.from('.economy-left', {
                 scrollTrigger: {
                     trigger: '.economy-section',
-                    start: 'top bottom',
-                    toggleActions: 'play none none reverse',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none',
                     fastScrollEnd: true,
                 },
                 x: -30,
                 opacity: 0,
                 duration: 0.8,
-                lazy: false,
+                ease: 'power2.out',
+                immediateRender: false,
             });
             gsap.from('.economy-right', {
                 scrollTrigger: {
                     trigger: '.economy-section',
-                    start: 'top bottom',
-                    toggleActions: 'play none none reverse',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none',
                     fastScrollEnd: true,
                 },
                 x: 30,
                 opacity: 0,
                 duration: 0.8,
                 delay: 0.15,
-                lazy: false,
+                ease: 'power2.out',
+                immediateRender: false,
             });
 
             // 5. Kubic Section Scanline Animation

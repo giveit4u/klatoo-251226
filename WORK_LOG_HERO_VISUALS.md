@@ -461,12 +461,19 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - **Resource Optimization**: Added `sizes` attribute to all Next.js Image components and fixed aspect ratio warnings for the corporate logo.
   - **Mobile Grid Re-enabled**: Re-introduced the earth grid lines on mobile with a reduced segment count (32 segments) to balance visual fidelity and performance.
   - **Visual Polish**: Adjusted vertical indicator lines for Kubic quotes and main headers to 5px thickness. Specifically refined the Vision card indicator back to 1px. Adjusted KLATOO logo size to 112px on web and 100px on mobile. Reduced UNDERPIN footer logo size by 15% on mobile (27px) for better visual hierarchy.
-  - **Mobile Layout & Animation Stability**: Resolved a critical issue where content (Kubic mockup, tabs, bento items) would fail to appear during fast scrolling.
-    - Updated all `ScrollTrigger` start points to `top bottom` to ensure animations trigger immediately upon entering the viewport.
-    - Enabled `fastScrollEnd: true` for all major transitions to force completion of animations when skipped over during rapid scrolling.
-    - Switched from `.from()` to `.fromTo()` where necessary and added `lazy: false` for synchronous execution during high-load scrolling.
-    - Implemented a post-load `ScrollTrigger.refresh()` (500ms delay) to recalibrate trigger positions after dynamic content/images are rendered.
-    - Corrected targeting for Bento Grid items by reverting the selector to `.bento-item`.
+  - **Mobile Layout & Animation Stability - Root Cause Fix**: Resolved critical visibility issues where content would partially or completely disappear during fast scrolling on mobile.
+    - **Root Cause Identified**: 
+      - Vision section used `scrub: 1` which ties animation progress directly to scroll position. During fast scrolls, this caused animations to freeze in intermediate states (e.g., opacity: 0.3, y: 40px), leaving content partially visible or invisible.
+      - `toggleActions: 'play none none reverse'` caused animations to reverse when scrolling back up, creating additional visibility conflicts during rapid bidirectional scrolling.
+      - `lazy: false` without `immediateRender: false` caused GSAP to immediately apply starting values, interfering with natural page load.
+    - **Comprehensive Fix Applied**:
+      - **Removed `scrub`** from Vision section and converted to time-based animation (duration: 0.8s) for deterministic completion regardless of scroll speed.
+      - **Simplified `toggleActions`** to `'play none none none'` - animations play once when triggered and stay at final state, preventing reverse animations that cause flicker.
+      - **Added `immediateRender: false`** to ALL animations to preserve natural initial state and prevent FOUC (Flash of Unstyled Content).
+      - **Unified trigger points** to `'top 90%'` across all sections for consistent, early triggering that accommodates fast scrolling.
+      - **Maintained `fastScrollEnd: true`** to force animation completion when scroll skips over trigger zones.
+      - **Added explicit `ease`** parameters to all animations for smooth, predictable motion curves.
+    - **Result**: Content now appears reliably at full opacity regardless of scroll speed or direction. No more partial visibility or stuck animations.
   - **Glassmorphism Tuning**: Lowered `backdrop-blur` in Information sections for mobile to improve frame rates while maintaining design intent.
 
 ---
