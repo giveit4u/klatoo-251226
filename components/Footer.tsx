@@ -37,7 +37,7 @@ export default function Footer() {
                   alt="UNDERPIN Logo"
                   width={120}
                   height={32}
-                  className="h-8 w-auto brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+                  className="h-[27px] md:h-8 w-auto brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
                 />
               </a>
             </div>
