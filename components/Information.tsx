@@ -210,7 +210,7 @@ export default function Information() {
                         </p>
                     </div>
 
-                    <div className="vision-text grid grid-cols-1 md:grid-cols-2 gap-12 text-left bg-white/5 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/10">
+                    <div className="vision-text grid grid-cols-1 md:grid-cols-2 gap-12 text-left bg-[#0A0A0A]/40 backdrop-blur-[60px] p-8 md:p-12 rounded-2xl border border-white/10 shadow-2xl">
                         <div className="space-y-6">
                             <h3 className="text-2xl font-bold text-white">{t('info.vision.card1.title')}</h3>
                             <p className="text-gray-300 leading-relaxed">
