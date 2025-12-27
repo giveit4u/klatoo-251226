@@ -352,3 +352,10 @@ The goal was to transform the Hero section into a premium, cinematic experience.
     - `opacity: 0.4` (base) and `0.6` (hover).
     - `bg-cover` and a black gradient overlap to ensure text legibility.
 - **Effect**: The specific feature card now has much more visual depth, while the overall section remains clean and modern.
+
+### 18. Updated Feature Card Background
+- **Action**: Replaced the temporary placeholder with the newly provided hexagon digital atlas image (`location_posting_bg.png`).
+- **Styling Refinement**:
+  - Set base opacity to `0.25` and hover to `0.4` for a more professional, subtle look.
+  - Aligned background to `bg-top` to prioritize the hexagon mosaic visibility.
+  - Used card-matching color (`#0A0A0A`) for the gradient overlay to ensure seamless blending.
