@@ -599,13 +599,14 @@ const Hero: React.FC = () => {
 
     // --- 2. GENERATE GLOBE GRID LINES ---
     const gridLines: { path: any[] }[] = [];
+    const gridSegments = isMobile ? 32 : 64; // 모바일 성능 최적화: 세그먼트 수 절반으로 감소
     for (let lat = -80; lat <= 80; lat += 20) {
       const path = [];
       const latRad = lat * Math.PI / 180;
       const y = Math.sin(latRad);
       const r = Math.cos(latRad);
-      for (let i = 0; i <= 64; i++) {
-        const theta = (i / 64) * Math.PI * 2;
+      for (let i = 0; i <= gridSegments; i++) {
+        const theta = (i / gridSegments) * Math.PI * 2;
         const x = r * Math.sin(theta);
         const z = r * Math.cos(theta);
         path.push({ x, y, z });
@@ -615,8 +616,8 @@ const Hero: React.FC = () => {
     for (let lon = 0; lon < 360; lon += 20) {
       const path = [];
       const lonRad = lon * Math.PI / 180;
-      for (let i = 0; i <= 64; i++) {
-        const latPart = (i / 64) * Math.PI - Math.PI / 2;
+      for (let i = 0; i <= gridSegments; i++) {
+        const latPart = (i / gridSegments) * Math.PI - Math.PI / 2;
         const y = Math.sin(latPart);
         const r = Math.cos(latPart);
         const x = r * Math.sin(lonRad);
@@ -738,8 +739,8 @@ const Hero: React.FC = () => {
 
       // --- DRAW GRID (Heavy Duty Removal) ---
       // 스크롤 35% 지점(p=0.35) 이후에는 그리드 렌더링 루프를 물리적으로 제거
-      // Optimization: Skip grid rendering on mobile as it is computationally expensive
-      const shouldDrawGrid = fadeProgress < 1.0 && p < 0.35 && !isMobile;
+      // 모바일에서도 그리드 표시하도록 수정 (세그먼트 최적화 적용됨)
+      const shouldDrawGrid = fadeProgress < 1.0 && p < 0.35;
       if (shouldDrawGrid) {
         gridLines.forEach(line => {
           for (let j = 0; j < line.path.length - 1; j++) {

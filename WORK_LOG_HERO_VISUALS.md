@@ -459,6 +459,7 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - **Complexity Reduction**: Disabled grid line rendering and reduced particle count to 6,000 on mobile to prevent test timeouts and ensure smooth scrolling.
   - **Mobile UX Fix**: Increased touch target area for the mobile menu toggle and verified clickable zone accessibility (Fixed TC008).
   - **Resource Optimization**: Added `sizes` attribute to all Next.js Image components and fixed aspect ratio warnings for the corporate logo.
+  - **Mobile Grid Re-enabled**: Re-introduced the earth grid lines on mobile with a reduced segment count (32 segments) to balance visual fidelity and performance.
   - **Glassmorphism Tuning**: Lowered `backdrop-blur` in Information sections for mobile to improve frame rates while maintaining design intent.
 
 ---
