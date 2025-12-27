@@ -233,7 +233,7 @@ export default function Information() {
                         {/* Card 1: Location-Based Posting */}
                         <div className="bento-item col-span-1 md:col-span-1 row-span-2 bg-[#0A0A0A] rounded-3xl p-8 border border-white/5 hover:border-[#4640fa]/30 transition-colors duration-500 overflow-hidden group relative">
                             {/* Background Image: Hexagon Digital Context */}
-                            <div className="absolute inset-0 z-0 opacity-[0.25] pointer-events-none transition-opacity duration-500 group-hover:opacity-[0.4]">
+                            <div className="absolute inset-0 z-0 opacity-[0.6] pointer-events-none transition-opacity duration-500 group-hover:opacity-[0.75]">
                                 <div
                                     className="w-full h-full bg-[url('/assets/location_posting_bg.png')] bg-cover bg-top"
                                 />
@@ -252,17 +252,27 @@ export default function Information() {
                         </div>
 
                         {/* Card 2: Local-to-Global Flow (Wide) */}
-                        <div className="bento-item col-span-1 md:col-span-2 bg-[#111] rounded-3xl p-8 border border-white/5 relative overflow-hidden group">
+                        <div className="bento-item col-span-1 md:col-span-2 bg-[#111] rounded-3xl p-8 border border-white/5 hover:border-[#4640fa]/30 transition-all duration-500 relative overflow-hidden group">
                             {/* Abstract visual for flow */}
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent" />
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent opacity-50 group-hover:opacity-80 transition-opacity" />
                             <div className="relative z-10">
                                 <h4 className="text-2xl font-bold mb-2">{t('info.features.card2.title')}</h4>
                                 <p className="text-gray-400 max-w-md">{t('info.features.card2.desc')}</p>
                             </div>
-                            <div className="mt-8 flex items-center space-x-4">
-                                <span className="px-4 py-2 bg-white/5 rounded-full text-xs uppercase tracking-wider text-[#4640fa]">{t('info.features.card2.local')}</span>
-                                <div className="h-[1px] w-12 bg-gradient-to-r from-[#4640fa] to-transparent"></div>
-                                <span className="px-4 py-2 bg-white/10 rounded-full text-xs uppercase tracking-wider text-white">{t('info.features.card2.global')}</span>
+                            <div className="mt-8 flex items-center space-x-4 relative z-10">
+                                <span className="px-4 py-2 bg-[#111111] rounded-full text-xs uppercase tracking-wider text-[#4640fa] group-hover:bg-[#4640fa]/10 transition-colors border border-white/5">{t('info.features.card2.local')}</span>
+                                <div className="flex items-center">
+                                    <svg width="48" height="12" viewBox="0 0 48 12" fill="none" className="opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+                                        <path d="M0 6H45M45 6L40 2M45 6L40 10" stroke="url(#flowGradient)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        <defs>
+                                            <linearGradient id="flowGradient" x1="0" y1="6" x2="45" y2="6" gradientUnits="userSpaceOnUse">
+                                                <stop stopColor="#4640fa" stopOpacity="0.2" />
+                                                <stop offset="1" stopColor="#4640fa" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <span className="px-4 py-2 bg-white/10 rounded-full text-xs uppercase tracking-wider text-white group-hover:bg-white/20 transition-colors border border-white/5">{t('info.features.card2.global')}</span>
                             </div>
                         </div>
 

@@ -359,3 +359,52 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - Set base opacity to `0.25` and hover to `0.4` for a more professional, subtle look.
   - Aligned background to `bg-top` to prioritize the hexagon mosaic visibility.
   - Used card-matching color (`#0A0A0A`) for the gradient overlay to ensure seamless blending.
+
+### 19. Feature Card Background Opacity Adjustment
+- **Request**: Increase base opacity by 20% to make the image more visible before hover.
+- **Action**: 
+  - Updated base opacity from `0.25` to `0.45`.
+  - Adjusted hover opacity to `0.6` to maintain transition contrast.
+- **Note**: Git commit deferred per user request.
+
+### 20. Local-to-Global Flow Card Enhancement
+- **Request**: Add hover interaction to the card and change the connector line to an arrow.
+- **Action**: 
+  - Added `hover:border-[#4640fa]/30` and hover transitions to the second bento card.
+  - Replaced the simple gradient line with a solid line and a sharp arrow head (`svg`) pointing from LOCAL to GLOBAL.
+  - Implemented hover-triggered opacity changes for both the background glow and the arrow.
+- **Effect**: Improved visual feedback and clearer directional metaphor for the platform's traffic flow.
+
+### 21. Local-to-Global Flow Visual Polish
+- **Arrow Update**: Unified the line and arrowhead into a single SVG path for perfect alignment. Applied a linear gradient from left (20% opacity) to right (100% opacity) to create a "flow" effect.
+- **Button Update**: Set the "Local" chip background to `#111111` before hover as requested.
+- **Aesthetic Refinement**: Added subtle borders (`border-white/5`) to chips for better definition against the dark card.
+
+### 22. Feature Card Background Opacity Fine-tuning
+- **Request**: Increase base opacity by another 15% to make the image even more visible.
+- **Action**: 
+  - Updated base opacity from `0.45` to `0.6`.
+  - Updated hover opacity from `0.6` to `0.75` to maintain visual feedback.
+- **Note**: Git commit deferred per user request.
+
+### 23. Font System Migration to Pretendard JP
+- **Request**: Change both English and Korean/Japanese fonts to `Pretendard JP` while maintaining current weights.
+- **Action**: 
+  - Installed `pretendard-jp` package.
+  - Updated `app/layout.tsx` to import Pretendard JP static CSS.
+  - Modified `tailwind.config.js` to set `"Pretendard JP"` as the primary font for the `sans` family.
+- **Effect**: Unified typography across languages with a modern, high-readability sans-serif font.
+
+### 24. Typography & Localization Finalization
+- **Action**: 
+  - Integrated `Pretendard JP` as the primary font for both Korean and English text to ensure consistent readability.
+  - Comprehensive overhaul of the Korean translation dictionary in `LanguageContext.tsx`.
+- **Key Phrasing Updates**:
+  - Refined vision and product descriptions for more natural Korean 어순 (word order).
+  - Applied specific branding copy: "가상현실이 아닙니다", "디지털 영역에서", "콘텐츠가 세상을 바꾼다", "땅을 사놓고 기다리는 게 아닙니다".
+
+### 25. Information Section UI Refinement
+- **Action**: 
+  - Optimized Feature card background visibility (Base Opacity 0.6).
+  - Enhanced "Local-to-Global Flow" card with a gradient-driven SVG arrow (Right-weighted brightness/opacity).
+  - Standardized chip button backgrounds (`#111111`) for better dark-mode integration.

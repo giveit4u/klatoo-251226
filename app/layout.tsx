@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk, Montserrat } from 'next/font/google';
+import 'pretendard-jp/dist/web/static/pretendard-jp.css';
 import './globals.css';
 import SmoothScroll from '../components/SmoothScroll';
 import { LanguageProvider } from '@/contexts/LanguageContext';
@@ -20,7 +21,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`${inter.variable} ${spaceGrotesk.variable} ${montserrat.variable} font-sans`}>
+            <body className={`${spaceGrotesk.variable} ${montserrat.variable} font-sans`}>
                 <LanguageProvider>
                     <SmoothScroll />
                     {children}
