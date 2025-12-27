@@ -649,7 +649,7 @@ const Hero: React.FC = () => {
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: 'top top',
-      end: '+=1000', // 스크롤 길이를 늘려 전체적인 전환 속도를 2배 천천히 조절 (500 -> 1000)
+      end: isMobile ? '+=2000' : '+=1000', // 모바일에서는 전환이 너무 빨라 보이므로 거리를 2배(2000px)로 늘려 속도를 늦춤
       pin: true,
       scrub: 1,
       onUpdate: (self) => {

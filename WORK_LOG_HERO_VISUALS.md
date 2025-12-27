@@ -327,3 +327,10 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - Increased ScrollTrigger `end` value from `+=500` to `+=1000` to provide more scroll distance.
   - Adjusted `pGridZoom` exponent from `1.4` to `2.0` for a more gradual start to the zoom-in effect.
 - **Effect**: The transition from Hero to Information section feels more cinematic and controlled, allowing the user to appreciate the explosion and grid expansion detail.
+
+### 15. Mobile Hero Transition Speed Optimization
+- **Request**: Slow down the initial transition (particle expansion, grid fade) on mobile by 2x.
+- **Action**: Updated `ScrollTrigger` `end` distance in `components/Hero.tsx` to be conditional:
+  - Mobile: `+=2000` (increased from 1000px)
+  - Desktop: `+=1000` (remains the same)
+- **Effect**: The transition on mobile devices now feels much more deliberate and slower, giving users more time to see the particle and grid animation.
