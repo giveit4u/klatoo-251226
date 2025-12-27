@@ -422,15 +422,6 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - Migrated Navigation logo to `KLATOO-H-Logo.svg`.
   - Reverted logo dimensions to 100px (mobile) / 112px (desktop).
 - **Font System Overhaul**:
-  - Integrated Google **Goldman** font for English display text (Weight 400).
-  - Implemented conditional logic: Bold/Extrabold for Korean, Regular 400 for English titles.
-- **Precision Spacing**:
-  - Adjusted line-heights for a consistent 15px visual gap on desktop titles using pixel-based values.
-  - Tightened mobile line-height to 1.3 for better readability.
-- **Visual Styles**:
-  - Removed gradients from Vision titles for a cleaner solid white/blue look.
-  - Retained/Re-applied signature gradient to the final CTA title.
-
 ### 28. Vision Title & Global Settings Refinement
 - **Vision Title Font**: Migrated the first Information title (Vision) to **Syncopate**.
   - Applied mixed weights in English: Line 1 (Regular 400) / Line 2 (Bold 700).
@@ -440,3 +431,20 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - Maintained bold Pretendard JP and 15px gap for the Korean version.
 - **I18n Update**: 
   - Restored **English (en)** as the default application language upon initial load.
+
+### 29. Economy Section Redesign & Typography Refinements [2025-12-27]
+- **Typography Adjustments**:
+  - Increased section subtitle font sizes by 2px (Vision, Features, Kubic, Economy).
+  - Increased footer tagline ("KLATOO : THE OPERATING SYSTEM...") by 4px for better brand visibility.
+- **Economy Section Redesign**:
+  - **Glassmorphism Implementation**: Applied consistent glassmorphism to all content boxes with `backdrop-blur-xl/2xl` and reduced background opacities (approx. 15% lower) to reveal the background honeycomb pattern more clearly.
+  - **Layout Alignment**: Synchronized the heights of the left "Revenue Share" box and the right "Value/Trading" boxes to align perfectly on the same horizontal plane.
+  - **Iconography Upgrades**:
+    - Replaced basic list bullets with sophisticated SVG icons: Ownership (Key), Creation (Stars), and Network (Globe).
+    - Refined the "Trading Card" with a modern zigzag rising arrow, scaled and positioned to align its baseline with the Marketplace button.
+- **Content Updates**:
+  - Updated Marketplace button text to "Marketplace Coming Soon" (and Korean "마켓플레이스 준비중").
+  - Revised card slogans: "Ownership meets Creation" and "Creation meets Distribution".
+- **Visual Polish**: Left-aligned all content within the Economy section cards for improved readability and a modern aesthetic.
+
+---

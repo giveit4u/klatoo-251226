@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -75,6 +75,7 @@ const VisionParticles = () => {
 export default function Information() {
     const containerRef = useRef<HTMLDivElement>(null);
     const { language, t } = useLanguage();
+    const [activeTab, setActiveTab] = useState(0);
 
     // Asset Paths (assuming images are placed in public/assets or similar - utilizing generated ones)
     // For this environment, we'll assume they need to be moved to the public folder by the user or are served correctly.
@@ -123,13 +124,20 @@ export default function Information() {
                     toggleActions: 'play reverse play reverse'
                 }
             });
-            mechanismTl.from('.mechanism-step', {
-                x: -20,
+            mechanismTl.from('.kubic-tab', {
+                x: 30,
                 opacity: 0,
-                stagger: 0.2,
-                duration: 0.5,
+                stagger: 0.15,
+                duration: 0.8,
+                ease: 'power3.out',
                 immediateRender: false,
-            });
+            }).from('.kubic-mobile', {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out',
+                immediateRender: false,
+            }, "-=0.4");
 
             // 4. Economy Split - Mobile optimized
             gsap.from('.economy-left', {
@@ -192,7 +200,7 @@ export default function Information() {
 
                 <div className="relative z-10 max-w-5xl w-full text-center space-y-12">
                     <div className="vision-text space-y-4">
-                        <h2 className="text-[#4640fa] tracking-[0.2em] text-sm md:text-base font-bold uppercase">{t('info.vision.subtitle')}</h2>
+                        <h2 className="text-[#4640fa] tracking-[0.2em] text-[16px] md:text-[18px] font-bold uppercase">{t('info.vision.subtitle')}</h2>
                         <h1 className={`text-4xl md:text-7xl tracking-tight text-white ${language === 'ko' ? 'leading-[1.3] md:leading-[87px] font-extrabold' : 'leading-[41px] md:leading-[77px]'}`}>
                             <span className={language === 'en' ? 'font-accent font-normal' : ''}>{t('info.vision.title1')}</span><br />
                             <span className={language === 'en' ? 'font-accent font-bold' : ''}>{t('info.vision.title2')}</span>
@@ -225,7 +233,7 @@ export default function Information() {
             <section id="features" className="features-section w-full px-6 py-32 bg-[#050505]">
                 <div className="max-w-7xl mx-auto space-y-16">
                     <div className="text-center space-y-4 mb-20">
-                        <h2 className="bento-item text-[#4640fa] font-bold tracking-widest uppercase">{t('info.features.subtitle')}</h2>
+                        <h2 className="bento-item text-[#4640fa] font-bold tracking-widest uppercase text-[18px]">{t('info.features.subtitle')}</h2>
                         <h3 className={`bento-item text-4xl md:text-5xl leading-[1.3] md:leading-[63px] ${language === 'ko' ? 'font-bold' : 'font-display font-normal'}`} dangerouslySetInnerHTML={{ __html: t('info.features.title').replace('\n', '<br />') }}></h3>
                     </div>
 
@@ -309,37 +317,72 @@ export default function Information() {
                 />
                 <div className="kubic-scanline absolute left-0 w-full h-32 bg-gradient-to-b from-transparent via-[#4640fa15] to-transparent z-[1] pointer-events-none" />
 
-                <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-                    {/* Left Copy */}
-                    <div className="col-span-1 md:col-span-4 space-y-8">
-                        <h2 className="text-[#4640fa] font-bold tracking-widest uppercase">{t('info.kubic.subtitle')}</h2>
-                        <h3 className={`text-4xl md:text-5xl leading-[1.3] md:leading-[63px] ${language === 'ko' ? 'font-bold' : 'font-display font-normal'}`} dangerouslySetInnerHTML={{ __html: t('info.kubic.title').replace('\n', '<br />') }}></h3>
-                        <p className="text-gray-400 text-lg">
+                <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    {/* Left Column: Copy */}
+                    <div className="lg:col-span-4 space-y-8">
+                        <h2 className="text-[#4640fa] font-bold tracking-widest uppercase text-[16px]">{t('info.kubic.subtitle')}</h2>
+                        <h3 className={`text-4xl md:text-5xl leading-[1.2] ${language === 'ko' ? 'font-bold' : 'font-display font-normal'}`} dangerouslySetInnerHTML={{ __html: t('info.kubic.title').replace('\n', '<br />') }}></h3>
+                        <p className="text-gray-400 text-lg leading-relaxed">
                             {t('info.kubic.description1')}
                         </p>
-                        <div className="pl-6 border-l-4 border-[#4640fa]">
-                            <p className="text-white italic text-xl">
+                        <div className="pl-6 border-l-2 border-[#4640fa]/50">
+                            <p className="text-white/80 italic text-lg leading-relaxed">
                                 {t('info.kubic.quote1')}<br />
                                 {t('info.kubic.quote2')}
                             </p>
                         </div>
                     </div>
 
-                    {/* Right Mechanism */}
-                    <div className="col-span-1 md:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {/* Center Column: Mobile Mockup */}
+                    <div className="lg:col-span-4 flex justify-center items-center py-10 kubic-mobile">
+                        <div className="relative w-full max-w-[320px] aspect-[9/18.5] perspective-1000">
+                            {/* Simple Mobile Frame - Cleaned up to remove the grey "case" effect */}
+                            <div className="absolute inset-0 overflow-hidden rounded-[2.5rem]">
+                                {activeTab === 0 && (
+                                    <img src="/assets/01_Post.png" alt="Step 1" className="w-full h-full object-cover animate-fade-in" />
+                                )}
+                                {activeTab === 1 && (
+                                    <img src="/assets/02_Stacks.png" alt="Step 2" className="w-full h-full object-cover animate-fade-in" />
+                                )}
+                                {activeTab === 2 && (
+                                    <img src="/assets/03_Value.png" alt="Step 3" className="w-full h-full object-cover animate-fade-in" />
+                                )}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Interaction Tabs */}
+                    <div className="lg:col-span-4 space-y-4">
                         {[
                             { step: "01", title: t('info.kubic.step1.title'), desc: t('info.kubic.step1.desc') },
                             { step: "02", title: t('info.kubic.step2.title'), desc: t('info.kubic.step2.desc') },
                             { step: "03", title: t('info.kubic.step3.title'), desc: t('info.kubic.step3.desc') }
                         ].map((item, i) => (
-                            <div key={i} className="mechanism-step bg-[#111] p-8 rounded-2xl border border-white/5 hover:border-white/20 transition-colors relative overflow-hidden group">
-                                <span className="text-6xl font-bold text-[#222] absolute top-4 right-4 group-hover:text-[#4640fa]/50 transition-colors">{item.step}</span>
-                                <div className="relative z-10 pt-12">
-                                    <h4 className="text-xl font-bold mb-3">{item.title}</h4>
-                                    <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                            <button
+                                key={i}
+                                onClick={() => setActiveTab(i)}
+                                onMouseEnter={() => setActiveTab(i)}
+                                className={`kubic-tab w-full text-left p-6 rounded-2xl border transition-all duration-500 flex items-start gap-6 group backdrop-blur-sm
+                                    ${activeTab === i
+                                        ? 'bg-white/[0.08] border-[#4640fa]/30 shadow-[0_8px_32px_0_rgba(70,64,250,0.1)]'
+                                        : 'bg-white/[0.01] border-white/5 hover:bg-white/[0.03] hover:border-white/10'
+                                    }`}
+                            >
+                                <span className={`text-4xl font-bold transition-colors duration-500
+                                    ${activeTab === i ? 'text-[#4640fa]' : 'text-white/10 group-hover:text-white/20'}`}>
+                                    {item.step}
+                                </span>
+                                <div className="space-y-1">
+                                    <h4 className={`text-xl font-bold transition-colors duration-500
+                                        ${activeTab === i ? 'text-white' : 'text-white/50'}`}>
+                                        {item.title}
+                                    </h4>
+                                    <p className={`text-sm leading-relaxed transition-colors duration-500
+                                        ${activeTab === i ? 'text-gray-400' : 'text-gray-400/40'}`}>
+                                        {item.desc}
+                                    </p>
                                 </div>
-                                <div className="absolute bottom-0 left-0 h-1 bg-[#4640fa] w-0 group-hover:w-full transition-all duration-700" />
-                            </div>
+                            </button>
                         ))}
                     </div>
                 </div>
@@ -355,15 +398,16 @@ export default function Information() {
 
                 <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
                     <div className="text-center mb-20">
-                        <h2 className="text-[#4640fa] font-bold tracking-widest uppercase mb-4">{t('info.economy.subtitle')}</h2>
+                        <h2 className="text-[#4640fa] font-bold tracking-widest uppercase mb-4 text-[18px]">{t('info.economy.subtitle')}</h2>
                         <h3 className={`text-4xl md:text-6xl leading-[1.3] md:leading-[75px] ${language === 'ko' ? 'font-bold' : 'font-display font-normal'}`}>{t('info.economy.title')}</h3>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-stretch">
 
                         {/* Left: Revenue Share Logic */}
-                        <div className="economy-left bg-[#0A0A0A]/90 backdrop-blur rounded-3xl p-10 border border-white/10 space-y-10">
-                            <div>
+                        <div className="economy-left h-full bg-white/[0.015] backdrop-blur-xl rounded-3xl p-10 border border-white/10 space-y-10 shadow-2xl relative overflow-hidden group flex flex-col justify-between">
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#4640fa]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                            <div className="relative z-10">
                                 <h4 className="text-2xl font-bold mb-4 flex items-center">
                                     <span className="w-2 h-8 bg-[#4640fa] mr-4 rounded-sm" />
                                     {t('info.economy.left.title')}
@@ -371,51 +415,75 @@ export default function Information() {
                                 <p className="text-gray-300 leading-relaxed text-lg">
                                     {t('info.economy.left.desc')}
                                 </p>
-                                <ul className="mt-6 space-y-4">
-                                    {[t('info.economy.list1'), t('info.economy.list2'), t('info.economy.list3')].map((item) => (
-                                        <li key={item} className="flex items-center text-white font-medium">
-                                            <div className="w-2 h-2 rounded-full bg-[#4640fa] mr-3" />
-                                            {item}
+                                <ul className="mt-6 space-y-6">
+                                    {[
+                                        { text: t('info.economy.list1'), icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /> }, // Ownership/Key
+                                        { text: t('info.economy.list2'), icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z" /> }, // Creation/Stars
+                                        { text: t('info.economy.list3'), icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /> } // Globe/Network
+                                    ].map((item, idx) => (
+                                        <li key={idx} className="flex items-center text-white/90 font-medium group/item hover:text-white transition-colors duration-300">
+                                            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mr-4 group-hover/item:border-[#4640fa]/50 group-hover/item:bg-[#4640fa]/10 transition-all duration-500">
+                                                <svg className="w-5 h-5 text-[#4640fa]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    {item.icon}
+                                                </svg>
+                                            </div>
+                                            {item.text}
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
-                            <div className="pt-8 border-t border-white/10">
-                                <p className="text-xl text-center text-gray-200">
-                                    {t('info.economy.left.quote1')}<br />
-                                    {t('info.economy.left.quote2')}
-                                </p>
+                                <div className="pt-8 border-t border-white/10 mt-10">
+                                    <p className="text-xl text-left text-gray-200">
+                                        {t('info.economy.left.quote1')}<br />
+                                        {t('info.economy.left.quote2')}
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
                         {/* Right: Real Estate + Trading */}
-                        <div className="economy-right space-y-8">
-                            <div className="bg-[#111] p-8 rounded-2xl border border-white/5">
-                                <h5 className="text-gray-400 uppercase text-sm tracking-wider mb-2">{t('info.economy.right.box.title')}</h5>
-                                <div className="grid grid-cols-2 gap-8">
-                                    <div>
-                                        <p className="text-xl font-bold text-white mb-2">{t('info.economy.right.box.row1.title')}</p>
-                                        <p className="text-sm text-gray-500">{t('info.economy.right.box.row1.desc')}</p>
-                                    </div>
-                                    <div>
-                                        <p className="text-xl font-bold text-[#4640fa] mb-2">{t('info.economy.right.box.row2.title')}</p>
-                                        <p className="text-sm text-gray-400">{t('info.economy.right.box.row2.desc')}</p>
+                        <div className="economy-right h-full flex flex-col gap-8">
+                            <div className="flex-1 bg-white/[0.015] backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-xl group/box relative overflow-hidden flex flex-col justify-center">
+                                <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.02] to-transparent opacity-0 group-hover/box:opacity-100 transition-opacity duration-500" />
+                                <div className="relative z-10">
+                                    <h5 className="text-gray-400 uppercase text-[14px] tracking-wider mb-6 flex items-center gap-2">
+                                        <div className="w-1 h-1 rounded-full bg-[#4640fa]" />
+                                        {t('info.economy.right.box.title')}
+                                    </h5>
+                                    <div className="grid grid-cols-2 gap-8">
+                                        <div>
+                                            <p className="text-xl font-bold text-white mb-2">{t('info.economy.right.box.row1.title')}</p>
+                                            <p className="text-sm text-gray-500">{t('info.economy.right.box.row1.desc')}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-xl font-bold text-[#4640fa] mb-2">{t('info.economy.right.box.row2.title')}</p>
+                                            <p className="text-sm text-gray-400">{t('info.economy.right.box.row2.desc')}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="bg-gradient-to-br from-[#1a1540] to-[#4640fa]/40 p-10 rounded-3xl border border-[#4640fa]/30 relative overflow-hidden text-center group">
-                                <div className="absolute top-0 right-0 p-3 opacity-20">
-                                    <svg className="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-                                </div>
+                            <div className="flex-1 bg-gradient-to-br from-[#1a1540]/25 to-[#4640fa]/05 p-10 rounded-3xl border border-[#4640fa]/30 relative overflow-hidden text-left group backdrop-blur-2xl shadow-2xl hover:shadow-[#4640fa]/10 transition-all duration-500 flex flex-col justify-center">
                                 <h4 className="text-3xl font-bold text-white mb-4 relative z-10">{t('info.economy.right.card.title')}</h4>
-                                <p className="text-blue-200 mb-8 relative z-10">
-                                    {t('info.economy.right.card.desc1')}<br />
-                                    {t('info.economy.right.card.desc2')}
-                                </p>
-                                <button className="px-8 py-3 bg-[#4640fa] text-white font-bold rounded-full hover:bg-white hover:text-[#4640fa] transition-colors relative z-10">
-                                    {t('info.economy.button')}
-                                </button>
+                                <div className="space-y-1 mb-8 relative z-10">
+                                    <p className="text-blue-200 text-lg">
+                                        {t('info.economy.right.card.desc1')}
+                                    </p>
+                                    <p className="text-blue-200 text-lg">
+                                        {t('info.economy.right.card.desc2')}
+                                    </p>
+                                </div>
+                                <div className="relative z-10">
+                                    <button className="px-8 py-3 bg-[#4640fa] text-white font-bold rounded-full hover:bg-white hover:text-[#4640fa] transition-colors shadow-lg shadow-[#4640fa]/20">
+                                        {t('info.economy.button')}
+                                    </button>
+                                </div>
+
+                                {/* Refined Zigzag Rising Arrow Icon: Aligned with Button Bottom */}
+                                <div className="absolute bottom-[34px] right-[10%] opacity-[0.15] group-hover:opacity-[0.25] transition-all duration-700 pointer-events-none transform group-hover:scale-110 group-hover:translate-y-[-5px]">
+                                    <svg className="w-32 h-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.8} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                    </svg>
+                                </div>
                                 <div className="absolute inset-0 bg-[#4640fa]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                             </div>
                         </div>
@@ -461,7 +529,7 @@ export default function Information() {
 
                     {/* Footer Tagline */}
                     <div className="pt-16 opacity-50">
-                        <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-gray-500">
+                        <p className="text-[16px] md:text-[18px] tracking-[0.3em] uppercase text-gray-500">
                             {t('info.cta.tagline')}
                         </p>
                     </div>
