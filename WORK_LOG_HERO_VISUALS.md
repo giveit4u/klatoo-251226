@@ -446,8 +446,8 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - Updated Marketplace button text to "Marketplace Coming Soon" (and Korean "마켓플레이스 준비중").
   - Revised card slogans: "Ownership meets Creation" and "Creation meets Distribution".
 - **Section-Specific Glassmorphism**:
-  - **Vision Section**: Implemented a "Heavy Glass" effect using a darker background (`bg-[#0A0A0A]/40`) and maximum blur (`backdrop-blur-[60px]`) for premium depth and clear separation from the background.
-  - **Economy Section**: Maintained a "Light Glass" aesthetic (`bg-white/[0.015]`, `backdrop-blur-xl`) to preserve high transparency and background visibility as per the core design theme.
+  - **Vision Section**: Finalized a "Frosted Glass" effect using a balanced translucent background (`bg-[#0A0A0A]/20`) and extreme blur (`backdrop-blur-[80px]`) for a soft, premium separation that reveals a hazy background pattern.
+  - **Economy Section**: Maintained a "Light Glass" aesthetic (`bg-white/[0.015]`, `backdrop-blur-xl`) for maximum transparency and design consistency.
 - **Visual Polish**: Left-aligned all content within the Economy section cards for improved readability and a modern aesthetic.
 
 ---
