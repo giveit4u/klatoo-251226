@@ -118,28 +118,33 @@ export default function Information() {
             });
 
             // 3. Kubic Cycle - Mobile optimized
+            // 3. Kubic Cycle - Mobile optimized with deterministic fromTo
             const mechanismTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.kubic-section',
-                    start: 'top 75%',
-                    end: 'bottom 80%',
-                    toggleActions: 'play reverse play reverse'
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
                 }
             });
-            mechanismTl.from('.kubic-tab', {
-                x: 30,
-                opacity: 0,
-                stagger: 0.15,
-                duration: 0.8,
-                ease: 'power3.out',
-                immediateRender: false,
-            }).from('.kubic-mobile', {
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                ease: 'power3.out',
-                immediateRender: false,
-            }, "-=0.4");
+            mechanismTl.fromTo('.kubic-tab',
+                { y: 30, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    stagger: 0.1,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    clearProps: "transform" // Ensure no lingering transforms interfere with layout
+                }
+            ).fromTo('.kubic-mobile',
+                { y: 50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: 'power3.out',
+                }, "-=0.4");
 
             // 4. Economy Split - Mobile optimized
             gsap.from('.economy-left', {
@@ -364,9 +369,9 @@ export default function Information() {
                                 key={i}
                                 onClick={() => setActiveTab(i)}
                                 onMouseEnter={() => setActiveTab(i)}
-                                className={`kubic-tab w-full text-left p-6 rounded-2xl border transition-all duration-500 flex items-start gap-6 group backdrop-blur-sm
+                                className={`kubic-tab w-full text-left p-6 rounded-2xl border transition-[background-color,border-color,box-shadow] duration-500 flex items-start gap-6 group backdrop-blur-sm
                                     ${activeTab === i
-                                        ? 'bg-white/[0.08] border-[#4640fa]/30 shadow-[0_8px_32px_0_rgba(70,64,250,0.1)]'
+                                        ? 'bg-white/[0.08] border-[#4640fa]/50 shadow-[0_8px_32px_0_rgba(70,64,250,0.15)] opacity-100'
                                         : 'bg-white/[0.01] border-white/5 hover:bg-white/[0.03] hover:border-white/10'
                                     }`}
                             >
