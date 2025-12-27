@@ -219,7 +219,7 @@ export default function Information() {
                                 {t('info.vision.card1.desc')}
                             </p>
                         </div>
-                        <div className="space-y-6 flex flex-col justify-center md:border-l-2 border-[#4640fa]/30 md:pl-8">
+                        <div className="space-y-6 flex flex-col justify-center md:border-l-[5px] border-[#4640fa] md:pl-8">
                             <p className="text-xl md:text-3xl font-light text-white leading-snug">
                                 {t('info.vision.card2.quote1')}<br />
                                 <span className="font-bold text-[#4640fa]">{t('info.vision.card2.quote2')}</span>
@@ -327,7 +327,7 @@ export default function Information() {
                         <p className="text-gray-400 text-lg leading-relaxed">
                             {t('info.kubic.description1')}
                         </p>
-                        <div className="pl-6 border-l-2 border-[#4640fa]/50">
+                        <div className="pl-6 border-l-[5px] border-[#4640fa]">
                             <p className="text-white/80 italic text-lg leading-relaxed">
                                 {t('info.kubic.quote1')}<br />
                                 {t('info.kubic.quote2')}
@@ -411,7 +411,7 @@ export default function Information() {
                             <div className="absolute inset-0 bg-gradient-to-br from-[#4640fa]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                             <div className="relative z-10">
                                 <h4 className="text-2xl font-bold mb-4 flex items-center">
-                                    <span className="w-2 h-8 bg-[#4640fa] mr-4 rounded-sm" />
+                                    <span className="w-[5px] h-8 bg-[#4640fa] mr-4 rounded-sm" />
                                     {t('info.economy.left.title')}
                                 </h4>
                                 <p className="text-gray-300 leading-relaxed text-lg">

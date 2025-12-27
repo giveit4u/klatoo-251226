@@ -460,6 +460,7 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - **Mobile UX Fix**: Increased touch target area for the mobile menu toggle and verified clickable zone accessibility (Fixed TC008).
   - **Resource Optimization**: Added `sizes` attribute to all Next.js Image components and fixed aspect ratio warnings for the corporate logo.
   - **Mobile Grid Re-enabled**: Re-introduced the earth grid lines on mobile with a reduced segment count (32 segments) to balance visual fidelity and performance.
+  - **Visual Polish**: Adjusted vertical indicator lines for quotes and main headers to a consistent **5px thickness** to enhance visual emphasis as per user request.
   - **Glassmorphism Tuning**: Lowered `backdrop-blur` in Information sections for mobile to improve frame rates while maintaining design intent.
 
 ---
