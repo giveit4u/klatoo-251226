@@ -453,5 +453,6 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - **Security Refinement**: Added `rel="noopener noreferrer"` to all external target links to prevent security vulnerabilities (tab-nabbing).
   - **Next.js Image Optimization**: Replaced standard `<img>` tags with `<Image />` component from `next/image` in Navigation, Information (Kubic mockup), and Footer to leverage automatic formatting, lazy loading, and priority fetching.
   - **Mobile UX Improvement**: Added an "Outside Click" handler to the mobile navigation menu, allowing users to close the menu by clicking anywhere outside the navigation area for a more intuitive mobile experience.
+  - **Mobile Layout Optimization**: Adjusted the "Location-Based Posting" feature card to ensure full visibility on mobile devices. Increased the minimum height to 500px, centered the background image, and softened the overlay gradient to match the clarity of the desktop view.
 
 ---

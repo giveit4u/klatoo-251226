@@ -240,13 +240,13 @@ export default function Information() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
                         {/* Card 1: Location-Based Posting */}
-                        <div className="bento-item col-span-1 md:col-span-1 row-span-2 bg-[#0A0A0A] rounded-3xl p-8 border border-white/5 hover:border-[#4640fa]/30 transition-colors duration-500 overflow-hidden group relative">
+                        <div className="bento-item col-span-1 md:col-span-1 row-span-2 bg-[#0A0A0A] rounded-3xl p-8 border border-white/5 hover:border-[#4640fa]/30 transition-colors duration-500 overflow-hidden group relative min-h-[500px] md:min-h-0">
                             {/* Background Image: Hexagon Digital Context */}
                             <div className="absolute inset-0 z-0 opacity-[0.6] pointer-events-none transition-opacity duration-500 group-hover:opacity-[0.75]">
                                 <div
-                                    className="w-full h-full bg-[url('/assets/location_posting_bg.png')] bg-cover bg-top"
+                                    className="w-full h-full bg-[url('/assets/location_posting_bg.png')] bg-cover bg-center"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/60 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent" />
                             </div>
                             <div className="absolute top-0 right-0 w-full h-1/2 bg-gradient-to-b from-[#4640fa]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                             <div className="h-full flex flex-col justify-between relative z-10">
