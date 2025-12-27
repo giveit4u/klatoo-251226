@@ -222,14 +222,7 @@ export default function Information() {
 
 
             {/* --- SECTION 2: KEY FEATURES (Bento Grid) --- */}
-            <section id="features" className="features-section w-full px-6 py-32 bg-[#050505] relative overflow-hidden">
-                {/* Subtle Background Image requested by user */}
-                <div className="absolute inset-0 z-0 opacity-[0.07] pointer-events-none">
-                    <div
-                        className="w-full h-full bg-[url('/assets/info_vision_bg.png')] bg-contain bg-center bg-no-repeat"
-                        style={{ maskImage: 'radial-gradient(circle, black 30%, transparent 80%)' }}
-                    />
-                </div>
+            <section id="features" className="features-section w-full px-6 py-32 bg-[#050505]">
                 <div className="max-w-7xl mx-auto space-y-16">
                     <div className="text-center space-y-4 mb-20">
                         <h2 className="bento-item text-[#4640fa] font-bold tracking-widest uppercase">{t('info.features.subtitle')}</h2>
@@ -239,6 +232,13 @@ export default function Information() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
                         {/* Card 1: Location-Based Posting */}
                         <div className="bento-item col-span-1 md:col-span-1 row-span-2 bg-[#0A0A0A] rounded-3xl p-8 border border-white/5 hover:border-[#4640fa]/30 transition-colors duration-500 overflow-hidden group relative">
+                            {/* Background Image requested by user for this specific card */}
+                            <div className="absolute inset-0 z-0 opacity-[0.4] pointer-events-none transition-opacity duration-500 group-hover:opacity-[0.6]">
+                                <div
+                                    className="w-full h-full bg-[url('/assets/location_posting_bg.png')] bg-cover bg-center"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                            </div>
                             <div className="absolute top-0 right-0 w-full h-1/2 bg-gradient-to-b from-[#4640fa]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                             <div className="h-full flex flex-col justify-between relative z-10">
                                 <div className="w-12 h-12 bg-[#4640fa] rounded-full flex items-center justify-center mb-6">

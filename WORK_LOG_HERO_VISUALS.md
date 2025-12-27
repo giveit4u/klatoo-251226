@@ -342,3 +342,13 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - Updated `components/Information.tsx` to include this image as a background for the features section.
   - Applied subtle styling: `opacity: 0.07`, `bg-contain`, and a `radial-gradient` mask to ensure it blends naturally with the dark theme.
 - **Effect**: The section feels more layered and branded without distracting from the primary content cards.
+
+### 17. Feature Card Visual Enhancement
+- **Request**: Remove section-wide background and apply it specifically to the "Location-Based Posting" card.
+- **Action**: 
+  - Uploaded and placed `location_posting_bg.png` into `/public/assets/`.
+  - Removed the background from the entire Features section (reverted Phase 16).
+  - Applied the image as a background for the first bento card with:
+    - `opacity: 0.4` (base) and `0.6` (hover).
+    - `bg-cover` and a black gradient overlap to ensure text legibility.
+- **Effect**: The specific feature card now has much more visual depth, while the overall section remains clean and modern.
