@@ -78,9 +78,9 @@ const Navigation: React.FC = () => {
           <Image
             src="/assets/KLATOO-H-Logo.svg"
             alt="KLATOO Logo"
-            width={120}
-            height={32}
-            className="h-8 w-auto"
+            width={112}
+            height={30}
+            className="w-[100px] md:w-[112px] h-auto"
             priority
           />
         </button>
