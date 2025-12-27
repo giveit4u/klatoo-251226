@@ -430,3 +430,13 @@ The goal was to transform the Hero section into a premium, cinematic experience.
 - **Visual Styles**:
   - Removed gradients from Vision titles for a cleaner solid white/blue look.
   - Retained/Re-applied signature gradient to the final CTA title.
+
+### 28. Vision Title & Global Settings Refinement
+- **Vision Title Font**: Migrated the first Information title (Vision) to **Syncopate**.
+  - Applied mixed weights in English: Line 1 (Regular 400) / Line 2 (Bold 700).
+  - Cleaned up typography by removing the trailing period.
+- **Vision Spacing**: 
+  - Implementation of a tight **5px visual gap** between lines for the English title (77px line-height on desktop).
+  - Maintained bold Pretendard JP and 15px gap for the Korean version.
+- **I18n Update**: 
+  - Restored **English (en)** as the default application language upon initial load.

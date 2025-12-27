@@ -27,7 +27,7 @@ const translations: Record<Language, Record<string, string>> = {
         // Information - Vision
         'info.vision.subtitle': 'The Declaration of a Digital Earth',
         'info.vision.title1': 'We Are Building',
-        'info.vision.title2': 'THE DIGITAL EARTH.',
+        'info.vision.title2': 'THE DIGITAL EARTH',
         'info.vision.description': 'Rooted in reality. Designed for real value.',
         'info.vision.card1.title': 'Not a Virtual Fantasy',
         'info.vision.card1.desc': 'KLATOO is built on real locations, real people, and real-world activity — faithfully mirrored onto a digital earth. We are not escaping reality. We are layering a digital world directly on top of it.',
@@ -179,7 +179,7 @@ const translations: Record<Language, Record<string, string>> = {
 };
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-    const [language, setLanguage] = useState<Language>('ko');
+    const [language, setLanguage] = useState<Language>('en');
 
     const t = (key: string): string => {
         return translations[language][key] || key;

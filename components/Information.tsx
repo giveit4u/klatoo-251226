@@ -193,9 +193,9 @@ export default function Information() {
                 <div className="relative z-10 max-w-5xl w-full text-center space-y-12">
                     <div className="vision-text space-y-4">
                         <h2 className="text-[#4640fa] tracking-[0.2em] text-sm md:text-base font-bold uppercase">{t('info.vision.subtitle')}</h2>
-                        <h1 className={`text-4xl md:text-7xl tracking-tight leading-[1.3] md:leading-[87px] text-white ${language === 'ko' ? 'font-extrabold' : 'font-display font-normal'}`}>
-                            {t('info.vision.title1')}<br />
-                            <span>{t('info.vision.title2')}</span>
+                        <h1 className={`text-4xl md:text-7xl tracking-tight text-white ${language === 'ko' ? 'leading-[1.3] md:leading-[87px] font-extrabold' : 'leading-[41px] md:leading-[77px]'}`}>
+                            <span className={language === 'en' ? 'font-accent font-normal' : ''}>{t('info.vision.title1')}</span><br />
+                            <span className={language === 'en' ? 'font-accent font-bold' : ''}>{t('info.vision.title2')}</span>
                         </h1>
                         <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto pt-4">
                             {t('info.vision.description')}

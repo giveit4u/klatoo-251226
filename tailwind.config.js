@@ -12,6 +12,7 @@ export default {
                 sans: ['"Pretendard JP"', 'Inter', 'sans-serif'],
                 display: ['var(--font-goldman)', 'Space Grotesk', 'sans-serif'],
                 logo: ['var(--font-montserrat)', 'sans-serif'],
+                accent: ['var(--font-syncopate)', 'sans-serif'],
             },
             colors: {
                 kees: {
