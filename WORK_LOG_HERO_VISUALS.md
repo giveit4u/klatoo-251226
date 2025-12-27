@@ -334,3 +334,11 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - Mobile: `+=2000` (increased from 1000px)
   - Desktop: `+=1000` (remains the same)
 - **Effect**: The transition on mobile devices now feels much more deliberate and slower, giving users more time to see the particle and grid animation.
+
+### 16. Information Section Visual Polish
+- **Request**: Add a background image to the Information (Features) section to fill empty space.
+- **Action**: 
+  - Uploaded and placed `info_vision_bg.png` into `/public/assets/`.
+  - Updated `components/Information.tsx` to include this image as a background for the features section.
+  - Applied subtle styling: `opacity: 0.07`, `bg-contain`, and a `radial-gradient` mask to ensure it blends naturally with the dark theme.
+- **Effect**: The section feels more layered and branded without distracting from the primary content cards.

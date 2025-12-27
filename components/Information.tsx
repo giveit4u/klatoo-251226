@@ -222,7 +222,14 @@ export default function Information() {
 
 
             {/* --- SECTION 2: KEY FEATURES (Bento Grid) --- */}
-            <section id="features" className="features-section w-full px-6 py-32 bg-[#050505]">
+            <section id="features" className="features-section w-full px-6 py-32 bg-[#050505] relative overflow-hidden">
+                {/* Subtle Background Image requested by user */}
+                <div className="absolute inset-0 z-0 opacity-[0.07] pointer-events-none">
+                    <div
+                        className="w-full h-full bg-[url('/assets/info_vision_bg.png')] bg-contain bg-center bg-no-repeat"
+                        style={{ maskImage: 'radial-gradient(circle, black 30%, transparent 80%)' }}
+                    />
+                </div>
                 <div className="max-w-7xl mx-auto space-y-16">
                     <div className="text-center space-y-4 mb-20">
                         <h2 className="bento-item text-[#4640fa] font-bold tracking-widest uppercase">{t('info.features.subtitle')}</h2>
