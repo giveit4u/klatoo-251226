@@ -3,6 +3,7 @@
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Image from 'next/image';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -29,10 +30,13 @@ export default function Footer() {
                 href="#"
                 onClick={scrollToTop}
                 className="inline-block cursor-pointer hover:opacity-80 transition-opacity"
+                aria-label="Scroll to top"
               >
-                <img
+                <Image
                   src="/assets/underpin_logo.svg"
-                  alt="UNDERPIN"
+                  alt="UNDERPIN Logo"
+                  width={120}
+                  height={32}
                   className="h-8 w-auto brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
                 />
               </a>
@@ -65,10 +69,19 @@ export default function Footer() {
               { src: 'instagram.png', alt: 'Instagram' },
               { src: 'telegram.png', alt: 'Telegram' }
             ].map((sns) => (
-              <a key={sns.alt} href="#" className="group transition-all">
-                <img
+              <a
+                key={sns.alt}
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group transition-all"
+                aria-label={sns.alt}
+              >
+                <Image
                   src={`/assets/sns/${sns.src}`}
-                  alt={sns.alt}
+                  alt={`${sns.alt} icon`}
+                  width={22}
+                  height={22}
                   className="h-[22px] w-[22px] object-contain filter grayscale brightness-[0.8] opacity-70 group-hover:grayscale-0 group-hover:brightness-110 group-hover:opacity-100 transition-all duration-300"
                 />
               </a>

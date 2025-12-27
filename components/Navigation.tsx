@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -56,10 +57,13 @@ const Navigation: React.FC = () => {
           onClick={() => gsap.to(window, { duration: 1.2, scrollTo: 0, ease: 'power2.inOut' })}
           className="hover:opacity-80 transition-opacity cursor-pointer"
         >
-          <img
+          <Image
             src="/assets/KLATOO-H-Logo.svg"
-            alt="KLATOO"
+            alt="KLATOO Logo"
+            width={112}
+            height={30}
             className="w-[100px] md:w-[112px] h-auto"
+            priority
           />
         </button>
 
@@ -112,6 +116,7 @@ const Navigation: React.FC = () => {
         <button
           className="md:hidden text-white transition-colors duration-500"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
           {isMenuOpen ? <X /> : <Menu />}
         </button>

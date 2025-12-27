@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -339,13 +340,13 @@ export default function Information() {
                             {/* Simple Mobile Frame - Cleaned up to remove the grey "case" effect */}
                             <div className="absolute inset-0 overflow-hidden rounded-[2.5rem]">
                                 {activeTab === 0 && (
-                                    <img src="/assets/01_Post.png" alt="Step 1" className="w-full h-full object-cover animate-fade-in" />
+                                    <Image src="/assets/01_Post.png" alt="Step 1" fill className="object-cover animate-fade-in" />
                                 )}
                                 {activeTab === 1 && (
-                                    <img src="/assets/02_Stacks.png" alt="Step 2" className="w-full h-full object-cover animate-fade-in" />
+                                    <Image src="/assets/02_Stacks.png" alt="Step 2" fill className="object-cover animate-fade-in" />
                                 )}
                                 {activeTab === 2 && (
-                                    <img src="/assets/03_Value.png" alt="Step 3" className="w-full h-full object-cover animate-fade-in" />
+                                    <Image src="/assets/03_Value.png" alt="Step 3" fill className="object-cover animate-fade-in" />
                                 )}
                             </div>
                         </div>

@@ -448,6 +448,9 @@ The goal was to transform the Hero section into a premium, cinematic experience.
 - **Section-Specific Glassmorphism**:
   - **Vision Section**: Finalized a "Frosted Glass" effect using a balanced translucent background (`bg-[#0A0A0A]/20`) and extreme blur (`backdrop-blur-[80px]`) for a soft, premium separation that reveals a hazy background pattern.
   - **Economy Section**: Maintained a "Light Glass" aesthetic (`bg-white/[0.015]`, `backdrop-blur-xl`) for maximum transparency and design consistency.
-- **Visual Polish**: Left-aligned all content within the Economy section cards for improved readability and a modern aesthetic.
+- **Stability & Performance Optimization**:
+  - **Accessibility (A11y)**: Added descriptive `aria-label` to all icon-only buttons (Mobile Menu, Scroll-to-Top, SNS links) and improved `alt` text for images to support screen readers.
+  - **Security Refinement**: Added `rel="noopener noreferrer"` to all external target links to prevent security vulnerabilities (tab-nabbing).
+  - **Next.js Image Optimization**: Replaced standard `<img>` tags with `<Image />` component from `next/image` in Navigation, Information (Kubic mockup), and Footer to leverage automatic formatting, lazy loading, and priority fetching.
 
 ---
