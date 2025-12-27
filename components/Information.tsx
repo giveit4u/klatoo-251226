@@ -22,7 +22,8 @@ const VisionParticles = () => {
         let h = canvas.height = window.innerHeight;
         const particles: { x: number; y: number; s: number; vx: number; vy: number; a: number; curA: number }[] = [];
 
-        const particleCount = window.innerWidth < 768 ? 120 : 220;
+        const particleCount = window.innerWidth < 768 ? 30 : 120;
+
         for (let i = 0; i < particleCount; i++) {
             particles.push({
                 x: Math.random() * w,
@@ -211,7 +212,7 @@ export default function Information() {
                         </p>
                     </div>
 
-                    <div className="vision-text grid grid-cols-1 md:grid-cols-2 gap-12 text-left bg-[#0A0A0A]/20 backdrop-blur-[80px] p-8 md:p-12 rounded-2xl border border-white/10 shadow-2xl">
+                    <div className="vision-text grid grid-cols-1 md:grid-cols-2 gap-12 text-left bg-[#0A0A0A]/20 backdrop-blur-[12px] md:backdrop-blur-[80px] p-8 md:p-12 rounded-2xl border border-white/10 shadow-2xl">
                         <div className="space-y-6">
                             <h3 className="text-2xl font-bold text-white">{t('info.vision.card1.title')}</h3>
                             <p className="text-gray-300 leading-relaxed">
@@ -340,13 +341,13 @@ export default function Information() {
                             {/* Simple Mobile Frame - Cleaned up to remove the grey "case" effect */}
                             <div className="absolute inset-0 overflow-hidden rounded-[2.5rem]">
                                 {activeTab === 0 && (
-                                    <Image src="/assets/01_Post.png" alt="Step 1" fill className="object-cover animate-fade-in" />
+                                    <Image src="/assets/01_Post.png" alt="Step 1" fill className="object-cover animate-fade-in" sizes="(max-width: 768px) 100vw, 50vw" />
                                 )}
                                 {activeTab === 1 && (
-                                    <Image src="/assets/02_Stacks.png" alt="Step 2" fill className="object-cover animate-fade-in" />
+                                    <Image src="/assets/02_Stacks.png" alt="Step 2" fill className="object-cover animate-fade-in" sizes="(max-width: 768px) 100vw, 50vw" />
                                 )}
                                 {activeTab === 2 && (
-                                    <Image src="/assets/03_Value.png" alt="Step 3" fill className="object-cover animate-fade-in" />
+                                    <Image src="/assets/03_Value.png" alt="Step 3" fill className="object-cover animate-fade-in" sizes="(max-width: 768px) 100vw, 50vw" />
                                 )}
                             </div>
                         </div>

@@ -66,7 +66,7 @@ const Navigation: React.FC = () => {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 w-full z-50 py-6 transition-all duration-500 backdrop-blur ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100 md:-translate-y-full md:opacity-0'
+      className={`fixed top-0 left-0 w-full z-50 py-4 md:py-6 transition-all duration-500 backdrop-blur ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100 md:-translate-y-full md:opacity-0'
         }`}
       style={{ backgroundColor: isVisible ? 'rgba(3, 3, 8, 0.5)' : 'transparent' }}
     >
@@ -78,9 +78,9 @@ const Navigation: React.FC = () => {
           <Image
             src="/assets/KLATOO-H-Logo.svg"
             alt="KLATOO Logo"
-            width={112}
-            height={30}
-            className="w-[100px] md:w-[112px] h-auto"
+            width={120}
+            height={32}
+            className="h-8 w-auto"
             priority
           />
         </button>
@@ -132,7 +132,7 @@ const Navigation: React.FC = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white transition-colors duration-500"
+          className="md:hidden text-white transition-colors duration-500 p-2 relative z-50"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >

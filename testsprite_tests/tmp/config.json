@@ -1,0 +1,20 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3000",
+  "loginUser": "klatoo-251226",
+  "executionArgs": {
+    "projectName": "KLATOO-251223",
+    "projectPath": "/Users/jinkim/work/KLATOO-251223",
+    "testIds": [
+      "TC007",
+      "TC008"
+    ],
+    "additionalInstruction": "I have resolved several critical issues: mobile menu toggle is now easily clickable (TC008 fixed), and I have implemented aggressive performance optimizations (resolution capping on mobile, out-of-view animation stop, and skipped grid rendering on mobile) to address the TC007 timeout. Image warnings have also been fixed. Please re-run TC007 and TC008.",
+    "envs": {
+      "API_KEY": "sk-user-5mcsaaVKpLAWww0kBEDzPV93rqRsRBCm3TnR-pJ6SZRwRgOKdcwIA5k27TkoFFL-NzVjhKTj0Pv_BD0JQYSQDKl9wjC1K55OAAb2dKQ7O_C-fOUrT2qkAi-sTg8RvgPeqEI"
+    }
+  },
+  "proxy": "http://d83ed085-ac9a-4253-8ff1-d352c108907c:wYU23qnUgFiQYONaa3VEj2FIZs2mby1X@tun.testsprite.com:8080"
+}

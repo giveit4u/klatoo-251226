@@ -497,7 +497,8 @@ const Hero: React.FC = () => {
     const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
 
     // 파티클 밀도 10% 감소 (28800)
-    const baseParticleCount = isMobile ? 10800 : (isTablet ? 18000 : 28800);
+    // 파티클 밀도 최적화: 모바일 성능 확보를 위해 6000으로 대폭 하향 조정
+    const baseParticleCount = isMobile ? 6000 : (isTablet ? 18000 : 28800);
     // 기본 크기 기준값 통일 (지구본 크기에 따라 동적으로 스케일링됨)
     const baseSizeFactor = 2.8;
 
@@ -509,8 +510,15 @@ const Hero: React.FC = () => {
 
     const updateCanvasSize = () => {
       const rect = containerRef.current!.getBoundingClientRect();
-      canvas.width = rect.width;
-      canvas.height = rect.height;
+      const dpr = window.devicePixelRatio || 1;
+      // 모바일에서는 연산 부하를 줄이기 위해 해상도 배율을 1.2로 제한
+      const cap = isMobile ? 1.2 : 2.0;
+      const finalDpr = Math.min(dpr, cap);
+
+      canvas.width = rect.width * finalDpr;
+      canvas.height = rect.height * finalDpr;
+      context.scale(finalDpr, finalDpr);
+
       canvasWidth = rect.width;
       canvasHeight = rect.height;
     };
@@ -662,9 +670,23 @@ const Hero: React.FC = () => {
     const animStartTime = startTimeRef.current;
     const introDuration = 2200; // Snappy 2.2s intro
 
+    let isHeroVisible = true;
+    ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: 'top bottom', // When the top of the section enters the bottom of the viewport
+      end: 'bottom top',   // When the bottom of the section leaves the top of the viewport
+      onToggle: (self) => { isHeroVisible = self.isActive; }
+    });
+
     const animate = () => {
+      // 렌더링 부하 방지: 화면 밖에 있을 때 연산 중단
+      if (!isHeroVisible) {
+        animationFrameId = requestAnimationFrame(animate);
+        return;
+      }
+
       const now = Date.now();
-      time += 0.002;
+      time = (now - startTimeRef.current) / 1000; // Use elapsed time for consistent animation
       const p = scrollState.current.progress;
 
       // --- TRANSITION PARAMETERS (Damped Expansion for Lingering Look) ---
@@ -716,7 +738,8 @@ const Hero: React.FC = () => {
 
       // --- DRAW GRID (Heavy Duty Removal) ---
       // 스크롤 35% 지점(p=0.35) 이후에는 그리드 렌더링 루프를 물리적으로 제거
-      const shouldDrawGrid = fadeProgress < 1.0 && p < 0.35;
+      // Optimization: Skip grid rendering on mobile as it is computationally expensive
+      const shouldDrawGrid = fadeProgress < 1.0 && p < 0.35 && !isMobile;
       if (shouldDrawGrid) {
         gridLines.forEach(line => {
           for (let j = 0; j < line.path.length - 1; j++) {
@@ -862,6 +885,8 @@ const Hero: React.FC = () => {
           alpha *= (1 - Math.pow(pfProgress, 2.5)); // 더 긴 꼬리를 갖는 부드러운 소멸
         }
 
+        if (alpha < 0.05) continue; // 투명한 파티클 렌더링 스킵 (연산 절약)
+
         renderbuf.push({
           x: screenX, y: screenY, z: zDepth, size, color: finalColor, alpha,
           rx, ry, rz: rz_f, rad: currentRadius
@@ -875,8 +900,9 @@ const Hero: React.FC = () => {
         { c: -0.866, s: 0.5 }, { c: 0, s: 1 }, { c: 0.866, s: 0.5 }
       ];
 
-      renderbuf.forEach(b => {
-        context.globalAlpha = Math.min(1, Math.max(0, b.alpha));
+      for (let i = 0; i < renderbuf.length; i++) {
+        const b = renderbuf[i];
+        context.globalAlpha = b.alpha > 1 ? 1 : (b.alpha < 0 ? 0 : b.alpha);
         context.fillStyle = b.color;
 
         const rz = (b as any).rz;
@@ -901,7 +927,7 @@ const Hero: React.FC = () => {
         }
         context.closePath();
         context.fill();
-      });
+      }
       context.globalAlpha = 1;
 
       animationFrameId = requestAnimationFrame(animate);

@@ -454,5 +454,11 @@ The goal was to transform the Hero section into a premium, cinematic experience.
   - **Next.js Image Optimization**: Replaced standard `<img>` tags with `<Image />` component from `next/image` in Navigation, Information (Kubic mockup), and Footer to leverage automatic formatting, lazy loading, and priority fetching.
   - **Mobile UX Improvement**: Added an "Outside Click" handler to the mobile navigation menu, allowing users to close the menu by clicking anywhere outside the navigation area for a more intuitive mobile experience.
   - **Mobile Layout Optimization**: Adjusted the "Location-Based Posting" feature card to ensure full visibility on mobile devices. Increased the minimum height to 500px, centered the background image, and softened the overlay gradient to match the clarity of the desktop view.
+- **Mobile Performance & Stability Optimization (Post-Testing)**:
+  - **Hero Canvas Optimization**: Implemented resolution capping (max 1.2 DPR) on mobile and visibility detection to stop the animation loop when out-of-view, significantly reducing CPU/GPU overhead.
+  - **Complexity Reduction**: Disabled grid line rendering and reduced particle count to 6,000 on mobile to prevent test timeouts and ensure smooth scrolling.
+  - **Mobile UX Fix**: Increased touch target area for the mobile menu toggle and verified clickable zone accessibility (Fixed TC008).
+  - **Resource Optimization**: Added `sizes` attribute to all Next.js Image components and fixed aspect ratio warnings for the corporate logo.
+  - **Glassmorphism Tuning**: Lowered `backdrop-blur` in Information sections for mobile to improve frame rates while maintaining design intent.
 
 ---

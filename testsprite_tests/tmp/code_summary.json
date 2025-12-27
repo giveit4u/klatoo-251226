@@ -1,0 +1,77 @@
+{
+    "tech_stack": [
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS",
+        "GSAP",
+        "Lenis (Smooth Scroll)",
+        "Lucide-react"
+    ],
+    "features": [
+        {
+            "name": "Global Smooth Scrolling",
+            "description": "Implementation of Lenis smooth scrolling and synchronization with GSAP ScrollTrigger.",
+            "files": [
+                "components/SmoothScroll.tsx",
+                "app/layout.tsx"
+            ]
+        },
+        {
+            "name": "Navigation System",
+            "description": "Responsive navigation header with language selection (KO/EN), sticky behavior on scroll, and mobile drawer with outside-click close functionality.",
+            "files": [
+                "components/Navigation.tsx"
+            ]
+        },
+        {
+            "name": "Particle Globe Visualization",
+            "description": "High-density particle globe rendered on Canvas in the Hero section with continent definitions and intro animations.",
+            "files": [
+                "components/Hero.tsx"
+            ]
+        },
+        {
+            "name": "Vision & Value Section",
+            "description": "Conceptual introduction with premium glassmorphism effects and scroll-triggered fade animations.",
+            "files": [
+                "components/Information.tsx"
+            ]
+        },
+        {
+            "name": "Bento Grid Features",
+            "description": "Display of key platform features using a responsive bento grid layout with hover effects.",
+            "files": [
+                "components/Information.tsx"
+            ]
+        },
+        {
+            "name": "How It Moves (Mobile Mockup)",
+            "description": "Interactive section with tabs and an optimized mobile mockup displaying screen transitions.",
+            "files": [
+                "components/Information.tsx"
+            ]
+        },
+        {
+            "name": "Economy & Revenue Share",
+            "description": "Visual representation of the platform's economic model using glassmorphism cards and custom SVG icons.",
+            "files": [
+                "components/Information.tsx"
+            ]
+        },
+        {
+            "name": "Multi-language Support",
+            "description": "i18n implementation using a React Context provider for Korean and English translations.",
+            "files": [
+                "contexts/LanguageContext.tsx",
+                "app/layout.tsx"
+            ]
+        },
+        {
+            "name": "Footer",
+            "description": "Corporate information, contact details, social media links with accessibility labels, and scroll-to-top functionality.",
+            "files": [
+                "components/Footer.tsx"
+            ]
+        }
+    ]
+}

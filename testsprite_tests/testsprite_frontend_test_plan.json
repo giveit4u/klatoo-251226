@@ -1,0 +1,306 @@
+[
+  {
+    "id": "TC001",
+    "title": "Verify smooth scrolling synchronization with GSAP ScrollTrigger",
+    "description": "Ensure that the Lenis-based smooth scrolling synchronizes accurately with GSAP ScrollTrigger animations without jitter or desynchronization across desktop and mobile devices.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open the homepage on desktop browser"
+      },
+      {
+        "type": "action",
+        "description": "Observe scrolling behavior and GSAP animations for smoothness and synchronization"
+      },
+      {
+        "type": "assertion",
+        "description": "Scrolling is fluid without jitter, and GSAP animations trigger exactly in sync with scroll position"
+      },
+      {
+        "type": "action",
+        "description": "Repeat the above steps on a mobile device with screen size 320px-375px"
+      },
+      {
+        "type": "assertion",
+        "description": "Scrolling and animations are smooth and synchronized on mobile as well"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Particle globe canvas performance and rendering correctness",
+    "description": "Verify the particle globe hero section canvas renders correctly with high particle density, continent highlighting, and intro animations, maintaining near 60 FPS on low-end mobile devices.",
+    "category": "performance",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Load the homepage on multiple devices, including a low-end mobile device"
+      },
+      {
+        "type": "assertion",
+        "description": "Particle globe is fully rendered with all continents highlighted correctly"
+      },
+      {
+        "type": "assertion",
+        "description": "Intro animations play smoothly without frame drops"
+      },
+      {
+        "type": "assertion",
+        "description": "Measured frame rate remains close to 60 FPS during interaction and animation playback"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Responsive navigation and language toggle functionality",
+    "description": "Check responsive navigation header behavior including sticky header on scroll, language toggle functionality (Korean/English), and mobile drawer with outside-click close on desktop and mobile.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open the homepage on desktop and verify sticky header behavior when scrolling down"
+      },
+      {
+        "type": "assertion",
+        "description": "Header remains sticky and visible on scroll"
+      },
+      {
+        "type": "action",
+        "description": "Use the language toggle to switch between Korean and English"
+      },
+      {
+        "type": "assertion",
+        "description": "Page language changes accordingly with correct text translations and layout adjustments"
+      },
+      {
+        "type": "action",
+        "description": "Open the mobile navigation drawer on small screen device"
+      },
+      {
+        "type": "assertion",
+        "description": "Mobile drawer opens and menu items are accessible"
+      },
+      {
+        "type": "action",
+        "description": "Click outside the mobile drawer area"
+      },
+      {
+        "type": "assertion",
+        "description": "Mobile drawer closes properly"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Language switch layout and content integrity",
+    "description": "Verify that toggling languages between Korean and English does not break or misalign the UI layout or truncate text in any section.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate through all website sections (Hero, Vision & Value, Bento Grid, How It Moves, Economy & Revenue, Footer)"
+      },
+      {
+        "type": "action",
+        "description": "Toggle language from Korean to English and vice versa repeatedly"
+      },
+      {
+        "type": "assertion",
+        "description": "No UI breakage, overlapped or truncated text, or misaligned elements occur"
+      },
+      {
+        "type": "assertion",
+        "description": "All translated text matches expected strings in each language"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Glassmorphism contrast and text legibility",
+    "description": "Validate that glassmorphism UI elements maintain sufficient contrast and legibility of text over patterned and translucent backgrounds in Vision & Value, Economy & Revenue sections.",
+    "category": "accessibility",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Inspect glassmorphism cards and backgrounds on Vision & Value and Economy & Revenue Share sections"
+      },
+      {
+        "type": "assertion",
+        "description": "Contrast ratio between text and backgrounds meets WCAG AA or better standards"
+      },
+      {
+        "type": "assertion",
+        "description": "Text remains clearly readable on all tested device types and screen brightness settings"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Keyboard navigation and accessibility compliance",
+    "description": "Ensure all interactive elements including navigation, language toggle, mobile drawer, tabs in How It Moves section, and footer links support keyboard navigation with visible focus states and accessible ARIA labels.",
+    "category": "accessibility",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Use keyboard only to navigate through the site interactive elements"
+      },
+      {
+        "type": "assertion",
+        "description": "Tab order is logical and intuitive across all sections"
+      },
+      {
+        "type": "assertion",
+        "description": "All actionable elements have visible focus outlines while focused"
+      },
+      {
+        "type": "assertion",
+        "description": "ARIA labels and roles are present and correct for navigation, language toggle, mobile drawer, tabs, and footer social links"
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Responsive text and grid layout on small screen sizes",
+    "description": "Test the website layout on small screen widths (320px-375px) to ensure text is legible, grid elements in Bento Grid remain visible without overflow, and no horizontal scroll occurs.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Resize browser window to common mobile widths (320px, 360px, 375px) or use actual devices"
+      },
+      {
+        "type": "assertion",
+        "description": "Text remains legible and no clipping or overflow occurs"
+      },
+      {
+        "type": "assertion",
+        "description": "Bento Grid layout adapts properly without horizontal scroll or content cutoff"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "No scroll locking issue when navigation menu is open on mobile",
+    "description": "Verify that opening the mobile navigation drawer does not lock the scroll of the page unexpectedly or cause layout shifts on mobile devices.",
+    "category": "error handling",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open mobile navigation drawer on a small screen mobile device"
+      },
+      {
+        "type": "assertion",
+        "description": "Page behind drawer does not scroll or locks scrolling only when appropriate"
+      },
+      {
+        "type": "action",
+        "description": "Close the drawer and verify the page scroll behavior returns to normal"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Cross-browser compatibility including iOS Safari support",
+    "description": "Test the entire site across major browsers including Chrome, Firefox, Safari on macOS, Windows, Android, and especially iOS Safari, focusing on backdrop-filter, canvas transparency, and GSAP animations.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open the site on latest Chrome, Firefox, Edge, Safari Desktop and iOS Safari"
+      },
+      {
+        "type": "assertion",
+        "description": "Backdrop-filter glassmorphism effects render correctly without visual glitches"
+      },
+      {
+        "type": "assertion",
+        "description": "Canvas particle globe renders with proper transparency and visuals"
+      },
+      {
+        "type": "assertion",
+        "description": "GSAP animations are smooth and synchronized with scrolling"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Font loading and prevention of layout shifts",
+    "description": "Ensure font resources load efficiently without causing layout shifts or flickering of text content after page load.",
+    "category": "performance",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Load the homepage and observe text rendering during page load"
+      },
+      {
+        "type": "assertion",
+        "description": "Fonts load without visible flicker or flash of unstyled text (FOUT)"
+      },
+      {
+        "type": "assertion",
+        "description": "No layout shifting or jumping of text occurs once fonts are fully loaded"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "GSAP context cleanup verification on page transitions",
+    "description": "Confirm that GSAP animation contexts are properly cleaned up during page transitions to prevent memory leaks or animation duplication.",
+    "category": "error handling",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate between pages multiple times in a session"
+      },
+      {
+        "type": "assertion",
+        "description": "No duplicated animations or increased memory usage is observed"
+      },
+      {
+        "type": "assertion",
+        "description": "GSAP animations initialize fresh without interference from previous page instances"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Footer accessibility and scroll-to-top functionality",
+    "description": "Validate that footer corporate info, accessible social links with proper aria-labels, and scroll-to-top button function correctly and meet accessibility standards.",
+    "category": "accessibility",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Scroll to footer section on desktop and mobile"
+      },
+      {
+        "type": "assertion",
+        "description": "Corporate info is displayed with semantic markup"
+      },
+      {
+        "type": "assertion",
+        "description": "Social media links have aria-label attributes describing the link purpose"
+      },
+      {
+        "type": "action",
+        "description": "Use keyboard and mouse to activate scroll-to-top button"
+      },
+      {
+        "type": "assertion",
+        "description": "Page scrolls instantly back to top without issues"
+      }
+    ]
+  }
+]
