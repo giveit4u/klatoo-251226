@@ -529,3 +529,10 @@ The goal was to transform the Hero section into a premium, cinematic experience.
 - **Action**: Updated `public/assets/KLATOO-H-Logo.svg` with a new version (content/visual refinement) while maintaining the existing filename.
 - **Implementation**: No code changes required in `Navigation.tsx` as the reference remains identical.
 - **Verification**: Confirmed `h-auto` class is present to handle any potential aspect ratio changes naturally.
+
+### 31. Layout & Globe Size Refinements
+- **Section Spacing**: Significantly increased vertical padding (>2x) for all information sections (Features, Kubic, Economy, Global CTA) to `py-40 md:py-72` to improve visual breathing room on desktop. Vision section adjusted to `py-32 md:py-64`.
+- **Vertical Screen Optimization**:
+    - Replaced `min-h-screen` with fixed minimum heights (`min-h-[800px]`, etc.) to prevent excessive whitespace on vertically tall desktop viewports (e.g., portrait monitors).
+    - Restored mobile optimizations (removed explicit height reduction on mobile to match previous requested state, while keeping responsive padding).
+- **Globe Sizing**: Updated `Hero.tsx` to constrain the globe's `baseRadius` using `Math.min(height, width * 0.85/0.9)`. This ensures the globe does not overflow or appear overwhelmingly large on narrow/portrait desktop screens.

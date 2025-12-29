@@ -207,7 +207,7 @@ export default function Information() {
         <div ref={containerRef} className="w-full bg-[#030308] text-white overflow-hidden relative font-sans">
 
             {/* --- SECTION 1: VISION --- */}
-            <section id="about" className="vision-section relative w-full min-h-screen flex flex-col justify-center items-center px-6 py-24 overflow-hidden">
+            <section id="about" className="vision-section relative w-full min-h-[800px] flex flex-col justify-center items-center px-6 py-32 md:py-64 overflow-hidden">
                 {/* Background Image Placeholder: Vision Digital Layer */}
                 <div className="absolute inset-0 z-0 opacity-40">
                     {/* In a real scenario, <img src="/path/to/vision_digital_layer.png" className="w-full h-full object-cover" /> */}
@@ -249,7 +249,7 @@ export default function Information() {
 
 
             {/* --- SECTION 2: KEY FEATURES (Bento Grid) --- */}
-            <section id="features" className="features-section w-full px-6 py-32 bg-[#050505]">
+            <section id="features" className="features-section w-full px-6 py-40 md:py-72 bg-[#050505]">
                 <div className="max-w-7xl mx-auto space-y-16">
                     <div className="text-center space-y-4 mb-20">
                         <h2 className="bento-item text-[#08efff] font-bold tracking-widest uppercase text-[18px]">{t('info.features.subtitle')}</h2>
@@ -326,7 +326,7 @@ export default function Information() {
 
 
             {/* --- SECTION 3: KUBIC x LBS POSTING --- */}
-            <section className="kubic-section w-full py-32 bg-black relative overflow-hidden">
+            <section className="kubic-section w-full py-40 md:py-72 bg-black relative overflow-hidden">
                 {/* Fixed Honeycomb (Interlocking Hexagon) Grid - Zero Overlap Verified */}
                 <div className="absolute inset-0 z-0 opacity-15 pointer-events-none"
                     style={{
@@ -425,7 +425,7 @@ export default function Information() {
 
 
             {/* --- SECTION 4: WHY KUBIC & TRADING (Economy) --- */}
-            <section id="kubic" className="economy-section w-full min-h-screen py-24 bg-[#030303] relative flex flex-col justify-center">
+            <section id="kubic" className="economy-section w-full min-h-[850px] py-40 md:py-72 bg-[#030303] relative flex flex-col justify-center">
                 {/* Abstract Background - Economy Flow */}
                 <div className="absolute inset-0 opacity-20 pointer-events-none">
                     <div className="w-full h-full bg-[url('/assets/k-003.webp')] bg-cover bg-center" />
@@ -529,7 +529,7 @@ export default function Information() {
 
 
             {/* --- SECTION 5: GLOBAL TRENDS & CTA --- */}
-            <section className="global-section w-full min-h-screen relative flex items-center justify-center overflow-hidden bg-black">
+            <section className="global-section w-full min-h-[700px] py-40 md:py-72 relative flex items-center justify-center overflow-hidden bg-black">
                 {/* Subtle Background Gradient */}
                 <div className="absolute inset-0 opacity-30">
                     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-black to-black" />
@@ -569,8 +569,8 @@ export default function Information() {
                         </p>
                     </div>
                 </div>
-            </section>
+            </section >
 
-        </div>
+        </div >
     );
 }

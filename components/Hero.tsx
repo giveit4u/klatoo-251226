@@ -643,7 +643,9 @@ const Hero: React.FC = () => {
       const dist = Math.sqrt(dx * dx + dy * dy);
 
       const safeZoneHeight = rect.height - (isMobile ? 220 : 350);
-      const baseRadius = (safeZoneHeight / 2) * (isMobile ? 0.95 : 1.12);
+      const safeZoneWidth = rect.width * (isMobile ? 0.9 : 0.85);
+      const limitingDimension = Math.min(safeZoneHeight, safeZoneWidth);
+      const baseRadius = (limitingDimension / 2) * (isMobile ? 0.95 : 1.12);
 
       // Only react when hovering over the globe area
       if (dist < baseRadius) {
@@ -735,7 +737,10 @@ const Hero: React.FC = () => {
 
       const fov = 2000;
       const safeZoneHeight = canvasHeight - (isMobile ? 220 : 350);
-      const baseRadius = (safeZoneHeight / 2) * (isMobile ? 0.95 : 1.12);
+      // 너비 제한 추가: 세로 화면(Vertical Desktop)에서 지구가 너무 커지는 것 방지
+      const safeZoneWidth = canvasWidth * (isMobile ? 0.9 : 0.85);
+      const limitingDimension = Math.min(safeZoneHeight, safeZoneWidth);
+      const baseRadius = (limitingDimension / 2) * (isMobile ? 0.95 : 1.12);
 
       // --- DRAW GRID (Heavy Duty Removal) ---
       // 스크롤 35% 지점(p=0.35) 이후에는 그리드 렌더링 루프를 물리적으로 제거
