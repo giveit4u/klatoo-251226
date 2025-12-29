@@ -483,5 +483,24 @@ The goal was to transform the Hero section into a premium, cinematic experience.
       - Applied `transition-opacity duration-500 ease-in-out` for smooth crossfade effect.
       - Active tab shows `opacity-100`, inactive tabs show `opacity-0`.
     - **Result**: Natural fade-out/fade-in transitions when hovering over tabs 01, 02, 03, creating a premium, polished user experience.
+  - **Kubic Section Internationalization (i18n) Enhancement (2025-12-29)**:
+    - **Objective**: Display language-specific mobile mockup images based on user's selected language.
+    - **Implementation**:
+      - English mode: Uses `-eng.webp` suffix (01_Post-eng.webp, 02_Stacks-eng.webp, 03_Value-eng.webp)
+      - Korean mode: Uses `-kor.webp` suffix (01_Post-kor.webp, 02_Stacks-kor.webp, 03_Value-kor.webp)
+      - Dynamic image loading: `src={'/assets/01_Post-${language === 'en' ? 'eng' : 'kor'}.webp'}`
+    - **Result**: Seamless language switching with appropriate localized UI screenshots, enhancing user experience for both English and Korean audiences.
+  - **Image Format Optimization - PNG to WebP Migration (2025-12-29)**:
+    - **Objective**: Improve page load performance and reduce bandwidth usage.
+    - **Migrated Assets**:
+      - Vision section background: `k-001.png` → `k-001.webp`
+      - Location-Based Posting card: `location_posting_bg.png` → `location_posting_bg.webp`
+      - Kubic Surface card: `k-002.png` → `k-002.webp`
+      - Economy section background: `k-003.png` → `k-003.webp`
+    - **Benefits**:
+      - File size reduction: ~25-35% smaller than PNG
+      - Faster page load times, especially on mobile networks
+      - Maintained visual quality with modern compression
+    - **Result**: Optimized asset delivery without compromising visual fidelity.
 
 ---

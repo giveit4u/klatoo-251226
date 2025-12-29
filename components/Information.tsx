@@ -211,7 +211,7 @@ export default function Information() {
                 {/* Background Image Placeholder: Vision Digital Layer */}
                 <div className="absolute inset-0 z-0 opacity-40">
                     {/* In a real scenario, <img src="/path/to/vision_digital_layer.png" className="w-full h-full object-cover" /> */}
-                    <div className="w-full h-full bg-[url('/assets/k-001.png')] bg-cover bg-center" />
+                    <div className="w-full h-full bg-[url('/assets/k-001.webp')] bg-cover bg-center" />
                     <VisionParticles />
                     {/* Fallback gradient if image not available */}
                     <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black" />
@@ -262,7 +262,7 @@ export default function Information() {
                             {/* Background Image: Hexagon Digital Context */}
                             <div className="absolute inset-0 z-0 opacity-[0.6] pointer-events-none transition-opacity duration-500 group-hover:opacity-[0.75]">
                                 <div
-                                    className="w-full h-full bg-[url('/assets/location_posting_bg.png')] bg-cover bg-center"
+                                    className="w-full h-full bg-[url('/assets/location_posting_bg.webp')] bg-cover bg-center"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent" />
                             </div>
@@ -307,7 +307,7 @@ export default function Information() {
                         <div className="bento-item col-span-1 md:col-span-2 bg-[#080808] rounded-3xl p-8 border border-white/5 relative overflow-hidden flex flex-col md:flex-row items-center cursor-pointer group hover:bg-[#0C0C0C] transition-colors">
                             {/* Background Image Placeholder: Kubic Surface */}
                             <div className="absolute inset-0 z-0 opacity-30 group-hover:opacity-50 transition-opacity duration-700">
-                                <div className="w-full h-full bg-[url('/assets/k-002.png')] bg-cover bg-center" />
+                                <div className="w-full h-full bg-[url('/assets/k-002.webp')] bg-cover bg-center" />
                             </div>
 
                             <div className="relative z-10 w-full">
@@ -359,7 +359,7 @@ export default function Information() {
                             <div className="absolute inset-0 overflow-hidden rounded-[2.5rem]">
                                 {/* Render all images simultaneously and control visibility with opacity */}
                                 <Image
-                                    src="/assets/01_Post.png"
+                                    src={`/assets/01_Post-${language === 'en' ? 'eng' : 'kor'}.webp`}
                                     alt="Step 1"
                                     fill
                                     className={`object-cover transition-opacity duration-500 ease-in-out ${activeTab === 0 ? 'opacity-100' : 'opacity-0'
@@ -367,7 +367,7 @@ export default function Information() {
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                 />
                                 <Image
-                                    src="/assets/02_Stacks.png"
+                                    src={`/assets/02_Stacks-${language === 'en' ? 'eng' : 'kor'}.webp`}
                                     alt="Step 2"
                                     fill
                                     className={`object-cover transition-opacity duration-500 ease-in-out ${activeTab === 1 ? 'opacity-100' : 'opacity-0'
@@ -375,7 +375,7 @@ export default function Information() {
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                 />
                                 <Image
-                                    src="/assets/03_Value.png"
+                                    src={`/assets/03_Value-${language === 'en' ? 'eng' : 'kor'}.webp`}
                                     alt="Step 3"
                                     fill
                                     className={`object-cover transition-opacity duration-500 ease-in-out ${activeTab === 2 ? 'opacity-100' : 'opacity-0'
@@ -428,7 +428,7 @@ export default function Information() {
             <section id="kubic" className="economy-section w-full min-h-screen py-24 bg-[#030303] relative flex flex-col justify-center">
                 {/* Abstract Background - Economy Flow */}
                 <div className="absolute inset-0 opacity-20 pointer-events-none">
-                    <div className="w-full h-full bg-[url('/assets/k-003.png')] bg-cover bg-center" />
+                    <div className="w-full h-full bg-[url('/assets/k-003.webp')] bg-cover bg-center" />
                 </div>
 
                 <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
