@@ -546,3 +546,12 @@ The goal was to transform the Hero section into a premium, cinematic experience.
     - Verified absence of debug console logs.
     - Confirmed i18n layout stability (no text overflow or breakage observed).
     - Fixed minor syntax structure in Global CTA section background.
+    
+### 33. Refactoring Hero Component (2025-12-29)
+- **Objective**: Improve code maintainability and readability by extracting large data structures and utility functions from `components/Hero.tsx`.
+- **Action**:
+    - Created `components/HeroData.ts`.
+    - Moved `CONTINENTS` data, `ContinentPolygon` interface, and geometry utility functions (`noise`, `isPointInPolygon`, `distanceToPolygonEdge`) to `HeroData.ts`.
+    - Updated `components/Hero.tsx` to import these elements.
+    - Removed redundant local definitions.
+- **Result**: `Hero.tsx` line count reduced by ~460 lines, making the core logic much easier to read and manage. Verified build success.
