@@ -260,7 +260,7 @@ export default function Information() {
                         {/* Card 1: Location-Based Posting */}
                         <div className="bento-item col-span-1 md:col-span-1 row-span-2 bg-[#0A0A0A] rounded-3xl p-8 border border-white/5 hover:border-[#08efff]/30 transition-colors duration-500 overflow-hidden group relative min-h-[500px] md:min-h-0">
                             {/* Background Image: Hexagon Digital Context */}
-                            <div className="absolute inset-0 z-0 opacity-[0.6] pointer-events-none transition-opacity duration-500 group-hover:opacity-[0.75]">
+                            <div className="absolute inset-0 z-0 opacity-[0.8] pointer-events-none transition-opacity duration-500 group-hover:opacity-[0.95]">
                                 <div
                                     className="w-full h-full bg-[url('/assets/location_posting_bg.webp')] bg-cover bg-center"
                                 />
@@ -563,8 +563,8 @@ export default function Information() {
                     </div>
 
                     {/* Footer Tagline */}
-                    <div className="pt-16 opacity-50">
-                        <p className="text-[16px] md:text-[18px] tracking-[0.3em] uppercase text-gray-500">
+                    <div className="pt-16">
+                        <p className="text-[16px] md:text-[18px] tracking-[0.3em] uppercase text-[#FFBB00]">
                             {t('info.cta.tagline')}
                         </p>
                     </div>

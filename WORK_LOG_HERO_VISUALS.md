@@ -516,3 +516,11 @@ The goal was to transform the Hero section into a premium, cinematic experience.
       - **Fix**: Changed text color to Dark (`#03030a`) on Cyan backgrounds.
       - **Scope**: Applied to the Economy section "Marketplace" button and Navigation "Sign up" button (hover state).
       - **Result**: Enhanced legibility and a more premium, modern aesthetic.
+
+  - **Visual Refinements (2025-12-29)**:
+    - **Key Features Visibility**:
+      - **Action**: Increased "Location-Based Posting" card background opacity (`0.6` → `0.8` base, `0.75` → `0.95` hover).
+      - **Reason**: The background image was too dark, making the hexagonal context hard to see.
+    - **Global CTA Tagline Color**:
+      - **Action**: Changed "KLATOO : THE OPERATING SYSTEM..." text color from `gray-500` to `#FFBB00` (Gold/Yellow) and removed parent `opacity-50`.
+      - **Result**: The brand slogan now stands out vividly against the dark background.
