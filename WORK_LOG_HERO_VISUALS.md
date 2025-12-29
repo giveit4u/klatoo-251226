@@ -536,3 +536,13 @@ The goal was to transform the Hero section into a premium, cinematic experience.
     - Replaced `min-h-screen` with fixed minimum heights (`min-h-[800px]`, etc.) to prevent excessive whitespace on vertically tall desktop viewports (e.g., portrait monitors).
     - Restored mobile optimizations (removed explicit height reduction on mobile to match previous requested state, while keeping responsive padding).
 - **Globe Sizing**: Updated `Hero.tsx` to constrain the globe's `baseRadius` using `Math.min(height, width * 0.85/0.9)`. This ensures the globe does not overflow or appear overwhelmingly large on narrow/portrait desktop screens.
+
+### 32. Final Polish & SEO Update
+- **SEO Metadata**: Updated `app/layout.tsx` metadata to align with the new brand identity.
+    - Title: "KLATOO : THE DIGITAL EARTH"
+    - Description: Updated to reflect the "Operating System of The Digital Earth" messaging.
+    - Added OpenGraph tags for better social sharing.
+- **QA & Cleanup**:
+    - Verified absence of debug console logs.
+    - Confirmed i18n layout stability (no text overflow or breakage observed).
+    - Fixed minor syntax structure in Global CTA section background.

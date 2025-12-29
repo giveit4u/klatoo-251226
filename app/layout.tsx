@@ -12,8 +12,13 @@ const goldman = Goldman({ weight: '400', subsets: ['latin'], variable: '--font-g
 const syncopate = Syncopate({ weight: ['400', '700'], subsets: ['latin'], variable: '--font-syncopate' });
 
 export const metadata: Metadata = {
-    title: 'KLATOO | Hyper Local SNS',
-    description: 'Hyper Local SNS Application',
+    title: 'KLATOO : THE DIGITAL EARTH',
+    description: "The Operating System of The Digital Earth. Connect with reality through KLATOO's hyper-local SNS platform.",
+    openGraph: {
+        title: 'KLATOO : THE DIGITAL EARTH',
+        description: "The Operating System of The Digital Earth.",
+        type: 'website',
+    },
 };
 
 export default function RootLayout({
