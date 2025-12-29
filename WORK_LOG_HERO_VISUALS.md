@@ -504,3 +504,15 @@ The goal was to transform the Hero section into a premium, cinematic experience.
     - **Result**: Optimized asset delivery without compromising visual fidelity.
 
 ---
+
+  - **Brand Visual & Accessibility Updates (2025-12-29)**:
+    - **Primary Brand Color Change**: 
+      - Updated global accent color from Violet (`#4640fa`) to Cyan (`#08efff`).
+      - Applied to Tailwind config, Navigation links, Buttons, Vision Particles, Kubic SVG Grid, and gradients.
+    - **Kubic Section Refinement**:
+      - **Grid Visibility**: Reduced Honeycomb grid background opacity from `30%` to `15%` to prevent visual clutter and improve content focus while maintaining texture.
+    - **Button Readability & Accessibility**:
+      - **Issue**: White text on the bright Cyan (`#08efff`) background lacked sufficient contrast.
+      - **Fix**: Changed text color to Dark (`#03030a`) on Cyan backgrounds.
+      - **Scope**: Applied to the Economy section "Marketplace" button and Navigation "Sign up" button (hover state).
+      - **Result**: Enhanced legibility and a more premium, modern aesthetic.
