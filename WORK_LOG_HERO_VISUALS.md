@@ -475,5 +475,13 @@ The goal was to transform the Hero section into a premium, cinematic experience.
       - **Added explicit `ease`** parameters to all animations for smooth, predictable motion curves.
     - **Result**: Content now appears reliably at full opacity regardless of scroll speed or direction. No more partial visibility or stuck animations.
   - **Glassmorphism Tuning**: Lowered `backdrop-blur` in Information sections for mobile to improve frame rates while maintaining design intent.
+  - **Kubic Section Mobile Image Transition Enhancement (2025-12-29)**:
+    - **Issue**: Tab hover interactions caused abrupt, jarring image switches in the mobile mockup display.
+    - **Solution**: Replaced conditional rendering with simultaneous rendering of all three images, controlling visibility via `opacity` transitions.
+    - **Implementation**: 
+      - All images (01_Post.png, 02_Stacks.png, 03_Value.png) now render simultaneously.
+      - Applied `transition-opacity duration-500 ease-in-out` for smooth crossfade effect.
+      - Active tab shows `opacity-100`, inactive tabs show `opacity-0`.
+    - **Result**: Natural fade-out/fade-in transitions when hovering over tabs 01, 02, 03, creating a premium, polished user experience.
 
 ---

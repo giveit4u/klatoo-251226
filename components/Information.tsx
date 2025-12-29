@@ -357,15 +357,31 @@ export default function Information() {
                         <div className="relative w-full max-w-[320px] aspect-[9/18.5] perspective-1000">
                             {/* Simple Mobile Frame - Cleaned up to remove the grey "case" effect */}
                             <div className="absolute inset-0 overflow-hidden rounded-[2.5rem]">
-                                {activeTab === 0 && (
-                                    <Image src="/assets/01_Post.png" alt="Step 1" fill className="object-cover animate-fade-in" sizes="(max-width: 768px) 100vw, 50vw" />
-                                )}
-                                {activeTab === 1 && (
-                                    <Image src="/assets/02_Stacks.png" alt="Step 2" fill className="object-cover animate-fade-in" sizes="(max-width: 768px) 100vw, 50vw" />
-                                )}
-                                {activeTab === 2 && (
-                                    <Image src="/assets/03_Value.png" alt="Step 3" fill className="object-cover animate-fade-in" sizes="(max-width: 768px) 100vw, 50vw" />
-                                )}
+                                {/* Render all images simultaneously and control visibility with opacity */}
+                                <Image
+                                    src="/assets/01_Post.png"
+                                    alt="Step 1"
+                                    fill
+                                    className={`object-cover transition-opacity duration-500 ease-in-out ${activeTab === 0 ? 'opacity-100' : 'opacity-0'
+                                        }`}
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
+                                <Image
+                                    src="/assets/02_Stacks.png"
+                                    alt="Step 2"
+                                    fill
+                                    className={`object-cover transition-opacity duration-500 ease-in-out ${activeTab === 1 ? 'opacity-100' : 'opacity-0'
+                                        }`}
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
+                                <Image
+                                    src="/assets/03_Value.png"
+                                    alt="Step 3"
+                                    fill
+                                    className={`object-cover transition-opacity duration-500 ease-in-out ${activeTab === 2 ? 'opacity-100' : 'opacity-0'
+                                        }`}
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
                             </div>
                         </div>
                     </div>
