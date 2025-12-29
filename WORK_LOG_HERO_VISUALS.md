@@ -524,3 +524,8 @@ The goal was to transform the Hero section into a premium, cinematic experience.
     - **Global CTA Tagline Color**:
       - **Action**: Changed "KLATOO : THE OPERATING SYSTEM..." text color from `gray-500` to `#FFBB00` (Gold/Yellow) and removed parent `opacity-50`.
       - **Result**: The brand slogan now stands out vividly against the dark background.
+
+### 30. Navigation Logo Asset Update
+- **Action**: Updated `public/assets/KLATOO-H-Logo.svg` with a new version (content/visual refinement) while maintaining the existing filename.
+- **Implementation**: No code changes required in `Navigation.tsx` as the reference remains identical.
+- **Verification**: Confirmed `h-auto` class is present to handle any potential aspect ratio changes naturally.
