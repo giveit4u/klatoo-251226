@@ -14,6 +14,13 @@ const syncopate = Syncopate({ weight: ['400', '700'], subsets: ['latin'], variab
 export const metadata: Metadata = {
     title: 'KLATOO : THE DIGITAL EARTH',
     description: "The Operating System of The Digital Earth. Connect with reality through KLATOO's hyper-local SNS platform.",
+    icons: {
+        icon: [
+            { url: '/assets/KLATOO-32.png', sizes: '32x32', type: 'image/png' },
+            { url: '/assets/KLATOO-256.png', sizes: '256x256', type: 'image/png' },
+        ],
+        apple: '/assets/KLATOO-256.png',
+    },
     openGraph: {
         title: 'KLATOO : THE DIGITAL EARTH',
         description: "The Operating System of The Digital Earth.",

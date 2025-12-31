@@ -554,4 +554,40 @@ The goal was to transform the Hero section into a premium, cinematic experience.
     - Moved `CONTINENTS` data, `ContinentPolygon` interface, and geometry utility functions (`noise`, `isPointInPolygon`, `distanceToPolygonEdge`) to `HeroData.ts`.
     - Updated `components/Hero.tsx` to import these elements.
     - Removed redundant local definitions.
-- **Result**: `Hero.tsx` line count reduced by ~460 lines, making the core logic much easier to read and manage. Verified build success.
+### 34. Cinematic Transition & Typing Section Refinement (2025-12-29 Evening)
+
+**Objective**: Achieving a seamless, "one-shot" cinematic flow from the Hero globe explosion to the "DIFFERENT, BEYOND" typing animation, especially on mobile devices.
+
+#### 34.1. Typing Section Development (`TypingSection.tsx`)
+*   **Animation Engine Optimization**: 
+    *   **Problem**: GSAP `ScrollTrigger` was occasionally unreliable on mobile viewports due to the preceding "Pinned" Hero section affecting scroll calculations.
+    *   **Solution**: Migrated to **`IntersectionObserver`**. This ensures the typing animation triggers precisely when the text enters the viewport, regardless of complex scroll math.
+*   **Typing Logic**: Implemented a robust `setInterval`-based typing engine. This avoids potential frame skips or "stuck" states seen in traditional tween-based typing on mobile browsers.
+*   **Responsive Typography**:
+    *   **Size**: Increased significantly to grab attention (**24px Mobile / 32px Desktop**).
+    *   **Tracking**: Applied a premium wide tracking (**0.4em Mobile / 0.6em Desktop**) to match the high-end aesthetic.
+    *   **Layout**: Restricted to **one line on desktop/tablet** for maximum impact, while allowing a **two-line break on mobile** (after the comma) to prevent horizontal overflow.
+*   **Vertical Positioning**: Shifted the text **300px (Desktop) / 150px (Mobile) upwards** from the vertical center to ensure it's the first thing seen as the black screen scrolls up.
+
+#### 34.2. Hero Transition Fine-tuning (`Hero.tsx`)
+*   **"Dead Space" Removal**: 
+    *   **Problem**: After the particle explosion, there was a noticeable pause (about 1.5s of scrolling) where nothing happened before the `TypingSection` appeared.
+    *   **Solution**: Shortened the `ScrollTrigger` `end` distance from `+=2400` to **`+=800` (Mobile)** and `+=1200` to **`+=400` (Desktop)**. This makes the exit transition much tighter and more energetic.
+*   **Global Conflict Resolution**: Fixed a critical bug in the Hero component's cleanup function that was calling `ScrollTrigger.getAll().forEach(t => t.kill())`, effectively disabling the typing animation intermittently. Changed to a **targeted cleanup** that only kills the Hero's own triggers.
+
+#### 34.3. Visual Verification
+*   **Cinematic Flow**: Verified that the particle blast now transitions immediately into the "DIFFERENT," typing start, creating a continuous narrative experience.
+*   **Mobile Stability**: Conducted tests on emulated iPhone 13 dimensions to ensure zero syntax errors and 100% trigger reliability.
+*   **Final Style**: Confirmed the typography matches the "THE DIGITAL EARTH" brand voice—bold, spaced, and modern.
+
+### 36. Key Features Visual Enhancement (2025-12-30)
+- **Request**: Increase background image brightness by 20% ONLY in the "Location-Based Posting" card.
+- **Action**:
+    - **Card 1 (Location-Based Posting)**: Increased base opacity from `0.8` to `1.0` and softened the dark gradient overlay (bottom opacity `100%` → `70%`, mid opacity `40%` → `20%`).
+    - **Card 3 (Kubic Surface)**: Maintained original opacity (`0.3` base, `0.5` hover) to keep focus on Card 1.
+- **Result**: Background context for the primary feature is now significantly more visible while other cards remain consistent.
+
+### 37. Hero Globe Grid Refinement (2025-12-31)
+- **Request**: Reduce terrestrial grid brightness by 15%.
+- **Action**: Updated `components/Hero.tsx` to change the base `gridAlpha` multiplier from `0.35` to **`0.30`**.
+- **Result**: Grid lines are now more subtle and blend better with the dark theme, while still providing necessary structural form.

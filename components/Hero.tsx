@@ -203,7 +203,7 @@ const Hero: React.FC = () => {
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: 'top top',
-      end: isMobile ? '+=2000' : '+=1000', // 모바일에서는 전환이 너무 빨라 보이므로 거리를 2배(2000px)로 늘려 속도를 늦춤
+      end: isMobile ? '+=1200' : '+=600',
       pin: true,
       scrub: 1,
       onUpdate: (self) => {
@@ -239,16 +239,17 @@ const Hero: React.FC = () => {
       const transitionStart = 0.05;
       const transP = Math.max(0, (p - transitionStart) / (1 - transitionStart));
 
-      // 초반엔 확산되다가 중간부터 반경 증가폭을 좁혀 화면 안에 오래 머물게 함
+      // 곡선을 더 완만하게 하여 빨려 들어가는 속도감을 아주 부드럽게 조정
       const expansionFactor = transP < 0.5
-        ? transP * transP * 1.5
-        : (0.25 * 1.5) + (transP - 0.5) * 0.4;
+        ? Math.pow(transP, 1.8) * 1.5 // 2.5에서 1.5로 낮춰 초기 팽창 속도 감속
+        : (Math.pow(0.5, 1.8) * 1.5) + (transP - 0.5) * 3.0; // 8.0에서 3.0으로 낮춰 피크 속도 감속
 
       const pExplosion = expansionFactor;
       const particleExpansion = pExplosion * 35000;
 
-      const pGridZoom = Math.pow(p, 2.0); // 1.4에서 2.0으로 상향하여 초반 그리드 팽창을 더 부드럽게 시작
-      const gridExpansion = pGridZoom * 42000;
+      // 지수와 곱연산 계수를 낮추어 줌인 모션을 더 정교하고 부드럽게 표현
+      const pGridZoom = Math.pow(p, 1.8);
+      const gridExpansion = pGridZoom * 28000;
 
       // 그리드와 텍스트 소멸 타이밍 복구
       const gridFadeStart = 0.08;
@@ -322,7 +323,7 @@ const Hero: React.FC = () => {
             const screenY2 = ry2 * gridRadius * scale2 + canvasHeight / 2;
 
             const midZ = (rz1_final + rz2_final) / 2;
-            let gridAlpha = 0.35 * (1 - Math.pow(fadeProgress, 2));
+            let gridAlpha = 0.30 * (1 - Math.pow(fadeProgress, 2));
 
             // INTRO: 그리드 페이드인은 초반 응집이 어느정도 진행된 후 시작 (백업 로직)
             const introProgress = Math.min(1, (now - animStartTime) / introDuration);
@@ -330,7 +331,7 @@ const Hero: React.FC = () => {
 
             // 0.32 이후에는 절대 투명 (3중 방어 및 재출현 방지)
             if (p > 0.32) gridAlpha = 0;
-            if (midZ > 0 && fadeProgress < 0.1) gridAlpha = 0.35 * (1 - midZ * 0.82);
+            if (midZ > 0 && fadeProgress < 0.1) gridAlpha = 0.30 * (1 - midZ * 0.82);
 
             gridAlpha *= gridIntroFade; // 오프닝 시 지구본 완성된 후 그리드 출력
 
@@ -427,8 +428,8 @@ const Hero: React.FC = () => {
           }
         }
 
-        // 최종 페이드아웃 (다음 섹션과 자연스럽게 겹치도록 타이밍 88% 지점으로 늦추고 곡선 완화)
-        const particleFadeStart = 0.88;
+        // 그리드 소멸 시점(0.35)과 완벽히 동기화하여 지루한 후반부 삭제
+        const particleFadeStart = 0.3;
         if (p > particleFadeStart) {
           const pfProgress = (p - particleFadeStart) / (1 - particleFadeStart);
           alpha *= (1 - Math.pow(pfProgress, 2.5)); // 더 긴 꼬리를 갖는 부드러운 소멸
@@ -488,7 +489,10 @@ const Hero: React.FC = () => {
       window.removeEventListener('mousemove', handleMouseMove);
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
       resizeObserver.disconnect();
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      // Only kill ScrollTriggers created by this component
+      ScrollTrigger.getAll().forEach(t => {
+        if (t.vars.trigger === sectionRef.current) t.kill();
+      });
     };
 
   }, [isMobile]);

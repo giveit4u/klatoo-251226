@@ -260,11 +260,11 @@ export default function Information() {
                         {/* Card 1: Location-Based Posting */}
                         <div className="bento-item col-span-1 md:col-span-1 row-span-2 bg-[#0A0A0A] rounded-3xl p-8 border border-white/5 hover:border-[#08efff]/30 transition-colors duration-500 overflow-hidden group relative min-h-[500px] md:min-h-0">
                             {/* Background Image: Hexagon Digital Context */}
-                            <div className="absolute inset-0 z-0 opacity-[0.8] pointer-events-none transition-opacity duration-500 group-hover:opacity-[0.95]">
+                            <div className="absolute inset-0 z-0 opacity-100 pointer-events-none transition-opacity duration-500">
                                 <div
                                     className="w-full h-full bg-[url('/assets/location_posting_bg.webp')] bg-cover bg-center"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-[#0A0A0A]/20 to-transparent" />
                             </div>
                             <div className="absolute top-0 right-0 w-full h-1/2 bg-gradient-to-b from-[#08efff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                             <div className="h-full flex flex-col justify-between relative z-10">
