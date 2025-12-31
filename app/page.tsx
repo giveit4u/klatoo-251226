@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 
 export default function Home() {
     return (
-        <main className="w-full relative bg-black text-white font-sans selection:bg-[#08efff] selection:text-white">
+        <main className="w-full relative bg-black text-white font-sans selection:bg-[#08CEFF] selection:text-white">
             <Navigation />
             <Hero />
             <TypingSection />

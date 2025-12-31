@@ -591,3 +591,22 @@ The goal was to transform the Hero section into a premium, cinematic experience.
 - **Request**: Reduce terrestrial grid brightness by 15%.
 - **Action**: Updated `components/Hero.tsx` to change the base `gridAlpha` multiplier from `0.35` to **`0.30`**.
 - **Result**: Grid lines are now more subtle and blend better with the dark theme, while still providing necessary structural form.
+### 39. Brand Identity & Typography Polish (2025-12-31)
+- **Point Color Update**: Changed primary accent from `#08efff` to a slightly deeper, more premium **`#08CEFF`**.
+    - Updated: `tailwind.config.js`, `Information.tsx` (including SVG grids), `Navigation.tsx`, and `app/page.tsx`.
+- **Typing Section Font Size**:
+    - Mobile: `24px` → **`29px`**
+    - Desktop: `32px` → **`38px`**
+    - Color updated: Changed from `#9185ff` to the new brand color **`#08CEFF`**.
+- **Footer Tagline Expansion**:
+    - Increased font size by 20% (Mobile: `16px` → **`19.2px`** / Desktop: `18px` → **`21.6px`**).
+
+### 40. Vision Section Typography Refinement (2025-12-31)
+- **Action**: 
+    - Updated "THE DIGITAL EARTH" (Bottom line) to **Goldman** (`font-display`) for impact.
+    - Reduced font size of "We Are Building" (Top line) by **20%** for better hierarchy.
+    - Maintained **Syncopate** (`font-accent`) for the top line for maximum lightness.
+- **New Sizes**: 
+    - Mobile: `36px` → **`28.8px`**
+    - Desktop: `72px` → **`57.6px`**
+- **Gap Optimization**: Reduced vertical spacing between the two title lines by **50%** (via `leading` compression and margin removal).

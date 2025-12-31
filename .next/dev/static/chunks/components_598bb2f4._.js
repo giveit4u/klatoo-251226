@@ -130,7 +130,7 @@ const Navigation = ()=>{
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>scrollToSection('about'),
-                                className: "text-sm font-medium text-white hover:text-[#08efff] transition-colors duration-300",
+                                className: "text-sm font-medium text-white hover:text-[#08CEFF] transition-colors duration-300",
                                 children: t('nav.about')
                             }, void 0, false, {
                                 fileName: "[project]/components/Navigation.tsx",
@@ -139,7 +139,7 @@ const Navigation = ()=>{
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>scrollToSection('features'),
-                                className: "text-sm font-medium text-white hover:text-[#08efff] transition-colors duration-300",
+                                className: "text-sm font-medium text-white hover:text-[#08CEFF] transition-colors duration-300",
                                 children: t('nav.features')
                             }, void 0, false, {
                                 fileName: "[project]/components/Navigation.tsx",
@@ -148,7 +148,7 @@ const Navigation = ()=>{
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>scrollToSection('kubic'),
-                                className: "text-sm font-medium text-white hover:text-[#08efff] transition-colors duration-300",
+                                className: "text-sm font-medium text-white hover:text-[#08CEFF] transition-colors duration-300",
                                 children: t('nav.kubic')
                             }, void 0, false, {
                                 fileName: "[project]/components/Navigation.tsx",
@@ -160,7 +160,7 @@ const Navigation = ()=>{
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: ()=>setLanguage('en'),
-                                        className: `font-medium transition-colors duration-300 ${language === 'en' ? 'text-[#08efff]' : 'text-white/60 hover:text-white'}`,
+                                        className: `font-medium transition-colors duration-300 ${language === 'en' ? 'text-[#08CEFF]' : 'text-white/60 hover:text-white'}`,
                                         children: "EN"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navigation.tsx",
@@ -177,7 +177,7 @@ const Navigation = ()=>{
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: ()=>setLanguage('ko'),
-                                        className: `font-medium transition-colors duration-300 ${language === 'ko' ? 'text-[#08efff]' : 'text-white/60 hover:text-white'}`,
+                                        className: `font-medium transition-colors duration-300 ${language === 'ko' ? 'text-[#08CEFF]' : 'text-white/60 hover:text-white'}`,
                                         children: "KO"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navigation.tsx",
@@ -191,7 +191,7 @@ const Navigation = ()=>{
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                className: "px-6 py-2 bg-white text-black rounded-full text-sm font-medium hover:bg-[#08efff] hover:text-[#03030a] transition-all duration-300",
+                                className: "px-6 py-2 bg-white text-black rounded-full text-sm font-medium hover:bg-[#08CEFF] hover:text-[#03030a] transition-all duration-300",
                                 children: t('nav.signup')
                             }, void 0, false, {
                                 fileName: "[project]/components/Navigation.tsx",
@@ -263,7 +263,7 @@ const Navigation = ()=>{
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>setLanguage('en'),
-                                className: `text-lg font-medium ${language === 'en' ? 'text-[#08efff]' : 'text-white/60'}`,
+                                className: `text-lg font-medium ${language === 'en' ? 'text-[#08CEFF]' : 'text-white/60'}`,
                                 children: "English"
                             }, void 0, false, {
                                 fileName: "[project]/components/Navigation.tsx",
@@ -272,7 +272,7 @@ const Navigation = ()=>{
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>setLanguage('ko'),
-                                className: `text-lg font-medium ${language === 'ko' ? 'text-[#08efff]' : 'text-white/60'}`,
+                                className: `text-lg font-medium ${language === 'ko' ? 'text-[#08CEFF]' : 'text-white/60'}`,
                                 children: "한국어"
                             }, void 0, false, {
                                 fileName: "[project]/components/Navigation.tsx",
@@ -286,7 +286,7 @@ const Navigation = ()=>{
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        className: "bg-white text-black px-6 py-3 rounded-full text-lg font-medium w-full hover:bg-[#08efff] hover:text-[#03030a] transition-all",
+                        className: "bg-white text-black px-6 py-3 rounded-full text-lg font-medium w-full hover:bg-[#08CEFF] hover:text-[#03030a] transition-all",
                         children: t('nav.signup')
                     }, void 0, false, {
                         fileName: "[project]/components/Navigation.tsx",
@@ -2955,7 +2955,7 @@ const TypingSection = ()=>{
         ref: sectionRef,
         className: "w-full h-[800px] bg-[#030308] flex items-center justify-center overflow-hidden relative",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "text-[#9185ff] text-[24px] md:text-[32px] font-accent tracking-[0.4em] md:tracking-[0.6em] text-center px-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[150px] md:-translate-y-[300px] whitespace-pre-line md:whitespace-nowrap",
+            className: "text-[#08CEFF] text-[29px] md:text-[38px] font-accent tracking-[0.4em] md:tracking-[0.6em] text-center px-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[150px] md:-translate-y-[300px] whitespace-pre-line md:whitespace-nowrap",
             children: [
                 displayText,
                 !isFinished && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3255,7 +3255,7 @@ function Information() {
                                 className: "vision-text space-y-4",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                        className: "text-[#08efff] tracking-[0.2em] text-[16px] md:text-[18px] font-bold uppercase",
+                                        className: "text-[#08CEFF] tracking-[0.2em] text-[16px] md:text-[18px] font-bold uppercase",
                                         children: t('info.vision.subtitle')
                                     }, void 0, false, {
                                         fileName: "[project]/components/Information.tsx",
@@ -3263,10 +3263,10 @@ function Information() {
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                        className: `text-4xl md:text-7xl tracking-tight text-white ${language === 'ko' ? 'leading-[1.3] md:leading-[87px] font-extrabold' : 'leading-[41px] md:leading-[77px]'}`,
+                                        className: `text-4xl md:text-7xl tracking-tight text-white ${language === 'ko' ? 'leading-[1.3] md:leading-[87px] font-extrabold' : 'leading-[34px] md:leading-[62px]'}`,
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: language === 'en' ? 'font-accent font-normal' : '',
+                                                className: language === 'en' ? 'font-accent font-light text-[28.8px] md:text-[57.6px] inline-block' : '',
                                                 children: t('info.vision.title1')
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Information.tsx",
@@ -3276,10 +3276,10 @@ function Information() {
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                 fileName: "[project]/components/Information.tsx",
                                                 lineNumber: 224,
-                                                columnNumber: 130
+                                                columnNumber: 173
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: language === 'en' ? 'font-accent font-bold' : '',
+                                                className: language === 'en' ? 'font-display font-bold' : '',
                                                 children: t('info.vision.title2')
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Information.tsx",
@@ -3335,7 +3335,7 @@ function Information() {
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "space-y-6 flex flex-col justify-center md:border-l-[1px] border-[#08efff]/50 md:pl-8",
+                                        className: "space-y-6 flex flex-col justify-center md:border-l-[1px] border-[#08CEFF]/50 md:pl-8",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-xl md:text-3xl font-light text-white leading-snug",
                                             children: [
@@ -3346,7 +3346,7 @@ function Information() {
                                                     columnNumber: 64
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "font-bold text-[#08efff]",
+                                                    className: "font-bold text-[#08CEFF]",
                                                     children: t('info.vision.card2.quote2')
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/Information.tsx",
@@ -3393,7 +3393,7 @@ function Information() {
                             className: "text-center space-y-4 mb-20",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                    className: "bento-item text-[#08efff] font-bold tracking-widest uppercase text-[18px]",
+                                    className: "bento-item text-[#08CEFF] font-bold tracking-widest uppercase text-[18px]",
                                     children: t('info.features.subtitle')
                                 }, void 0, false, {
                                     fileName: "[project]/components/Information.tsx",
@@ -3420,7 +3420,7 @@ function Information() {
                             className: "grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bento-item col-span-1 md:col-span-1 row-span-2 bg-[#0A0A0A] rounded-3xl p-8 border border-white/5 hover:border-[#08efff]/30 transition-colors duration-500 overflow-hidden group relative min-h-[500px] md:min-h-0",
+                                    className: "bento-item col-span-1 md:col-span-1 row-span-2 bg-[#0A0A0A] rounded-3xl p-8 border border-white/5 hover:border-[#08CEFF]/30 transition-colors duration-500 overflow-hidden group relative min-h-[500px] md:min-h-0",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "absolute inset-0 z-0 opacity-100 pointer-events-none transition-opacity duration-500",
@@ -3446,7 +3446,7 @@ function Information() {
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "absolute top-0 right-0 w-full h-1/2 bg-gradient-to-b from-[#08efff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+                                            className: "absolute top-0 right-0 w-full h-1/2 bg-gradient-to-b from-[#08CEFF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
                                         }, void 0, false, {
                                             fileName: "[project]/components/Information.tsx",
                                             lineNumber: 269,
@@ -3456,7 +3456,7 @@ function Information() {
                                             className: "h-full flex flex-col justify-between relative z-10",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "w-12 h-12 bg-[#08efff] rounded-full flex items-center justify-center mb-6",
+                                                    className: "w-12 h-12 bg-[#08CEFF] rounded-full flex items-center justify-center mb-6",
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                                         className: "w-6 h-6 text-black",
                                                         fill: "none",
@@ -3531,7 +3531,7 @@ function Information() {
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bento-item col-span-1 md:col-span-2 bg-[#111] rounded-3xl p-8 border border-white/5 hover:border-[#08efff]/30 transition-all duration-500 relative overflow-hidden group",
+                                    className: "bento-item col-span-1 md:col-span-2 bg-[#111] rounded-3xl p-8 border border-white/5 hover:border-[#08CEFF]/30 transition-all duration-500 relative overflow-hidden group",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent opacity-50 group-hover:opacity-80 transition-opacity"
@@ -3569,7 +3569,7 @@ function Information() {
                                             className: "mt-8 flex items-center space-x-4 relative z-10",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "px-4 py-2 bg-[#111111] rounded-full text-xs uppercase tracking-wider text-[#08efff] group-hover:bg-[#08efff]/10 transition-colors border border-white/5",
+                                                    className: "px-4 py-2 bg-[#111111] rounded-full text-xs uppercase tracking-wider text-[#08CEFF] group-hover:bg-[#08CEFF]/10 transition-colors border border-white/5",
                                                     children: t('info.features.card2.local')
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/Information.tsx",
@@ -3606,7 +3606,7 @@ function Information() {
                                                                     gradientUnits: "userSpaceOnUse",
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
-                                                                            stopColor: "#08efff",
+                                                                            stopColor: "#08CEFF",
                                                                             stopOpacity: "0.2"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/Information.tsx",
@@ -3615,7 +3615,7 @@ function Information() {
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
                                                                             offset: "1",
-                                                                            stopColor: "#08efff"
+                                                                            stopColor: "#08CEFF"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/Information.tsx",
                                                                             lineNumber: 297,
@@ -3687,7 +3687,7 @@ function Information() {
                                                     className: "text-3xl font-bold mb-3",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "text-[#08efff]",
+                                                            className: "text-[#08CEFF]",
                                                             children: "Kubic."
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/Information.tsx",
@@ -3719,7 +3719,7 @@ function Information() {
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "relative z-10 mt-6 md:mt-0 md:ml-auto",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "inline-flex items-center justify-center w-16 h-16 rounded-full border border-white/20 group-hover:border-[#08efff] group-hover:text-[#08efff] transition-all",
+                                                className: "inline-flex items-center justify-center w-16 h-16 rounded-full border border-white/20 group-hover:border-[#08CEFF] group-hover:text-[#08CEFF] transition-all",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                                     className: "w-6 h-6",
                                                     fill: "none",
@@ -3779,7 +3779,7 @@ function Information() {
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-0 z-0 opacity-15 pointer-events-none",
                         style: {
-                            backgroundImage: `url("data:image/svg+xml,%3Csvg width='24' height='42' viewBox='0 0 24 42' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 0 L0 7 V21 L12 28 V42 M12 0 L24 7 M24 21 L12 28' fill='none' stroke='%2308efff' stroke-width='1.2'/%3E%3C/svg%3E")`,
+                            backgroundImage: `url("data:image/svg+xml,%3Csvg width='24' height='42' viewBox='0 0 24 42' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 0 L0 7 V21 L12 28 V42 M12 0 L24 7 M24 21 L12 28' fill='none' stroke='%2308CEFF' stroke-width='1.2'/%3E%3C/svg%3E")`,
                             backgroundSize: '36px 63px'
                         }
                     }, void 0, false, {
@@ -3788,7 +3788,7 @@ function Information() {
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "kubic-scanline absolute left-0 w-full h-32 bg-gradient-to-b from-transparent via-[#08efff15] to-transparent z-[1] pointer-events-none"
+                        className: "kubic-scanline absolute left-0 w-full h-32 bg-gradient-to-b from-transparent via-[#08CEFF15] to-transparent z-[1] pointer-events-none"
                     }, void 0, false, {
                         fileName: "[project]/components/Information.tsx",
                         lineNumber: 337,
@@ -3801,7 +3801,7 @@ function Information() {
                                 className: "lg:col-span-4 space-y-8",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                        className: "text-[#08efff] font-bold tracking-widest uppercase text-[16px]",
+                                        className: "text-[#08CEFF] font-bold tracking-widest uppercase text-[16px]",
                                         children: t('info.kubic.subtitle')
                                     }, void 0, false, {
                                         fileName: "[project]/components/Information.tsx",
@@ -3827,7 +3827,7 @@ function Information() {
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "pl-6 border-l-[5px] border-[#08efff]",
+                                        className: "pl-6 border-l-[5px] border-[#08CEFF]",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-white/80 italic text-lg leading-relaxed",
                                             children: [
@@ -3933,11 +3933,11 @@ function Information() {
                                         onClick: ()=>setActiveTab(i),
                                         onMouseEnter: ()=>setActiveTab(i),
                                         className: `kubic-tab w-full text-left p-6 rounded-2xl border transition-[background-color,border-color,box-shadow] duration-500 flex items-start gap-6 group backdrop-blur-sm
-                                    ${activeTab === i ? 'bg-white/[0.08] border-[#08efff]/50 shadow-[0_8px_32px_0_rgba(8,239,255,0.15)] opacity-100' : 'bg-white/[0.01] border-white/5 hover:bg-white/[0.03] hover:border-white/10'}`,
+                                    ${activeTab === i ? 'bg-white/[0.08] border-[#08CEFF]/50 shadow-[0_8px_32px_0_rgba(8,239,255,0.15)] opacity-100' : 'bg-white/[0.01] border-white/5 hover:bg-white/[0.03] hover:border-white/10'}`,
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: `text-4xl font-bold transition-colors duration-500
-                                    ${activeTab === i ? 'text-[#08efff]' : 'text-white/10 group-hover:text-white/20'}`,
+                                    ${activeTab === i ? 'text-[#08CEFF]' : 'text-white/10 group-hover:text-white/20'}`,
                                                 children: item.step
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Information.tsx",
@@ -4019,7 +4019,7 @@ function Information() {
                                 className: "text-center mb-20",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                        className: "text-[#08efff] font-bold tracking-widest uppercase mb-4 text-[18px]",
+                                        className: "text-[#08CEFF] font-bold tracking-widest uppercase mb-4 text-[18px]",
                                         children: t('info.economy.subtitle')
                                     }, void 0, false, {
                                         fileName: "[project]/components/Information.tsx",
@@ -4047,7 +4047,7 @@ function Information() {
                                         className: "economy-left h-full bg-white/[0.015] backdrop-blur-xl rounded-3xl p-10 border border-white/10 space-y-10 shadow-2xl relative overflow-hidden group flex flex-col justify-between",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "absolute inset-0 bg-gradient-to-br from-[#08efff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                                                className: "absolute inset-0 bg-gradient-to-br from-[#08CEFF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Information.tsx",
                                                 lineNumber: 444,
@@ -4060,7 +4060,7 @@ function Information() {
                                                         className: "text-2xl font-bold mb-4 flex items-center",
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "w-[5px] h-8 bg-[#08efff] mr-4 rounded-sm"
+                                                                className: "w-[5px] h-8 bg-[#08CEFF] mr-4 rounded-sm"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/Information.tsx",
                                                                 lineNumber: 447,
@@ -4127,9 +4127,9 @@ function Information() {
                                                                 className: "flex items-center text-white/90 font-medium group/item hover:text-white transition-colors duration-300",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mr-4 group-hover/item:border-[#08efff]/50 group-hover/item:bg-[#08efff]/10 transition-all duration-500",
+                                                                        className: "w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mr-4 group-hover/item:border-[#08CEFF]/50 group-hover/item:bg-[#08CEFF]/10 transition-all duration-500",
                                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                                            className: "w-5 h-5 text-[#08efff]",
+                                                                            className: "w-5 h-5 text-[#08CEFF]",
                                                                             fill: "none",
                                                                             stroke: "currentColor",
                                                                             viewBox: "0 0 24 24",
@@ -4211,7 +4211,7 @@ function Information() {
                                                                 className: "text-gray-400 uppercase text-[14px] tracking-wider mb-6 flex items-center gap-2",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "w-1 h-1 rounded-full bg-[#08efff]"
+                                                                        className: "w-1 h-1 rounded-full bg-[#08CEFF]"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/Information.tsx",
                                                                         lineNumber: 484,
@@ -4254,7 +4254,7 @@ function Information() {
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         children: [
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                className: "text-xl font-bold text-[#08efff] mb-2",
+                                                                                className: "text-xl font-bold text-[#08CEFF] mb-2",
                                                                                 children: t('info.economy.right.box.row2.title')
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/Information.tsx",
@@ -4294,7 +4294,7 @@ function Information() {
                                                 columnNumber: 29
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex-1 bg-gradient-to-br from-[#1a1540]/25 to-[#08efff]/05 p-10 rounded-3xl border border-[#08efff]/30 relative overflow-hidden text-left group backdrop-blur-2xl shadow-2xl hover:shadow-[#08efff]/10 transition-all duration-500 flex flex-col justify-center",
+                                                className: "flex-1 bg-gradient-to-br from-[#1a1540]/25 to-[#08CEFF]/05 p-10 rounded-3xl border border-[#08CEFF]/30 relative overflow-hidden text-left group backdrop-blur-2xl shadow-2xl hover:shadow-[#08CEFF]/10 transition-all duration-500 flex flex-col justify-center",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
                                                         className: "text-3xl font-bold text-white mb-4 relative z-10",
@@ -4332,7 +4332,7 @@ function Information() {
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "relative z-10",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                            className: "px-8 py-3 bg-[#08efff] text-[#03030a] font-bold rounded-full hover:bg-white hover:text-[#03030a] transition-colors shadow-lg shadow-[#08efff]/20",
+                                                            className: "px-8 py-3 bg-[#08CEFF] text-[#03030a] font-bold rounded-full hover:bg-white hover:text-[#03030a] transition-colors shadow-lg shadow-[#08CEFF]/20",
                                                             children: t('info.economy.button')
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/Information.tsx",
@@ -4372,7 +4372,7 @@ function Information() {
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "absolute inset-0 bg-[#08efff]/5 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                        className: "absolute inset-0 bg-[#08CEFF]/5 opacity-0 group-hover:opacity-100 transition-opacity"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/Information.tsx",
                                                         lineNumber: 522,
@@ -4432,7 +4432,7 @@ function Information() {
                                 className: "space-y-6",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                        className: `text-3xl md:text-5xl lg:text-[3.5rem] md:whitespace-nowrap break-keep text-transparent bg-clip-text bg-gradient-to-r from-white via-[#8B7FFF] to-[#08efff] py-4 leading-[1.3] lg:leading-[71px] tracking-tight ${language === 'ko' ? 'font-bold' : 'font-display font-normal'}`,
+                                        className: `text-3xl md:text-5xl lg:text-[3.5rem] md:whitespace-nowrap break-keep text-transparent bg-clip-text bg-gradient-to-r from-white via-[#8B7FFF] to-[#08CEFF] py-4 leading-[1.3] lg:leading-[71px] tracking-tight ${language === 'ko' ? 'font-bold' : 'font-display font-normal'}`,
                                         children: t('info.cta.title')
                                     }, void 0, false, {
                                         fileName: "[project]/components/Information.tsx",
@@ -4509,7 +4509,7 @@ function Information() {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "pt-16",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-[16px] md:text-[18px] tracking-[0.3em] uppercase text-[#FFBB00]",
+                                    className: "text-[19.2px] md:text-[21.6px] tracking-[0.3em] uppercase text-[#FFBB00]",
                                     children: t('info.cta.tagline')
                                 }, void 0, false, {
                                     fileName: "[project]/components/Information.tsx",

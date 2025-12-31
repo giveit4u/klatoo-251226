@@ -15,7 +15,7 @@ export default {
                 accent: ['var(--font-syncopate)', 'sans-serif'],
             },
             colors: {
-                primary: '#08efff', // Brand primary color (cyan)
+                primary: '#08CEFF', // Brand primary color (cyan)
                 kees: {
                     bg: '#FAFAF8', // Off-white paper feel
                     gold: '#D4AF37',

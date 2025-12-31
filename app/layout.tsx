@@ -8,7 +8,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' });
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' });
-const goldman = Goldman({ weight: '400', subsets: ['latin'], variable: '--font-goldman' });
+const goldman = Goldman({ weight: ['400', '700'], subsets: ['latin'], variable: '--font-goldman' });
 const syncopate = Syncopate({ weight: ['400', '700'], subsets: ['latin'], variable: '--font-syncopate' });
 
 export const metadata: Metadata = {

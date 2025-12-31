@@ -50,7 +50,7 @@ const TypingSection: React.FC = () => {
             className="w-full h-[800px] bg-[#030308] flex items-center justify-center overflow-hidden relative"
         >
             <div
-                className="text-[#9185ff] text-[24px] md:text-[32px] font-accent tracking-[0.4em] md:tracking-[0.6em] text-center px-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[150px] md:-translate-y-[300px] whitespace-pre-line md:whitespace-nowrap"
+                className="text-[#08CEFF] text-[29px] md:text-[38px] font-accent tracking-[0.4em] md:tracking-[0.6em] text-center px-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[150px] md:-translate-y-[300px] whitespace-pre-line md:whitespace-nowrap"
             >
                 {displayText}
                 {!isFinished && <span className="animate-pulse ml-1">|</span>}

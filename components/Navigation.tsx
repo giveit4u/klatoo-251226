@@ -89,19 +89,19 @@ const Navigation: React.FC = () => {
         <div className="hidden md:flex items-center space-x-8">
           <button
             onClick={() => scrollToSection('about')}
-            className="text-sm font-medium text-white hover:text-[#08efff] transition-colors duration-300"
+            className="text-sm font-medium text-white hover:text-[#08CEFF] transition-colors duration-300"
           >
             {t('nav.about')}
           </button>
           <button
             onClick={() => scrollToSection('features')}
-            className="text-sm font-medium text-white hover:text-[#08efff] transition-colors duration-300"
+            className="text-sm font-medium text-white hover:text-[#08CEFF] transition-colors duration-300"
           >
             {t('nav.features')}
           </button>
           <button
             onClick={() => scrollToSection('kubic')}
-            className="text-sm font-medium text-white hover:text-[#08efff] transition-colors duration-300"
+            className="text-sm font-medium text-white hover:text-[#08CEFF] transition-colors duration-300"
           >
             {t('nav.kubic')}
           </button>
@@ -110,7 +110,7 @@ const Navigation: React.FC = () => {
           <div className="flex items-center gap-2 text-sm ml-2 mr-2">
             <button
               onClick={() => setLanguage('en')}
-              className={`font-medium transition-colors duration-300 ${language === 'en' ? 'text-[#08efff]' : 'text-white/60 hover:text-white'
+              className={`font-medium transition-colors duration-300 ${language === 'en' ? 'text-[#08CEFF]' : 'text-white/60 hover:text-white'
                 }`}
             >
               EN
@@ -118,14 +118,14 @@ const Navigation: React.FC = () => {
             <span className="text-white/40">/</span>
             <button
               onClick={() => setLanguage('ko')}
-              className={`font-medium transition-colors duration-300 ${language === 'ko' ? 'text-[#08efff]' : 'text-white/60 hover:text-white'
+              className={`font-medium transition-colors duration-300 ${language === 'ko' ? 'text-[#08CEFF]' : 'text-white/60 hover:text-white'
                 }`}
             >
               KO
             </button>
           </div>
 
-          <button className="px-6 py-2 bg-white text-black rounded-full text-sm font-medium hover:bg-[#08efff] hover:text-[#03030a] transition-all duration-300">
+          <button className="px-6 py-2 bg-white text-black rounded-full text-sm font-medium hover:bg-[#08CEFF] hover:text-[#03030a] transition-all duration-300">
             {t('nav.signup')}
           </button>
         </div>
@@ -150,19 +150,19 @@ const Navigation: React.FC = () => {
           <div className="flex gap-4 py-2">
             <button
               onClick={() => setLanguage('en')}
-              className={`text-lg font-medium ${language === 'en' ? 'text-[#08efff]' : 'text-white/60'}`}
+              className={`text-lg font-medium ${language === 'en' ? 'text-[#08CEFF]' : 'text-white/60'}`}
             >
               English
             </button>
             <button
               onClick={() => setLanguage('ko')}
-              className={`text-lg font-medium ${language === 'ko' ? 'text-[#08efff]' : 'text-white/60'}`}
+              className={`text-lg font-medium ${language === 'ko' ? 'text-[#08CEFF]' : 'text-white/60'}`}
             >
               한국어
             </button>
           </div>
 
-          <button className="bg-white text-black px-6 py-3 rounded-full text-lg font-medium w-full hover:bg-[#08efff] hover:text-[#03030a] transition-all">
+          <button className="bg-white text-black px-6 py-3 rounded-full text-lg font-medium w-full hover:bg-[#08CEFF] hover:text-[#03030a] transition-all">
             {t('nav.signup')}
           </button>
         </div>
