@@ -40,8 +40,8 @@ const Hero: React.FC = () => {
     const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
 
     // 파티클 밀도 10% 감소 (28800)
-    // 파티클 밀도 최적화: 모바일 성능 확보를 위해 6000으로 대폭 하향 조정
-    const baseParticleCount = isMobile ? 6000 : (isTablet ? 18000 : 28800);
+    // 파티클 밀도 최적화: 모바일 비주얼 강화를 위해 8000으로 조정
+    const baseParticleCount = isMobile ? 8000 : (isTablet ? 18000 : 28800);
     // 기본 크기 기준값 통일 (지구본 크기에 따라 동적으로 스케일링됨)
     const baseSizeFactor = 2.8;
 
@@ -203,7 +203,7 @@ const Hero: React.FC = () => {
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: 'top top',
-      end: isMobile ? '+=1200' : '+=600',
+      end: isMobile ? '+=800' : '+=400',
       pin: true,
       scrub: 1,
       onUpdate: (self) => {

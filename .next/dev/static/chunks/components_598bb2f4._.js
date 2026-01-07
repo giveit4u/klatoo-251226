@@ -2367,8 +2367,8 @@ const Hero = ()=>{
             // --- RESPONSIVE CONFIG ---
             const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
             // 파티클 밀도 10% 감소 (28800)
-            // 파티클 밀도 최적화: 모바일 성능 확보를 위해 6000으로 대폭 하향 조정
-            const baseParticleCount = isMobile ? 6000 : isTablet ? 18000 : 28800;
+            // 파티클 밀도 최적화: 모바일 비주얼 강화를 위해 8000으로 조정
+            const baseParticleCount = isMobile ? 8000 : isTablet ? 18000 : 28800;
             // 기본 크기 기준값 통일 (지구본 크기에 따라 동적으로 스케일링됨)
             const baseSizeFactor = 2.8;
             const colors = [
@@ -2536,7 +2536,7 @@ const Hero = ()=>{
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollTrigger$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].create({
                 trigger: sectionRef.current,
                 start: 'top top',
-                end: isMobile ? '+=1200' : '+=600',
+                end: isMobile ? '+=800' : '+=400',
                 pin: true,
                 scrub: 1,
                 onUpdate: {
@@ -2895,15 +2895,10 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/gsap/index.js [app-client] (ecmascript) <locals>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollTrigger$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/gsap/ScrollTrigger.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
 ;
-;
-;
-__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].registerPlugin(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollTrigger$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollTrigger"]);
 const TypingSection = ()=>{
     _s();
     const sectionRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
@@ -2942,11 +2937,6 @@ const TypingSection = ()=>{
             return ({
                 "TypingSection.useEffect": ()=>{
                     observer.disconnect();
-                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollTrigger$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollTrigger"].getAll().forEach({
-                        "TypingSection.useEffect": (t)=>{
-                            if (t.vars.trigger === sectionRef.current) t.kill();
-                        }
-                    }["TypingSection.useEffect"]);
                 }
             })["TypingSection.useEffect"];
         }
@@ -2963,18 +2953,18 @@ const TypingSection = ()=>{
                     children: "|"
                 }, void 0, false, {
                     fileName: "[project]/components/TypingSection.tsx",
-                    lineNumber: 56,
+                    lineNumber: 49,
                     columnNumber: 33
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/components/TypingSection.tsx",
-            lineNumber: 52,
+            lineNumber: 45,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/components/TypingSection.tsx",
-        lineNumber: 48,
+        lineNumber: 41,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -3055,7 +3045,7 @@ const VisionParticles = ()=>{
                             if (p.y > h) p.y = 0;
                             // Subtle breathing alpha
                             p.curA = p.a * (0.5 + Math.sin(Date.now() * 0.001 + p.x * 0.01) * 0.5);
-                            ctx.fillStyle = `rgba(8, 239, 255, ${p.curA})`;
+                            ctx.fillStyle = `rgba(8, 206, 255, ${p.curA})`;
                             ctx.beginPath();
                             ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
                             ctx.fill();
@@ -4727,26 +4717,31 @@ function Footer() {
                             children: [
                                 {
                                     src: 'facebook.png',
-                                    alt: 'Facebook'
+                                    alt: 'Facebook',
+                                    href: 'https://www.facebook.com/klatoo.earth/'
                                 },
                                 {
                                     src: 'x.png',
-                                    alt: 'X'
+                                    alt: 'X',
+                                    href: 'https://x.com/klatoo_earth'
                                 },
                                 {
                                     src: 'youtube.png',
-                                    alt: 'YouTube'
+                                    alt: 'YouTube',
+                                    href: 'https://www.youtube.com/@uphello4564'
                                 },
                                 {
                                     src: 'instagram.png',
-                                    alt: 'Instagram'
+                                    alt: 'Instagram',
+                                    href: '#'
                                 },
                                 {
                                     src: 'telegram.png',
-                                    alt: 'Telegram'
+                                    alt: 'Telegram',
+                                    href: '#'
                                 }
                             ].map((sns)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                    href: "#",
+                                    href: sns.href,
                                     target: "_blank",
                                     rel: "noopener noreferrer",
                                     className: "group transition-all",

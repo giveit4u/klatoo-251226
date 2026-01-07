@@ -1,10 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const TypingSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -38,9 +34,6 @@ const TypingSection: React.FC = () => {
 
         return () => {
             observer.disconnect();
-            ScrollTrigger.getAll().forEach(t => {
-                if (t.vars.trigger === sectionRef.current) t.kill();
-            });
         };
     }, []);
 

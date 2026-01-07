@@ -63,15 +63,15 @@ export default function Footer() {
           {/* SNS Icons - Sized 22px (reduced 15%), colored to match #888 */}
           <div className="flex items-center gap-4 mt-8 md:mt-0">
             {[
-              { src: 'facebook.png', alt: 'Facebook' },
-              { src: 'x.png', alt: 'X' },
-              { src: 'youtube.png', alt: 'YouTube' },
-              { src: 'instagram.png', alt: 'Instagram' },
-              { src: 'telegram.png', alt: 'Telegram' }
+              { src: 'facebook.png', alt: 'Facebook', href: 'https://www.facebook.com/klatoo.earth/' },
+              { src: 'x.png', alt: 'X', href: 'https://x.com/klatoo_earth' },
+              { src: 'youtube.png', alt: 'YouTube', href: 'https://www.youtube.com/@uphello4564' },
+              { src: 'instagram.png', alt: 'Instagram', href: '#' },
+              { src: 'telegram.png', alt: 'Telegram', href: '#' }
             ].map((sns) => (
               <a
                 key={sns.alt}
-                href="#"
+                href={sns.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group transition-all"

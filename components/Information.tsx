@@ -56,7 +56,7 @@ const VisionParticles = () => {
                 // Subtle breathing alpha
                 p.curA = p.a * (0.5 + Math.sin(Date.now() * 0.001 + p.x * 0.01) * 0.5);
 
-                ctx.fillStyle = `rgba(8, 239, 255, ${p.curA})`;
+                ctx.fillStyle = `rgba(8, 206, 255, ${p.curA})`;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
                 ctx.fill();
