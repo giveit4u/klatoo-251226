@@ -704,6 +704,7 @@ The goal was to transform the Hero section into a premium, cinematic experience.
 - **Hero transition distance**: Synchronized `Hero.tsx` with the specifications in log #34.2 (Shortened `end` to `+=800` Mobile / `+=400` Desktop for a punchier feel).
 - **Cleanup Refinement**: Removed unused GSAP/ScrollTrigger references and dead cleanup code from `TypingSection.tsx` (now IntersectionObserver based).
 - **SNS Link Update & Correction**: Updated Footer with official links for X, Facebook (updated to full profile URL), and YouTube.
+- **Footer Info Update**: Added "Business No 582-88-01004" to the footer information for regulatory compliance.
 - **Mobile Density Update**: Increased mobile particle count from 6,000 to **8,000** for enhanced visual fidelity.
 - **Git Operations**: Successfully committed and pushed all recent visual and functional updates to the remote repository (`main` branch).
 - **Consistency Audit**: Verified that recent font changes (Goldman/Syncopate) and brand color updates (#08CEFF) are correctly implemented across all active documents.

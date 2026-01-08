@@ -56,6 +56,10 @@ export default function Footer() {
                   <Mail size={16} />
                   <a href="mailto:cs@underpin.kr" className="hover:text-white transition-colors">cs@underpin.kr</a>
                 </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-white/30 hidden md:inline pl-0 pr-4">|</span>
+                  <span>Business No : 582-88-01004</span>
+                </div>
               </div>
             </div>
           </div>
